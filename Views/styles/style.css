@@ -1,0 +1,94 @@
+/*debug styles start */
+
+div{
+    box-sizing: border-box;
+    border: 1px solid;
+}
+/* debug styles end*/
+
+*{
+    font-family: sans-serif;
+}
+body{
+    margin: 0;   
+}
+
+/* NAVBAR START */
+.navbar{
+    height: 9vh;
+}
+.navbar>div{
+    height: 100%;
+}
+    #navbarLogo{
+        float: left;
+        margin-left: 10em;
+        width: 7em;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #navbarContent{
+        display: flex;
+    }
+    #navbarContent>div{
+        height: 100%;
+    }
+    .nabvarTab{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 5px; 
+        padding-right: 5px;
+    }
+        #pageTabsDiv{
+            width: 80%;
+
+            display: flex; 
+            align-content: center;
+
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+            #pageTabsDiv>div{
+                width: auto;
+                /* luego se cambiara a un width fijo */
+            }
+        #loginTabsDiv{
+            width: auto;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+            #loginTabsDiv>div{
+                height: 100%;
+                width: auto;
+                padding-left: 5px;
+                padding-right: 5px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+/* NAVBAR END */
+
+/* MAIN CONTENT START */
+#mainContent{
+    align-self: center;
+    height: 91vh;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 45%, rgba(255,255,255,0) 100%)
+}
+#bgImageDiv{
+        background-image: url(../../Resources/colorTV_test.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: fixed;
+        height: 91vh;
+        width: 100%;
+        z-index: -1;
+    }
+
+/* MAIN CONTENT END */
