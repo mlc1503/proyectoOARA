@@ -1,0 +1,76 @@
+/* debug styles start */
+div{
+    /* border: 1px solid; */
+}
+/* debug styles end*/
+
+*{
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;   
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-image{
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background-image: url(../../Resources/eleTrunkLogin.jpg);
+    background-size: cover;
+}
+#loginDiv{
+    height: 400px;
+    width: 600px;
+    background-color: whitesmoke;
+    border-radius: 2em;
+    color: black;
+}  
+    #titleDiv, #buttonDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #usernameDiv, #passDiv{
+        display: flex;
+        align-items: center;
+    }
+    #titleDiv{
+        width: 100%;
+        height: 20%;
+    }
+    #titleDiv>h1{
+        font-size: 40px;
+    }
+    #usernameDiv, #passDiv{
+        height: 20%;
+        justify-content: center;
+        column-gap: 1em;
+    }
+        #usernameDiv>p, #passDiv>p{
+            font-size: x-large;
+            font-weight: bold;
+            font-family: 'Helvetica', sans-serif;
+        }
+        #usernameDiv>input, #passDiv>input{
+            height: calc(40%);
+            width: 30%;
+            border-radius: 0.25em;
+            border: 1px solid gray;
+        }
+    #buttonDiv{
+        width: 20%;
+        margin: auto;
+    }
+    #buttonDiv>button{
+        width: 100%;
+        height: 100%;
+    }
+
+    
