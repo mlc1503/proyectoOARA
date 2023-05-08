@@ -1,6 +1,6 @@
 /* debug styles start */
 div{
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 /* debug styles end*/
 
@@ -22,69 +22,99 @@ body{
     z-index: -1;
     height: 100%;
     width: 100%;
-    background-image: url(../../Resources/eleTrunkLogin.jpg);
     background-size: cover;
 }
+
+a, a:link, a:visited{
+    text-decoration: none;
+    color: blue;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+
 .sep{
     border: 1px solid;
     width: 90%;
     margin: auto;
 }
 #loginDiv{
-    height: 400px;
-    width: 600px;
+    height: auto;
+    width: 500px;
     background-color: whitesmoke;
     border-radius: 2em;
     color: black;
+
+    padding: 2em;
 }  
     #titleDiv, #buttonDiv{
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    #usernameDiv, #passDiv{
-        display: flex;
-        align-items: center;
-        justify-content: right;
-        padding-right: 10em;
-        height: 20%;
-        column-gap: 1em;
-    }
-    .inputField{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-        .inputField>div{
-            width: 50%;
-        }
-        
     #titleDiv{
         width: 100%;
         height: 20%;
     }
-    #titleDiv>h1{
-        font-size: 40px;
-    }
-        /* #usernameDiv>p, #passDiv>p{
-            font-size: x-large;
-            font-weight: bold;
-            font-family: 'Helvetica', sans-serif;
+        #titleDiv>h1{
+            font-size: 40px;
+            padding: 0px;
+            margin: 0px;
+            margin-bottom: 0.5em;
         }
+    .inputDiv{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+        .inputDiv>div{
+            width: 50%;
+        }
+        .inputText{
+            text-align: right;
+            padding-right: 0.5em;
+        }
+        .inputInput{
+            padding-left: 0.5em;
+            text-align: left;
+        }
+
         input{
-            height: 40%;
-            width: 30%;
-            border-radius: 0.25em;
-            border: 1px solid gray;
-        } */
+            width: 70%;
+            height: 2em;
+
+            border-radius: 5px;
+            border: 1px solid
+        }
+    .errMessage, .registerLink{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1em;
+    }
+    .errMessage>small{
+        color:tomato;
+        font-style: italic;
+    }
+
     #buttonDiv{
-        width: 20%;
+        width: 100%;
         height: auto;
         margin: auto;
     }
     #buttonDiv>button{
-        width: 100%;
+        width: auto;
         height: 100%;
+
+        border-radius: 5px;
+        /* background-color: rgb(255, 255, 255);
+        border: 2px solid rgb(0, 255, 0); */
+        padding: 5px;
+        
+    }
+    #buttonDiv>button:hover{
+        background-color: red;
     }
 
     
