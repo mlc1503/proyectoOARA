@@ -96,6 +96,7 @@ a:hover{
     .errMessage>small{
         color:tomato;
         font-style: italic;
+        visibility: collapse;
     }
 
     #buttonDiv{
