@@ -110,7 +110,7 @@ a, a:link, a:visited{
         width: 100%;
         
         /* background-image: url(../../Resources/colorTV_test.png); */
-        background-image: url(../../Resources/veilNebula_index.png);
+        background-image: url(../../Resources/veilNebula.png);
         background-repeat: no-repeat;
         background-size:cover;
         z-index: -1;
@@ -148,6 +148,7 @@ a, a:link, a:visited{
         justify-content: center;
         align-items: center;
         column-gap: 3em;
+        row-gap: 1em;
         padding: 1em;
         
         overflow: hidden;
@@ -237,3 +238,15 @@ a, a:link, a:visited{
         align-items: center;
     }
 /* MAIN CONTENT END */
+
+@media (max-width:1000px){
+    #navbarLogo{
+        margin-left: 1em;
+    }
+    .image{
+        width: 100%;
+    }
+    #loginTabsDiv>div{
+        width: 5em;
+    }
+}

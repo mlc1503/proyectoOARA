@@ -1,32 +1,39 @@
-// $(function(){ //cuando el html esté cargado:
+$(function(){ //cuando el html esté cargado:
 
-//     var sLog;
+    var sLog;
 
-//     //vemos si hay un usuario con la sesion iniciada
-//     $.ajax({url: '../Controllers/autoLogin.php', success: function(usuarioLog){
-//         sLog = usuarioLog;
-
-//         //si hay un usuario iniciado que no sea usuarioAnonimo:
-//         if(sLog != "usuarioAnonimo"){
-//             $("#loginSection > a").attr("href", "./controladores/cerrarSesion.php") //hacemos que redirija a cerrar sesion
-//             $("#loginText>p").html( "<p>Bienvenido, "+sLog+"</p>") //cambiamos el texto para mostrar el usuario
-
-//             $("#loginSection").mouseover(function () {
-//                 $(this).css("background-color","rgba(255, 0, 0, 0.8)");
-//                 $(this).css("transition","all 0.07s ease");
-//                 $(this).css("border-radius","10px");
-//                 $("#loginText>p").html("<p>Cerrar Sesión</p>")
-//             });
-//             $("#loginSection").mouseout(function () {
-//                 $(this).css("background-color","transparent");
-//                 $("#loginText>p").html("<p>Bienvenido, "+sLog+"</p>");
-//             });
-
-
-
-//         }
-//         //si el usuario es anonimo entonces se queda como esta
-
-        
-//     }})
-// })
+    //vemos si hay un usuario con la sesion iniciada
+    $.ajax({url: '../Controllers/autoLogin.php', success: function(usuarioLog){
+        sLog = usuarioLog;
+        //si el usuario es anonimo entonces se queda como esta
+        if(sLog != -1){
+            $("#configButton>a").html(sLog);
+            $("#configButton>a").attr("href" , "test.html");
+            $("#sessionButton>a").removeAttr("href");
+            $("#sessionButton>a").html("Log Out");
+            
+            $("#sessionButton").hover(function(){
+                $(this).css("border", "1px solid whitesmoke");
+            }, function(){
+                $(this).css("border", "0px solid");
+            });
+            
+            $('#sessionButton').click(function(){
+                $.ajax({
+                    //delog simple
+                    url: "../Controllers/deLogin.php",
+                    type: "GET",
+                    success: function(){
+                        $("#configButton>a").html("Sign In");
+                        $("#configButton>a").attr("href" , "registerPage.html");
+                        $("#sessionButton>a").html("Log In");
+                        $("#sessionButton>a").attr("href" , "login.html");
+                    }
+                })
+            })
+        }
+        else{
+            $("#configButton>a").html("Sign In");
+        }
+    }})
+})
