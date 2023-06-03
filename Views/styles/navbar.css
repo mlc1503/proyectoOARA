@@ -1,0 +1,79 @@
+/* NAVBAR START */
+.navbar{
+    z-index: 1;
+    height: 9vh;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(40, 40, 40, 0.2);
+}
+.navbar>div{
+    height: 100%;
+}
+    #navbarLogo{
+        float: left;
+        margin-left: 10em;
+        width: 7em;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #navbarLogo>a{
+        font-family: Helvetica, sans-serif;
+        font-weight: bolder;
+        font-size: 30px;
+    }
+    #navbarContent{
+        display: flex;
+        justify-content: space-between;
+    }
+    #navbarContent>div{
+        height: 100%;
+    }
+    .navbarTab{
+        height: 90%;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        padding-left: 5px; 
+        padding-right: 5px;
+        margin-left: 10px;
+    }
+    .navbarTab.pageTab:hover>a{
+        text-decoration: underline;
+    }
+    .navbarTab>a, .navbarTab>p{
+        color: whitesmoke;
+    }
+    .navbarTab:hover{
+        border-radius: 0.5em;
+    }
+        #pageTabsDiv{
+            width: 80%;
+
+            display: flex; 
+            align-content: center;
+        }
+            #pageTabsDiv>div{
+                width: auto;
+                /* luego se cambiara a un width fijo */
+            }
+        #loginTabsDiv{
+            width: auto;
+            margin-right: 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+            #loginTabsDiv>div{
+                height: 100%;
+                width: auto;
+                padding-left: 5px;
+                padding-right: 5px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+/* NAVBAR END */

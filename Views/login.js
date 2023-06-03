@@ -19,7 +19,7 @@ function sendLogin(){
 
             if(response == 1){ //si existe:
                 $(".errMessage > small").css("visibility", "visible")  
-                history.back();
+                location.href = 'index.html';
                 return;
             }
             else if(response == 0){ //si no existe tal usuario:
