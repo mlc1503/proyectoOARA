@@ -11,6 +11,9 @@ $(function(){ //cuando el html esté cargado:
             $("#configButton>a").attr("href" , "test.html");
             $("#sessionButton>a").removeAttr("href");
             $("#sessionButton>a").html("Log Out");
+
+            $(".tuTab>a").attr("href" , "tuTab.html");
+            
             
             $("#sessionButton").hover(function(){
                 $(this).css("border", "1px solid whitesmoke");

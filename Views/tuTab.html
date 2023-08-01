@@ -18,22 +18,22 @@
             a:link -> misFotos <br>
             a:link -> misObservaciones <br> -->
             
-            <div class="navbar">
-                <div class="navbarTab" id="navbarLogo">
-                    <a href="">OARA</a>
+    <div class="navbar">
+        <div class="navbarTab" id="navbarLogo">
+            <a href="index.html">OARA</a>
+        </div>
+        <div id="navbarContent">
+            <div id="pageTabsDiv">
+                <div class="navbarTab pageTab" id="placeholder">
+                    <a href="./turismo.html">Turismo</a>
                 </div>
-                <div id="navbarContent">
-                    <div id="pageTabsDiv">
-                        <div class="navbarTab pageTab" id="placeholder">
-                            <a href="">Turismo</a>
-                        </div>
-                        <div class="navbarTab pageTab" id="placeholder">
-                            <a href="">Nosotros</a>
-                        </div>
-                        <div class="navbarTab pageTab" id="placeholder">
-                            <a href="">Galería</a>
-                        </div>
-                        <div class="navbarTab pageTab tuTab" id="placeholder">
+                <div class="navbarTab pageTab" id="placeholder">
+                    <a href="./aboutUs.html">Nosotros</a>
+                </div>
+                <div class="navbarTab pageTab" id="placeholder">
+                    <a href=".galeria.html">Galería</a>
+                </div>
+                <div class="navbarTab pageTab tuTab" id="placeholder">
                     <a href="">Tú</a>
                 </div>
             </div>
@@ -43,25 +43,26 @@
             </div>
         </div>
     </div>
-    <div style="height: 15em; width: 100vw;"></div>
+
+    <div id="image"></div>
     
     <div id="mainContent">
-        <div id="tableOfContents" style="display: flex;">
-            <div id="profileTab" style="height: 3em; width: 10em;" onclick="tabShown(1)">
+        <div id="tableOfContents">
+            <div id="profileTab" onclick="tabShown(0)">
                 Tus datos
             </div>
-            <div id="photosTab" style="height: 3em; width: 10em;" onclick="tabShown(2)">
+            <div id="photosTab" onclick="tabShown(1)">
                 tus fotos
             </div>
-            <div id="observationsTab" style="height: 3em; width: 10em;" onclick="tabShown(3)">
+            <div id="observationsTab" onclick="tabShown(2)">
                 tus observaciones
             </div>
-            <div id="publicationsTab" style="height: 3em; width: 10em;" onclick="tabShown(4)">
+            <div id="publicationsTab" onclick="tabShown(3)">
                 tus publicaciones
             </div>
         </div>
         
-        <div id="datos" style="display: flex; align-items: center; ">
+        <div id="datos">
             <div class="profileimage" style="height: 7em; width: 7em; margin: 4em;"></div>
             <div class="userDesc" style="width: calc(100% - 11em); height: 100%;">
                 <div class="name">nae</div>
@@ -70,9 +71,11 @@
             </div>
         </div>
         
-        <div id="photos" style="display: flex; align-items: center; height: 20vh; text-align: center;">no tienes fotos publicadas</div>
+        <div id="photos">
+            no tienes fotos publicadas
+        </div>
         
-        <div id="observations" style="display: flex; align-items: center;">
+        <div id="observations">
 
             no tienes observaciones hechas <button onclick="createObservation()">crear una</button>&nbsp;
 
@@ -88,7 +91,9 @@
             </div>
         </div>
 
-        <div id="publications" style="display: flex; align-items: center; height: 20vh; text-align: center;">no has hecho ninguna publicacion</div>
+        <div id="publications">
+            no has hecho ninguna publicacion
+        </div>
     </div>
     
     <div id="footer">
