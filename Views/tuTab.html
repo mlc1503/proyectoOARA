@@ -45,24 +45,24 @@
     </div>
 
     <div id="image"></div>
-    
+
     <div id="mainContent">
         <div id="tableOfContents">
-            <div id="profileTab" onclick="tabShown(0)">
+            <div class="contentTab" id="profileTab" onclick="tabShown(0)">
                 Tus datos
             </div>
-            <div id="photosTab" onclick="tabShown(1)">
-                tus fotos
+            <div class="contentTab" id="photosTab" onclick="tabShown(1)">
+                Fotos
             </div>
-            <div id="observationsTab" onclick="tabShown(2)">
-                tus observaciones
+            <div class="contentTab" id="observationsTab" onclick="tabShown(2)">
+                Observaciones
             </div>
-            <div id="publicationsTab" onclick="tabShown(3)">
-                tus publicaciones
+            <div class="contentTab" id="publicationsTab" onclick="tabShown(3)">
+                Publicaciones
             </div>
         </div>
         
-        <div id="datos">
+        <div class="contentPage" id="datos">
             <div class="profileimage" style="height: 7em; width: 7em; margin: 4em;"></div>
             <div class="userDesc" style="width: calc(100% - 11em); height: 100%;">
                 <div class="name">nae</div>
@@ -71,11 +71,11 @@
             </div>
         </div>
         
-        <div id="photos">
+        <div class="contentPage" id="photos">
             no tienes fotos publicadas
         </div>
         
-        <div id="observations">
+        <div class="contentPage" id="observations">
 
             no tienes observaciones hechas <button onclick="createObservation()">crear una</button>&nbsp;
 
@@ -91,7 +91,7 @@
             </div>
         </div>
 
-        <div id="publications">
+        <div class="contentPage" id="publications">
             no has hecho ninguna publicacion
         </div>
     </div>
