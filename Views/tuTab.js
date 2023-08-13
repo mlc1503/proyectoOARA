@@ -5,9 +5,13 @@ $(function(){
 function tabShown(tabID){
     //shows clicked tab and hides all others
     $("#profileTab").css("background-color", "rgba(255,255,255,1)");
+    $("#profileTab").css("border-bottom", "1px solid gray");
     $("#photosTab").css("background-color", "rgba(255,255,255,1)");
+    $("#photosTab").css("border-bottom", "1px solid gray");
     $("#observationsTab").css("background-color", "rgba(255,255,255,1)");
+    $("#observationsTab").css("border-bottom", "1px solid gray");
     $("#publicationsTab").css("background-color", "rgba(255,255,255,1)");
+    $("#publicationsTab").css("border-bottom", "1px solid gray");
     
     if(tabID == 0){
         $("#datos").show();
@@ -21,7 +25,7 @@ function tabShown(tabID){
         $("#datos").hide();
         $("#photos").show();
         $("#photosTab").css("background-color", "rgba(0,0,0,0.3)");
-        $("#photosTab").css("background-color", "rgba(0,0,0,0.3)");
+        $("#photosTab").css("border-bottom", "none");
         $("#observations").hide();
         $("#publications").hide();
     }
@@ -30,6 +34,7 @@ function tabShown(tabID){
         $("#photos").hide();
         $("#observations").show();
         $("#observationsTab").css("background-color", "rgba(0,0,0,0.3)");
+        $("#observationsTab").css("border-bottom", "none");
         $("#publications").hide();
     }
     else if(tabID == 3){
@@ -38,6 +43,7 @@ function tabShown(tabID){
         $("#observations").hide();
         $("#publications").show();
         $("#publicationsTab").css("background-color", "rgba(0,0,0,0.3");
+        $("#publicationsTab").css("border-bottom", "none");
     }
 }
 

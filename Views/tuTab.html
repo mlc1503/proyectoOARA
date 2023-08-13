@@ -47,54 +47,65 @@
     <div id="image"></div>
 
     <div id="mainContent">
-        <div id="tableOfContents">
+        <div id="tableOfContents">  
             <div class="contentTab" id="profileTab" onclick="tabShown(0)">
-                Tus datos
+                <p>Tus datos</p>
             </div>
             <div class="contentTab" id="photosTab" onclick="tabShown(1)">
-                Fotos
+                <p>Fotos</p>
             </div>
             <div class="contentTab" id="observationsTab" onclick="tabShown(2)">
-                Observaciones
+                <p>Observaciones</p>
             </div>
             <div class="contentTab" id="publicationsTab" onclick="tabShown(3)">
-                Publicaciones
+                <p>Publicaciones</p>
             </div>
         </div>
-        
-        <div class="contentPage" id="datos">
-            <div class="profileimage" style="height: 7em; width: 7em; margin: 4em;"></div>
-            <div class="userDesc" style="width: calc(100% - 11em); height: 100%;">
-                <div class="name">nae</div>
-                <div class="pass">pas</div>
-                <div class="email">em</div>
-            </div>
-        </div>
-        
-        <div class="contentPage" id="photos">
-            no tienes fotos publicadas
-        </div>
-        
-        <div class="contentPage" id="observations">
 
-            no tienes observaciones hechas <button onclick="createObservation()">crear una</button>&nbsp;
-
-            <div class="card" style="width: 20%; height: fit-content; justify-content: center; align-items: center; padding: 1em;">
-                <div class="obsTitle" style=" margin-bottom: 1em;">TITULO:titulo</div>
-                <div class="image" style="height: 25vh; width: auto; margin-bottom: 1em;">imagenenenene</div>
-                <div class="obsDesc" style="height: auto;">
-                    <div class="obsTarget">Target........gfdadgf</div>
-                    <div class="obsTelescope">Telescope........28794321</div>
-                    <div class="obsDate">Date.....+´ç++``+-.,-</div>
-                    <div class="obsCompletion">Completion.....!¡"·$%&/$·$</div>
+        <div class="contentPage"> 
+            <div id="datos">
+                <div class="profileImage"></div>
+                <div class="userDesc">
+                    <div class="userDescFieldDiv">
+                        <p>Nombre:</p>
+                        <input type="text" name="" id="" value="jeje" disabled>
+                    </div>
+                    <div class="userDescFieldDiv">
+                        <p>Contraseña:</p>
+                        <input type="password" name="" id="" value="jeje" disabled>
+                    </div>
+                    <div class="userDescFieldDiv">
+                        <p>Email:</p>
+                        <input type="email" name="" id="" value="jeje" disabled>
+                    </div>
                 </div>
             </div>
-        </div>
+            
+            <div id="photos">
+                no tienes fotos publicadas
+            </div>
+            
+            <div id="observations">
 
-        <div class="contentPage" id="publications">
-            no has hecho ninguna publicacion
+                no tienes observaciones hechas <button onclick="createObservation()">crear una</button>&nbsp;
+                
+                <div class="card" style="width: 20%; height: fit-content; justify-content: center; align-items: center; padding: 1em;">
+                    <div class="obsTitle" style=" margin-bottom: 1em;">TITULO:titulo</div>
+                    <div class="image" style="height: 25vh; width: auto; margin-bottom: 1em;">imagenenenene</div>
+                    <div class="obsDesc" style="height: auto;">
+                        <div class="obsTarget">Target........gfdadgf</div>
+                        <div class="obsTelescope">Telescope........28794321</div>
+                        <div class="obsDate">Date.....+´ç++``+-.,-</div>
+                        <div class="obsCompletion">Completion.....!¡"·$%&/$·$</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="publications">
+                no has hecho ninguna publicacion
+            </div>
         </div>
-    </div>
+</div>
     
     <div id="footer">
         <p>&#169; Manel Lagunas Cerni 2023</p>

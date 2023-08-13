@@ -20,11 +20,11 @@ body{
         padding-top: 1em;
     }
         #tableOfContents{
-            padding-left: 10vw;
             display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .contentTab{
-            z-index: 0;
             height: 3em;
             width: 10em;
             
@@ -40,22 +40,29 @@ body{
         }
 
         .contentPage{
-            z-index: 1;
-            position: relative;
-            height: auto;
-
+            width: 100%;
             display: flex;
             align-items: center;
-            
-            background-color: white;
-            margin-left: 2.5vw;
-            margin-right: 2.5vw;
-            border-radius: 0.5em;
-            border: 1px solid gray;
+            justify-content: center;
         }
-            /* debug */
-            .contentPage>*, .userDesc>*{
-                border: 1px solid;
+            .contentPage>div{
+                min-width: 50%;
+                background-color: white;
+                padding: 1em;
+                border: 1px solid gray;
+                border-radius: 0.5em;
+            }
+
+            #datos{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            #datos>.profileImage{
+                border: 1px solid purple;
+                width: 10em;
+                height: 10em;
             }
 
     #footer{

@@ -45,6 +45,7 @@
     }
     .navbarTab>a, .navbarTab>p{
         color: whitesmoke;
+        text-decoration: none;
     }
     .navbarTab:hover{
         border-radius: 0.5em;
