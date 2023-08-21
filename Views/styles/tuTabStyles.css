@@ -6,7 +6,6 @@
 body{
     background-color: whitesmoke;
 }
-
     #image{
         height: 70vh;
         width: 100%;
@@ -38,7 +37,6 @@ body{
             border: 1px solid gray;
             padding-bottom: 5px;
         }
-
         .contentPage{
             width: 100%;
             display: flex;
@@ -52,18 +50,37 @@ body{
                 border: 1px solid gray;
                 border-radius: 0.5em;
             }
-
+            .contentPage>*{
+                padding: 1em;
+            }
             #datos{
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
-            
-            #datos>.profileImage{
-                border: 1px solid purple;
-                width: 10em;
-                height: 10em;
+            #datos>*{
+                border: 1px solid;
+                padding-left: 1em;
             }
+                .userDesc{
+                    width: 70%;
+                    height: 10em;
+                }
+                    .userDescFieldDiv{
+                        border: 1px solid;
+                        height: calc(100%/3);
+
+                        display: flex;
+                        align-items: center;
+                    }
+                .profileImage{
+                    border: 1px solid;
+                    border-radius: 100%;
+                    width: 10em;
+                    height: 10em;
+                    background-image: url(../../Resources/defaultUser.png);
+                    background-size: contain;
+                }
 
     #footer{
         width: 100%;
