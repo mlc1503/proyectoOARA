@@ -15,8 +15,9 @@ body{
     }
 
     #mainContent{
-        height: 70vh;
+        height: fit-content;
         padding-top: 1em;
+        padding-bottom: 3em;
     }
         #tableOfContents{
             display: flex;
@@ -78,7 +79,56 @@ body{
                     height: 10em;
                     background-image: url(../../Resources/defaultUser.png);
                     background-size: contain;
+                } 
+            #observations>*{
+                width: 100%;
+                border: 1px solid;
+            }
+            .obsTitle{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .observationGrid{
+                display: grid;
+                padding: 1em;
+                /* todo */
+            }
+
+                .card{
+                    border: 1px solid;
+                    padding: 0.5em;
+                    width: calc(250px + 1em); 
+                    height: fit-content; 
+                    justify-content: center; 
+                    align-items: center;
                 }
+                    .obsCardImageDiv{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                        .obsCardImage{
+                            height: 250px;
+                            background-size: cover;
+                        }
+                    .obsCardDesc{
+                        border: 1px solid;
+                        padding: 0.5em;
+                        height: auto;
+                    }
+                    .obsCardDesc>div{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                        .obsTitle>p{
+                            width: 100%;
+                            border: 1px solid;
+                            text-align: center;
+                            font-weight: bold;
+                        }
 
     #footer{
         width: 100%;

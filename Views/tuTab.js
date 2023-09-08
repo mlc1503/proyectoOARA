@@ -1,5 +1,5 @@
 $(function(){
-    tabShown(0);
+    tabShown(2);
 })
 
 function tabShown(tabID){
