@@ -97,38 +97,58 @@ body{
             }
 
                 .card{
-                    border: 1px solid;
-                    padding: 0.5em;
                     width: calc(250px + 1em); 
                     height: fit-content; 
-                    justify-content: center; 
-                    align-items: center;
+                    padding: 0.5em;
+                    
+                    border: 1px solid gray;
+                    border-radius: 1em;
+                    background-color: rgba(150, 150, 150, 0.4);
                 }
                     .obsCardImageDiv{
+                        height: 250px;
+                        width: 250px;
+
+                        border-radius: 1em 1em 0em 0em;
+                        background-color:dimgray;
+                        
                         display: flex;
                         justify-content: center;
                         align-items: center;
                     }
                         .obsCardImage{
                             height: 250px;
-                            background-size: cover;
+                            width: 250px;
+
+                            border-radius: calc(1em - 0.5em) calc(1em - 0.5em) 0em 0em; 
+                            background-size: contain;
                         }
-                    .obsCardDesc{
-                        border: 1px solid;
-                        padding: 0.5em;
-                        height: auto;
-                    }
+                        .obsCardDesc{
+                            padding: 0.5em;
+                            height: auto;
+                            width: 250px;
+                        }
                     .obsCardDesc>div{
                         display: flex;
-                        align-items: center;
-                        justify-content: center;
+                        align-items:baseline;
+                        justify-content:space-between;
+
+                        padding-left: 1em;
+                        padding-right: 1em;
                     }
                         .obsTitle>p{
                             width: 100%;
-                            border: 1px solid;
                             text-align: center;
                             font-weight: bold;
                         }
+                        .obsDate{
+                            display: block !important;
+                        }
+                            .obsDate>div{
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                            }   
 
     #footer{
         width: 100%;
