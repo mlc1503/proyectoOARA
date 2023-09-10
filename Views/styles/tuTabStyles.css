@@ -51,9 +51,6 @@ body{
                 border: 1px solid gray;
                 border-radius: 0.5em;
             }
-            .contentPage>*{
-                padding: 1em;
-            }
             #datos{
                 display: flex;
                 justify-content: center;
@@ -79,76 +76,89 @@ body{
                     height: 10em;
                     background-image: url(../../Resources/defaultUser.png);
                     background-size: contain;
-                } 
+                }
+
+            #observations{
+                width: auto;
+                padding: 0em !important;
+            }
             #observations>*{
                 width: 100%;
-                border: 1px solid;
             }
-            .obsTitle{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .observationGrid{
-                display: grid;
-                padding: 1em;
-                /* todo */
-            }
-
-                .card{
-                    width: calc(250px + 1em); 
-                    height: fit-content; 
-                    padding: 0.5em;
-                    
-                    border: 1px solid gray;
-                    border-radius: 1em;
-                    background-color: rgba(150, 150, 150, 0.4);
+                .obsTitle{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1em;
                 }
-                    .obsCardImageDiv{
-                        height: 250px;
-                        width: 250px;
+                .observationGrid{
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    column-gap: 10px;
+                    row-gap: 10px;
 
-                        border-radius: 1em 1em 0em 0em;
-                        background-color:dimgray;
-                        
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
+                    padding: 0em 1em 1em 1em;
+                }
+                    .card{
+                        width: calc(250px + 1em);
+                        height: fit-content; 
+                        padding: 0.5em;
+
+                        border: 1px solid gray;
+                        border-radius: 1em;
+                        background-color: rgba(189, 189, 189, 0.2);
+
+                        cursor: pointer;
                     }
-                        .obsCardImage{
+                    .card>a, .card>a:visited, .card>a:link{
+                        text-decoration: none;
+                        color: black;
+
+                    }
+                        .obsCardImageDiv{
                             height: 250px;
                             width: 250px;
 
-                            border-radius: calc(1em - 0.5em) calc(1em - 0.5em) 0em 0em; 
-                            background-size: contain;
+                            border-radius: 1em 1em 0em 0em;
+                            background-color:dimgray;
+                            
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                         }
-                        .obsCardDesc{
-                            padding: 0.5em;
-                            height: auto;
-                            width: 250px;
-                        }
-                    .obsCardDesc>div{
-                        display: flex;
-                        align-items:baseline;
-                        justify-content:space-between;
+                            .obsCardImage{
+                                height: 250px;
+                                width: 250px;
 
-                        padding-left: 1em;
-                        padding-right: 1em;
-                    }
-                        .obsTitle>p{
-                            width: 100%;
-                            text-align: center;
-                            font-weight: bold;
+                                border-radius: calc(1em - 0.5em) calc(1em - 0.5em) 0em 0em; 
+                                background-size: contain;
+                            }
+                            .obsCardDesc{
+                                padding: 0.5em;
+                                height: auto;
+                                width: 250px;
+                            }
+                        .obsCardDesc>div{
+                            display: flex;
+                            align-items:baseline;
+                            justify-content:space-between;
+
+                            padding-left: 1em;
+                            padding-right: 1em;
                         }
-                        .obsDate{
-                            display: block !important;
-                        }
-                            .obsDate>div{
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                            }   
+                            .obsTitle>p{
+                                width: 100%;
+                                text-align: center;
+                                font-weight: bold;
+                            }
+                            .obsDate{
+                                display: block !important;
+                            }
+                                .obsDate>div{
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                }   
 
     #footer{
         width: 100%;
