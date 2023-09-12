@@ -49,13 +49,15 @@ function tabShown(tabID){
 
 function createObservation(){
     //TODO: either discrete view or modal window
-    if($(".observationGrid").css("visibility") == "visible"){
-        $(".observationGrid").css("visibility", "hidden");
-        $(".crearObs").css("visibility", "visible");
+    if($(".observationGrid").css("display") == "grid"){
+        $(".observationGrid").css("display", "none");
+        $(".crearObs").css("display", "block");
+        $(".crearObsDiv>button").html("Volver a tus observaciones");
     }
     else{
-        $(".observationGrid").css("visibility", "visible");
-        $(".crearObs").css("visibility", "hidden");
+        $(".observationGrid").css("display", "grid");
+        $(".crearObs").css("display", "none");
+        $(".crearObsDiv>button").html("Observación nueva")
     }
 }
 function obsDetails(idObs){
