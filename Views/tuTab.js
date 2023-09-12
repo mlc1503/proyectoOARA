@@ -49,8 +49,19 @@ function tabShown(tabID){
 
 function createObservation(){
     //TODO: either discrete view or modal window
-    window.location.href = "createObservation.html";
+    if($(".observationGrid").css("visibility") == "visible"){
+        $(".observationGrid").css("visibility", "hidden");
+        $(".crearObs").css("visibility", "visible");
+    }
+    else{
+        $(".observationGrid").css("visibility", "visible");
+        $(".crearObs").css("visibility", "hidden");
+    }
 }
+function obsDetails(idObs){
+    console.log(idObs);
+}
+
 function createPublication(){ //???? what is the final use of this?
 
     //TODO: either discrete view or modal window

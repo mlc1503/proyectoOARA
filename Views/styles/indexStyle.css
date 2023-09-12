@@ -11,6 +11,9 @@ div{
 body{
     margin: 0;   
 }
+body::-webkit-scrollbar{
+    display: none;
+}
 a, a:link, a:visited{
     text-decoration: none;
     color: black;

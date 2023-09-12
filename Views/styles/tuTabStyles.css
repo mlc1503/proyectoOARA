@@ -3,9 +3,14 @@
     font-family: sans-serif;
     box-sizing: border-box;
 }
+body::-webkit-scrollbar{
+    display: none;
+}
 body{
     background-color: whitesmoke;
 }
+
+
     #image{
         height: 70vh;
         width: 100%;
@@ -14,6 +19,7 @@ body{
         background-image: url(../../Resources/grantecan.png);
     }
 
+    /* MAIN START */
     #mainContent{
         height: fit-content;
         padding-top: 1em;
@@ -51,11 +57,14 @@ body{
                 border: 1px solid gray;
                 border-radius: 0.5em;
             }
+
+            /* DATOS TAB START */
             #datos{
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
+
             #datos>*{
                 padding-left: 1em;
             }
@@ -77,7 +86,9 @@ body{
                     background-image: url(../../Resources/defaultUser.png);
                     background-size: contain;
                 }
+            /* DATOS TAB END */
 
+            /* OBSERVACIONES TAB START */
             #observations{
                 width: auto;
                 padding: 0em !important;
@@ -89,20 +100,47 @@ body{
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    
                     padding: 1em;
                 }
                     .obsTitle>h2{
                         width: 100%;
                         text-align: center;
                     }
+
+                .crearObsDiv{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 100%;
+                    padding: 1em;
+                }
+                    .crearObsDiv>button{
+                        border-radius: 1em;
+                        padding: 5px 10px 5px 10px;
+                        background-color: whitesmoke;
+                    }
+                    .crearObsDiv>button:hover{
+                        background-color: rgba(128, 128, 128, 0.2);
+                    }
+
+                .crearObs{
+                    visibility: collapse;
+                }
+
+                /* GRID OBSERVACIONES START */
                 .observationGrid{
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
                     column-gap: 10px;
                     row-gap: 10px;
 
+                    visibility: visible;
                     padding: 0em 1em 1em 1em;
                 }
+
+                    /* CARD START */
                     .card{
                         width: calc(250px + 1em);
                         height: fit-content; 
@@ -164,7 +202,11 @@ body{
                                     display: flex;
                                     align-items: center;
                                     justify-content: space-between;
-                                }   
+                                }
+                    /* CARD END */  
+                /* GRID OBSERVACIONES END */
+            /* OBSERVACIONES TAB END */                
+    /* MAIN END */
 
     #footer{
         width: 100%;
