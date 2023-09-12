@@ -91,6 +91,10 @@ body{
                     align-items: center;
                     padding: 1em;
                 }
+                    .obsTitle>h2{
+                        width: 100%;
+                        text-align: center;
+                    }
                 .observationGrid{
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
@@ -115,6 +119,13 @@ body{
                         color: black;
 
                     }
+                        .obsCardTitle>p{
+                            width: 100%;
+                            text-align: center;
+                            font-weight: bold;
+                            font-size: larger;
+                        }
+                        
                         .obsCardImageDiv{
                             height: 250px;
                             width: 250px;
@@ -143,14 +154,9 @@ body{
                             align-items:baseline;
                             justify-content:space-between;
 
-                            padding-left: 1em;
-                            padding-right: 1em;
+                            padding-left: 0.5em;
+                            padding-right: 0.5em;
                         }
-                            .obsTitle>p{
-                                width: 100%;
-                                text-align: center;
-                                font-weight: bold;
-                            }
                             .obsDate{
                                 display: block !important;
                             }
