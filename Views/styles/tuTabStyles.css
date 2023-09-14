@@ -127,13 +127,13 @@ body{
 
                 .crearObs{
                     display: block;
-                    /* display: none; */
+                    /* display: none;*/
                     border: 1px solid;
                 }
                 .crearObs>*{
                     border: 1px solid;
                     width: 100%;
-                    height: 1em;
+                    height: auto;
                 }
 
                 /* GRID OBSERVACIONES START */
@@ -185,7 +185,6 @@ body{
                             .obsCardImage{
                                 height: 250px;
                                 width: 250px;
-
                                 border-radius: calc(1em - 0.5em) calc(1em - 0.5em) 0em 0em; 
                                 background-size: contain;
                             }
