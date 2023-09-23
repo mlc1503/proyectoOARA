@@ -1,0 +1,145 @@
+*{
+    margin: 0;  
+    font-family: sans-serif;
+    box-sizing: border-box;     
+}
+/* FONTS */
+.optionTitle{
+    color: #181614;
+    text-align: right;
+    font-family: Arial;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.title{
+    color: #181614;
+    font-family: Arial;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.subTitle{
+    color: #181614;
+    font-family: Arial;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+/* FONTS END */
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+    .image{
+        width: 100vw;
+        height: fit-content;
+        
+        margin: 0;
+    }
+        img{
+            width: 100%;
+            height: max-content;
+        }
+
+    .mainContent{
+        width: 100%;
+        height: 100vh; 
+        /* TODO: el .sep no se extiende más allá del height del .mainContent */
+
+        display: flex;
+        align-items: top;
+
+        column-gap: 1rem;
+
+        border: 1px solid;
+        padding: 2rem 5% 2rem 5%;
+    }
+        .mainContent>div{
+            height: 100%;
+        }
+        .menuOptionsDiv{
+            width: 10.0rem;
+            height: auto;
+
+            display: flex;
+            flex-direction: column;
+            
+            
+        }
+            .stickyDiv{
+                width: 100%;
+                height: auto;
+                position: sticky;
+                top: 3rem;
+            }
+                .menuOption{
+                    height: max-content;
+                    margin-bottom: 1rem;
+                    width: 100%;
+                }
+
+                .menuOption:hover{
+                    text-decoration: underline;
+                }
+        
+
+        .sep{
+            border: 1px solid;
+            height: 50vh;
+        }
+
+        .content{
+            width: calc(100% - 1rem - 1px - 1rem - 10rem);
+            height: auto;
+        }
+            .content>div{
+                height: auto;
+                max-width: 100%;
+                min-width: 30%;
+            }
+
+            /* DATA START */
+            #data{
+
+                display: flex;
+                flex-direction: row;
+                column-gap: 2rem;
+
+                /* visibility: hidden; */
+            }
+                .userImage{
+                    width: 12rem;
+                    height: 12rem;
+
+                    background-image: url(../../Resources/defaultUser.png);
+                    background-size: contain;
+
+                    border-radius: 100%;
+                }
+
+                .userDetailsDiv{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    row-gap: 1rem;
+                }
+
+                    .userDetailsDiv>div{
+                        width: auto;
+
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        column-gap: 1rem;
+                        
+                    }
+            /* DATA END */
+            /* OBSERVATIONS START */
+
+            /* OBSERVATIONS END */
+

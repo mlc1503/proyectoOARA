@@ -98,35 +98,81 @@
                 </div>
 
                 <div class="crearObs">
+                    <p class="nameDiv">
+                        Nombre de tu Observación
+                        <input type="text" name="" id="">
+                    </p>
+                    <br>
+                    <h3>
+                        Objeto a observar:
+                    </h3>
                     <div class="objectListDiv">
-                        <div class="objectList">
+                        <div class="catalogueListDiv">
                             <div>
-                                <p>Objeto a observar:</p>
-                                <br>
-                                <p>catalogo:
-                                    <select name="" id="">
-                                        <option value="">op1</option>
-                                        <option value="">op2</option>
-                                        <option value="">op3</option>
-                                    </select>
-
+                                <p>
+                                    <input type="checkbox" name="" id="" checked>
+                                    Buscar en catálogo:
                                 </p>
+                            </div>
+                            <div>
+                                <p>
+                                    Catalogue List
+                                </p>
+                                <select name="catalogueList" id="">
+                                    <option value="messier">Messier</option>
+                                    <option value="ngc">NGC</option>
+                                    <option value="Sh2">SH2</option>
+                                    <option value="C">C</option>
+                                </select>
+                            </div>
+                            <div>
+                                <p>
+                                    Entry Number
+                                </p>
+                                <input type="number" name="" id="catalogueEntryNumber">
+                            </div>
+                        </div>
+
+                        <div class="manualCoordinatesDiv">
+                            <div>
+                                <p>
+                                    <input type="checkbox" name="" id=""> 
+                                    Manual Coordinates (Decimal):
+                                </p>
+                            </div>
+                            <div>
+                                RA Coords:
+                                <input type="number" name="" step="any" id="RA">
+                            </div>
+                            <div>
+                                DEC Coords:
+                                <input type="number" name="" step="any" id="DEC">
                             </div>
                         </div>
                     </div>
+                    <h3>
+                        Filtros:
+                    </h3>
                     <div class="filterListDiv">
                         <div class="filters">
                             <p>
                                 <input type="checkbox" name="" id="">Ha &nbsp;<input type="number" name="" id="" style="width: 3em;">
                                 <input type="checkbox" name="" id="">Oiii &nbsp;<input type="number" name="" id="" style="width: 3em;">
-                                <input type="checkbox" name="" id="">RGB &nbsp;<input type="number" name="" id="" style="width: 3em;">
+                                <input type="checkbox" name="" id="">R &nbsp;<input type="number" name="" id="" style="width: 3em;">
+                                <input type="checkbox" name="" id="">G &nbsp;<input type="number" name="" id="" style="width: 3em;">
+                                <input type="checkbox" name="" id="">B &nbsp;<input type="number" name="" id="" style="width: 3em;">
                                 <input type="checkbox" name="" id="">L &nbsp;<input type="number" name="" id="" style="width: 3em;">
-                                <input type="checkbox" name="" id="">Sii &nbsp;<input type="number" name="" id="" style="width: 3em;">
                             </p>
                         </div>
                     </div>
+                    <h3>
+                        Telescopio a utilizar:
+                    </h3>
                     <div class="telescopeDiv">tak103,rokinon, askar100Ed, newt400,
                     </div>
+                    <h3>
+                        Fecha de comienzo:
+                    </h3>
                     <div class="startDate">dateStart</div>
                 </div>
 

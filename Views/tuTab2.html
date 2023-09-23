@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto OARA - Home</title>
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <!-- <link rel="stylesheet" href="./styles/tuTabStyles.css"> -->
+    <link rel="stylesheet" href="./styles/tuTabStyles2.css">
+
+    <script src="../jquery-3.7.0.min.js"></script>
+    <script src="./index.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbarTab" id="navbarLogo">
+            <a href="">OARA</a>
+        </div>
+        <div id="navbarContent">
+            <div id="pageTabsDiv">
+                <div class="navbarTab pageTab" id="placeholder">
+                    <a href="./turismo.html">Turismo</a>
+                </div>
+                <div class="navbarTab pageTab" id="placeholder">
+                    <a href="./aboutUs.html">Nosotros</a>
+                </div>
+                <div class="navbarTab pageTab" id="placeholder">
+                    <a href=".galeria.html">Galería</a>
+                </div>
+                <div class="navbarTab pageTab tuTab" id="placeholder">
+                    <a href="">Tú</a>
+                </div>
+            </div>
+            <div id="loginTabsDiv">
+                <div class="navbarTab loginTab" id="configButton"><a href="./registerPage.html">Sign In</a></div>
+                <div class="navbarTab loginTab" id="sessionButton"><a href="./login.html">Log In</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="image">
+        <img src="../Resources/m31-21.8.2023_rc4-3by1.png" alt="">
+    </div>
+    <div class="mainContent">
+        <div class="menuOptionsDiv">
+            <div class="stickyDiv">
+                <div class="menuOption" id="datosOption">
+                    <p class="optionTitle">Tus datos</p>
+                </div>
+                <div class="menuOption" id="fotosOption">
+                    <p class="optionTitle">Tus fotos</p>
+                </div>
+                <div class="menuOption" id="publicOption">
+                    <p class="optionTitle">Publicaciones</p>
+                </div>
+                <div class="menuOption" id="obsOption">
+                    <p class="optionTitle">Observaciones</p>
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+        <div class="content">
+            <div id="data">
+                <div class="userImage"></div>
+                <div class="userDetailsDiv">
+                    <div class="userNameTitle">
+                        <p class="user title">userName</p>
+                    </div>
+                    <div class="passwDiv">
+                        <div><p class="passwordTitle subTitle">Password:</p></div>
+                        <div><input class="passwordInput" type="password" name="" id=""></div>
+                    </div>
+                    <div class="emailDiv">
+                        <div><p class="emailTitle subTitle">Email:</p></div>
+                        <div><input class="emailInput" type="email" name="" id=""></div>
+                    </div>
+                </div>
+            </div>
+            <div id="photos"></div>
+            <div id="observations"></div>
+            <div id="publications"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -95,6 +95,7 @@ body{
             }
             #observations>*{
                 width: 100%;
+                padding: 1em;
             }
                 .obsTitle{
                     display: flex;
@@ -127,14 +128,32 @@ body{
 
                 .crearObs{
                     display: block;
-                    /* display: none;*/
-                    border: 1px solid;
                 }
                 .crearObs>*{
-                    border: 1px solid;
                     width: 100%;
                     height: auto;
                 }
+                    .nameDiv{
+                        /* TODO */
+                        border: 1px solid;
+                        text-align: center;
+                    }
+                    .objectListDiv{
+                        display: grid;
+                        grid-template-columns: 50% 50%;
+                    }
+                    .objectListDiv>*{
+                        width: 100%;
+                        padding: 1em;
+                        text-align: justify;
+                    }
+                        .catalogueListDiv>div, .manualCoordinatesDiv>div{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 5px;
+                        }
+                    
 
                 /* GRID OBSERVACIONES START */
                 .observationGrid{
