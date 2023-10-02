@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./styles/tuTabStyles2.css">
 
     <script src="../jquery-3.7.0.min.js"></script>
-    <script src="./index.js"></script>
+    <script src="./tuTab2.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -43,16 +43,16 @@
     <div class="mainContent">
         <div class="menuOptionsDiv">
             <div class="stickyDiv">
-                <div class="menuOption" id="datosOption">
+                <div class="menuOption" id="dataOption" onclick="tabShown('data')">
                     <p class="optionTitle">Tus datos</p>
                 </div>
-                <div class="menuOption" id="fotosOption">
+                <div class="menuOption" id="photosOption" onclick="tabShown('photos')">
                     <p class="optionTitle">Tus fotos</p>
                 </div>
-                <div class="menuOption" id="publicOption">
+                <div class="menuOption" id="publicOption" onclick="tabShown('publications')">
                     <p class="optionTitle">Publicaciones</p>
                 </div>
-                <div class="menuOption" id="obsOption">
+                <div class="menuOption" id="obsOption" onclick="tabShown('observations')">
                     <p class="optionTitle">Observaciones</p>
                 </div>
             </div>
