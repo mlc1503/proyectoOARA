@@ -6,6 +6,7 @@ function tabShown(idTab){
     //show data tab as default
     $("#data").show();
     $("#dataOption").css("text-decoration", "underline");
+    $(".divBotonAdd").hide();
     
     $("#photos").hide();    
     $("#publications").hide();
@@ -15,6 +16,8 @@ function tabShown(idTab){
     if (idTab == "data"){
         $("#data").show();
         $("#dataOption").css("text-decoration", "underline");
+        $(".divBotonAdd").hide();
+
         
         $("#photos").hide();
         $("#photosOption").css("text-decoration", "none");
@@ -27,6 +30,10 @@ function tabShown(idTab){
         $("#photos").show();
         $("#photosOption").css("text-decoration", "underline");
         
+        $(".divBotonAdd").show();
+        $(".boton>p").html("Añadir foto");
+
+        
         $("#data").hide();
         $("#dataOption").css("text-decoration", "none");
         $("#publications").hide();
@@ -37,6 +44,8 @@ function tabShown(idTab){
     if (idTab == "observations"){
         $("#observations").show();
         $("#obsOption").css("text-decoration", "underline");
+        $(".divBotonAdd").show();
+        $(".boton>p").html("Añadir observación");
         
         $("#data").hide();
         $("#dataOption").css("text-decoration", "none");
