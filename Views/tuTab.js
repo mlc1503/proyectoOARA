@@ -1,75 +1,68 @@
 $(function(){
-    tabShown(2);
+    tabShown("data");
 })
 
-function tabShown(tabID){
-    //shows clicked tab and hides all others
-    $("#profileTab").css("background-color", "rgba(255,255,255,1)");
-    $("#profileTab").css("border-bottom", "1px solid gray");
-    $("#photosTab").css("background-color", "rgba(255,255,255,1)");
-    $("#photosTab").css("border-bottom", "1px solid gray");
-    $("#observationsTab").css("background-color", "rgba(255,255,255,1)");
-    $("#observationsTab").css("border-bottom", "1px solid gray");
-    $("#publicationsTab").css("background-color", "rgba(255,255,255,1)");
-    $("#publicationsTab").css("border-bottom", "1px solid gray");
+function tabShown(idTab){
+    //show data tab as default
+    $("#data").show();
+    $("#dataOption").css("text-decoration", "underline");
+    $(".divBotonAdd").hide();
     
-    if(tabID == 0){
-        $("#datos").show();
-        $("#profileTab").css("background-color", "rgba(0,0,0,0.3)");
-        $("#profileTab").css("border-bottom", "none");
+    $("#photos").hide();    
+    $("#publications").hide();
+    $("#observations").hide();
+
+    //for every tab selected, we underline each corresponding menu option and show it, while hiding the others
+    if (idTab == "data"){
+        $("#data").show();
+        $("#dataOption").css("text-decoration", "underline");
+        $(".divBotonAdd").hide();
+
+        
         $("#photos").hide();
-        $("#observations").hide();
+        $("#photosOption").css("text-decoration", "none");
         $("#publications").hide();
+        $("#publicOption").css("text-decoration", "none");
+        $("#observations").hide();
+        $("#obsOption").css("text-decoration", "none");
     }
-    else if(tabID == 1){
-        $("#datos").hide();
+    if (idTab == "photos"){
         $("#photos").show();
-        $("#photosTab").css("background-color", "rgba(0,0,0,0.3)");
-        $("#photosTab").css("border-bottom", "none");
-        $("#observations").hide();
+        $("#photosOption").css("text-decoration", "underline");
+        
+        $(".divBotonAdd").show();
+        $(".boton>p").html("Añadir foto");
+
+        
+        $("#data").hide();
+        $("#dataOption").css("text-decoration", "none");
         $("#publications").hide();
+        $("#publicOption").css("text-decoration", "none");
+        $("#observations").hide();
+        $("#obsOption").css("text-decoration", "none");
     }
-    else if(tabID == 2){
-        $("#datos").hide();
-        $("#photos").hide();
+    if (idTab == "observations"){
         $("#observations").show();
-        $("#observationsTab").css("background-color", "rgba(0,0,0,0.3)");
-        $("#observationsTab").css("border-bottom", "none");
-        $("#publications").hide();
-    }
-    else if(tabID == 3){
-        $("#datos").hide();
+        $("#obsOption").css("text-decoration", "underline");
+        $(".divBotonAdd").show();
+        $(".boton>p").html("Añadir observación");
+        
+        $("#data").hide();
+        $("#dataOption").css("text-decoration", "none");
         $("#photos").hide();
-        $("#observations").hide();
+        $("#photosOption").css("text-decoration", "none");
+        $("#publications").hide();
+        $("#publicOption").css("text-decoration", "none");
+    }
+    if (idTab == "publications"){
         $("#publications").show();
-        $("#publicationsTab").css("background-color", "rgba(0,0,0,0.3");
-        $("#publicationsTab").css("border-bottom", "none");
-    }
-}
+        $("#publicOption").css("text-decoration", "underline");
 
-function createObservation(){
-    //TODO: either discrete view or modal window
-    if($(".observationGrid").css("display") == "grid"){
-        $(".observationGrid").css("display", "none");
-        $(".crearObs").css("display", "block");
-        $(".crearObsDiv>button").html("Volver a tus observaciones");
+        $("#data").hide();
+        $("#dataOption").css("text-decoration", "none");
+        $("#photos").hide();
+        $("#photosOption").css("text-decoration", "none");
+        $("#observations").hide();
+        $("#obsOption").css("text-decoration", "none");
     }
-    else{
-        $(".observationGrid").css("display", "grid");
-        $(".crearObs").css("display", "none");
-        $(".crearObsDiv>button").html("Observación nueva")
-    }
-}
-function obsDetails(idObs){
-    console.log(idObs);
-}
-
-function createPublication(){ //???? what is the final use of this?
-
-    //TODO: either discrete view or modal window
-    window.location.href = "createObservation.html";
-}
-function uploadPhoto(){
-    //TODO: either discrete view or modal window
-    window.location.href = "createObservation.html";
 }

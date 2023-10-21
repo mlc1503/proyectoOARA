@@ -1,245 +1,257 @@
+/* 
+TODO: MAINCONTENT RESPONSIVE. 
+    hacer un display block con un @media
+*/
+
+
+
 *{
     margin: 0;  
     font-family: sans-serif;
-    box-sizing: border-box;
+    box-sizing: border-box;     
 }
+/* FONTS */
+.optionTitle{
+    color: #181614;
+    text-align: right;
+    font-family: Arial;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.buttonText{
+    color: #181614;
+    text-align: center;
+    font-family: Arial;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.title{
+    color: #181614;
+    font-family: Arial;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.subTitle{
+    color: #181614;
+    font-family: Arial;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+/* FONTS END */
+
 body::-webkit-scrollbar{
     display: none;
 }
-body{
-    background-color: whitesmoke;
-}
 
-
-    #image{
-        height: 70vh;
+    .image{
         width: 100%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-image: url(../../Resources/grantecan.png);
-    }
-
-    /* MAIN START */
-    #mainContent{
         height: fit-content;
-        padding-top: 1em;
-        padding-bottom: 3em;
+        
+        margin: 0;
     }
-        #tableOfContents{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .contentTab{
-            height: 3em;
-            width: 10em;
-            
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            margin-left: 0.5em;
-            border-top-left-radius: 0.75em;
-            border-top-right-radius: 0.75em;
-            border: 1px solid gray;
-            padding-bottom: 5px;
-        }
-        .contentPage{
+        img{
             width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: max-content;
         }
-            .contentPage>div{
-                min-width: 50%;
-                background-color: white;
-                padding: 1em;
-                border: 1px solid gray;
-                border-radius: 0.5em;
-            }
 
-            /* DATOS TAB START */
-            #datos{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            #datos>*{
-                padding-left: 1em;
-            }
-                .userDesc{
-                    width: 70%;
-                    height: 10em;
-                }
-                    .userDescFieldDiv{
-                        height: calc(100%/3);
-
-                        display: flex;
-                        align-items: center;
-                    }
-                .profileImage{
-                    border: 1px solid;
-                    border-radius: 100%;
-                    width: 10em;
-                    height: 10em;
-                    background-image: url(../../Resources/defaultUser.png);
-                    background-size: contain;
-                }
-            /* DATOS TAB END */
-
-            /* OBSERVACIONES TAB START */
-            #observations{
-                width: auto;
-                padding: 0em !important;
-            }
-            #observations>*{
-                width: 100%;
-                padding: 1em;
-            }
-                .obsTitle{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    
-                    padding: 1em;
-                }
-                    .obsTitle>h2{
-                        width: 100%;
-                        text-align: center;
-                    }
-
-                .crearObsDiv{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    width: 100%;
-                    padding: 1em;
-                }
-                    .crearObsDiv>button{
-                        border-radius: 1em;
-                        padding: 5px 10px 5px 10px;
-                        background-color: whitesmoke;
-                    }
-                    .crearObsDiv>button:hover{
-                        background-color: rgba(128, 128, 128, 0.2);
-                    }
-
-                .crearObs{
-                    display: block;
-                }
-                .crearObs>*{
-                    width: 100%;
-                    height: auto;
-                }
-                    .nameDiv{
-                        /* TODO */
-                        border: 1px solid;
-                        text-align: center;
-                    }
-                    .objectListDiv{
-                        display: grid;
-                        grid-template-columns: 50% 50%;
-                    }
-                    .objectListDiv>*{
-                        width: 100%;
-                        padding: 1em;
-                        text-align: justify;
-                    }
-                        .catalogueListDiv>div, .manualCoordinatesDiv>div{
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            padding: 5px;
-                        }
-                    
-
-                /* GRID OBSERVACIONES START */
-                .observationGrid{
-                    display: none;
-                    /* display: grid; */
-                    grid-template-columns: repeat(3, 1fr);
-                    column-gap: 10px;
-                    row-gap: 10px;
-
-                    padding: 0em 1em 1em 1em;
-                }
-
-                    /* CARD START */
-                    .card{
-                        width: calc(250px + 1em);
-                        height: fit-content; 
-                        padding: 0.5em;
-
-                        border: 1px solid gray;
-                        border-radius: 1em;
-                        background-color: rgba(189, 189, 189, 0.2);
-
-                        cursor: pointer;
-                    }
-                    .card>a, .card>a:visited, .card>a:link{
-                        text-decoration: none;
-                        color: black;
-
-                    }
-                        .obsCardTitle>p{
-                            width: 100%;
-                            text-align: center;
-                            font-weight: bold;
-                            font-size: larger;
-                        }
-                        
-                        .obsCardImageDiv{
-                            height: 250px;
-                            width: 250px;
-
-                            border-radius: 1em 1em 0em 0em;
-                            background-color:dimgray;
-                            
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                        }
-                            .obsCardImage{
-                                height: 250px;
-                                width: 250px;
-                                border-radius: calc(1em - 0.5em) calc(1em - 0.5em) 0em 0em; 
-                                background-size: contain;
-                            }
-                            .obsCardDesc{
-                                padding: 0.5em;
-                                height: auto;
-                                width: 250px;
-                            }
-                        .obsCardDesc>div{
-                            display: flex;
-                            align-items:baseline;
-                            justify-content:space-between;
-
-                            padding-left: 0.5em;
-                            padding-right: 0.5em;
-                        }
-                            .obsDate{
-                                display: block !important;
-                            }
-                                .obsDate>div{
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: space-between;
-                                }
-                    /* CARD END */  
-                /* GRID OBSERVACIONES END */
-            /* OBSERVACIONES TAB END */                
-    /* MAIN END */
-
-    #footer{
+    .mainContent{
+        height: auto;
         width: 100%;
-        height: 20vh;
 
         display: flex;
-        justify-content: center;
-        align-items: center;
-        
-        background-color: rgba(128, 128, 128, 0.2);
+        align-items: top;
+        column-gap: 1rem;
+
+        padding: 2rem 5% 2rem 5%;
     }
+        .menuOptionsDiv{
+            width: 10.0rem;
+            height: auto;
+        }
+            .stickyDiv{
+                width: 100%;
+                height: auto;
+                position: sticky;
+                top: 3rem;
+            }
+                .menuOption{
+                    text-decoration: none;
+                    height: max-content;
+                    margin-bottom: 1rem;
+                    width: 100%;
+
+                    cursor: pointer;
+                }
+
+                /* .menuOption:hover{
+                    text-decoration: underline;
+                } */
+
+        .sep{
+            border: 1px solid;
+            height: auto;
+        }
+
+        .content{
+            width: calc(100% - 1rem - 1px - 1rem - 10rem);
+            height: auto;
+        }
+            .content>div{
+                height: auto;
+                max-width: 100%;
+                min-width: 30%;
+            }
+
+            .divBotonAdd{
+                width: auto;
+                height: auto;
+                padding: 0 0 1rem 0;
+            }
+                .boton{
+                    
+                    width: 9.3125rem;
+                    height: 3.25rem;
+                    background-color: rgb(175, 243, 253);
+                    box-shadow: 0px 4px 4px 0px rgba(24, 22, 20, 0.20);;
+                    border-radius: 1rem;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .boton>p{
+                    display: flex;
+                    justify-content: center;
+                    align-items: baseline;
+                }
+
+            /* DATA START */
+            #data{
+                /* display: none; */
+                display: flex;
+                flex-direction: row;
+                column-gap: 2rem;
+
+            }
+                .userImage{
+                    width: 12rem;
+                    height: 12rem;
+
+                    background-image: url(../../Resources/defaultUser.png);
+                    background-size: contain;
+
+                    border-radius: 100%;
+                }
+
+                .userDetailsDiv{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    row-gap: 1rem;
+                }
+
+                    .userDetailsDiv>div{
+                        width: auto;
+
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        column-gap: 1rem;
+                        
+                    }
+            /* DATA END */
+            /* OBSERVATIONS START */
+            #observations{
+                width: 100%;
+                height: auto;
+
+                /* display: none; */
+                display: inline-flex;
+                
+                align-items: flex-start;
+                align-content: flex-start;
+                
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+                .card{
+                    width: 16.10969rem;
+                    height: auto;
+
+                    flex-shrink: 0;
+                    border-radius: 1rem;
+                    background: #D9D9D9;
+                    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                }
+                    .obsImage{
+                        width: 100%;
+                        height: 15.8rem;
+                        background-image: url(../../Resources/m31_cut.jpg);
+                        background-size: contain;
+                        border-radius: 1rem 1rem 0rem 0rem;
+                    }
+                    .obsDataDiv{
+                        width: 100%;
+                        height: auto;
+                        padding: 0px 10px 10px 10px;
+                        
+                        display: block;
+                        
+                        border-radius: 0rem 0rem 1rem 1rem;
+                    }
+
+                        .obsTitle{
+                            height: auto;
+
+                            color: #181614;
+                            text-align: center;
+                            font-family: Arial;
+                            font-size: 1.25rem;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;
+                        }
+                        .obsData{
+                            height: auto;
+                        }
+                            .obsData>div{
+
+                                width: 100%;
+                                display: inline-flex;
+                                align-items:center;
+                                justify-content: space-between;
+                            }
+            /* OBSERVATIONS END */
+            /* PHOTOS START */
+            #photos{
+                height: auto;
+
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px
+            }
+                .column{
+                    flex: 33%;
+                    max-width: 33%;
+                }
+                
+            /* PHOTOS END */
+
+#footer{
+    width: 100%;
+    height: 10rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: rgba(128, 128, 128, 0.2);
+}

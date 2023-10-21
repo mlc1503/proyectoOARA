@@ -2,20 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OARA - Tú</title>
+    <title>Proyecto OARA - Home</title>
     <link rel="stylesheet" href="./styles/navbar.css">
+    <!-- <link rel="stylesheet" href="./styles/tuTabStyles.css"> -->
     <link rel="stylesheet" href="./styles/tuTabStyles.css">
 
     <script src="../jquery-3.7.0.min.js"></script>
     <script src="./tuTab.js"></script>
 </head>
 <body>
-            
     <div class="navbar">
         <div class="navbarTab" id="navbarLogo">
-            <a href="index.html">OARA</a>
+            <a href="">OARA</a>
         </div>
         <div id="navbarContent">
             <div id="pageTabsDiv">
@@ -38,366 +37,245 @@
             </div>
         </div>
     </div>
-
-    <div id="image"></div>
-
-    <div id="mainContent">
-        <div id="tableOfContents">  
-            <div class="contentTab" id="profileTab" onclick="tabShown(0)">
-                <p>Tus datos</p>
-            </div>
-            <div class="contentTab" id="photosTab" onclick="tabShown(1)">
-                <p>Fotos</p>
-            </div>
-            <div class="contentTab" id="observationsTab" onclick="tabShown(2)">
-                <p>Observaciones</p>
-            </div>
-            <div class="contentTab" id="publicationsTab" onclick="tabShown(3)">
-                <p>Publicaciones</p>
+    <div class="image">
+        <img src="../Resources/m31-21.8.2023_rc4-3by1.png" alt="">
+    </div>
+    <div class="mainContent">
+        <div class="menuOptionsDiv">
+            <div class="stickyDiv">
+                <div class="menuOption" id="dataOption" onclick="tabShown('data')">
+                    <p class="optionTitle">Tus datos</p>
+                </div>
+                <div class="menuOption" id="photosOption" onclick="tabShown('photos')">
+                    <p class="optionTitle">Tus fotos</p>
+                </div>
+                <div class="menuOption" id="publicOption" onclick="tabShown('publications')">
+                    <p class="optionTitle">Publicaciones</p>
+                </div>
+                <div class="menuOption" id="obsOption" onclick="tabShown('observations')">
+                    <p class="optionTitle">Observaciones</p>
+                </div>
             </div>
         </div>
-
-        <div class="contentPage"> 
-            <div id="datos">
-                <div class="profileImage"></div>
-                <div class="userDesc">
-                    <div class="userDescFieldDiv">
-                        <p>
-                            Nombre:
-                            <input type="text" name="" id="" value="jeje" disabled>
-                        </p>
+        <div class="sep"></div>
+        <div class="content">
+            <div class="divBotonAdd">
+                <div class="boton">
+                    <p class="buttonText">Añadir Observación</p>
+                </div>
+            </div>
+            <div id="data">
+                <div class="userImage"></div>
+                <div class="userDetailsDiv">
+                    <div class="userNameTitle">
+                        <p class="user title">userName</p>
                     </div>
-                    <div class="userDescFieldDiv">
-                        <p>
-                            Contraseña:
-                            <input type="password" name="" id="" value="jeje" disabled>
-                        </p>
+                    <div class="passwDiv">
+                        <div><p class="passwordTitle subTitle">Password:</p></div>
+                        <div><input type="password" name="" id="passwordInput"></div>
                     </div>
-                    <div class="userDescFieldDiv">
-                        <p>
-                            Email:
-                            <input type="email" name="" id="" value="jeje" disabled>
-                        </p>
+                    <div class="emailDiv">
+                        <div><p class="emailTitle subTitle">Email:</p></div>
+                        <div><input type="email" name="" id="emailInput"></div>
                     </div>
                 </div>
             </div>
-            
             <div id="photos">
-                no tienes fotos publicadas
+                <div class="column">
+                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
+                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
+                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
+                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
+                </div>
+                <div class="column">
+                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
+                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
+                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
+                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
+                </div>
+                <div class="column">
+                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
+                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
+                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
+                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
+                </div>
             </div>
-            
             <div id="observations">
-
-                <div class="obsTitle">
-                    <!-- no tienes observaciones hechas <button onclick="createObservation()">crear una</button> -->
-                    <h2>Tus Observaciones</h2>
+                <div class="card" id="card0">
+                    <div class="obsImage"></div>
+                    <div class="obsDataDiv">
+                        <div class="obsTitle">
+                            <p class="title">Lorem, ipsum.</p>
+                        </div>
+                        <div class="obsData">
+                            <div class="targetCoordsDiv">
+                                <div class="targetTitle"><p class="subTitle">Target:</p></div>
+                                <div class="targetData"><p class="subTitle">RA: 30.18 DEC: 1.12</p></div>
+                            </div>
+                            <div class="telescopeDiv">
+                                <div class="telTitle"><p class="subTitle">Telescope:</p></div>
+                                <div class="telData"><p class="subTitle">TAK FSQ103</p></div>
+                            </div>
+                            <div class="filtersDiv">
+                                <div class="filtersTitle"><p class="subTitle">Filters:</p></div>
+                                <div class="filtersData"><p class="subTitle">L,R,G,B,Ha,Oiii</p></div>
+                            </div>
+                            <div class="startDiv">
+                                <div class="startTitle"><p class="subTitle">Start:</p></div>
+                                <div class="startDate"><p class="subTitle">00/00/0000</p></div>
+                            </div>
+                            <div class="integrationDiv">
+                                <div class="integrationTitle"><p class="subTitle">Total time:</p></div>
+                                <div class="integrationTime"><p class="subTitle">75h</p></div>
+                            </div>
+                            <div class="progressDiv">
+                                <div class="progressTitle"><p class="subTitle">Progress:</p></div>
+                                <div class="progressPerc"><p class="subTitle">50%</p></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="crearObsDiv">
-                    <button onclick="createObservation()">Observación nueva</button>
+                <div class="card" id="card2">
+                    <div class="obsImage"></div>
+                    <div class="obsDataDiv">
+                        <div class="obsTitle">
+                            <p class="title">Lorem, ipsum.</p>
+                        </div>
+                        <div class="obsData">
+                            <div class="targetCoordsDiv">
+                                <div class="targetTitle"><p class="subTitle">Target:</p></div>
+                                <div class="targetData"><p class="subTitle">RA: 30.18 DEC: 1.12</p></div>
+                            </div>
+                            <div class="telescopeDiv">
+                                <div class="telTitle"><p class="subTitle">Telescope:</p></div>
+                                <div class="telData"><p class="subTitle">TAK FSQ103</p></div>
+                            </div>
+                            <div class="filtersDiv">
+                                <div class="filtersTitle"><p class="subTitle">Filters:</p></div>
+                                <div class="filtersData"><p class="subTitle">L,R,G,B,Ha,Oiii</p></div>
+                            </div>
+                            <div class="startDiv">
+                                <div class="startTitle"><p class="subTitle">Start:</p></div>
+                                <div class="startDate"><p class="subTitle">00/00/0000</p></div>
+                            </div>
+                            <div class="integrationDiv">
+                                <div class="integrationTitle"><p class="subTitle">Total time:</p></div>
+                                <div class="integrationTime"><p class="subTitle">75h</p></div>
+                            </div>
+                            <div class="progressDiv">
+                                <div class="progressTitle"><p class="subTitle">Progress:</p></div>
+                                <div class="progressPerc"><p class="subTitle">50%</p></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="crearObs">
-                    <p class="nameDiv">
-                        Nombre de tu Observación
-                        <input type="text" name="" id="">
-                    </p>
-                    <br>
-                    <h3>
-                        Objeto a observar:
-                    </h3>
-                    <div class="objectListDiv">
-                        <div class="catalogueListDiv">
-                            <div>
-                                <p>
-                                    <input type="checkbox" name="" id="" checked>
-                                    Buscar en catálogo:
-                                </p>
-                            </div>
-                            <div>
-                                <p>
-                                    Catalogue List
-                                </p>
-                                <select name="catalogueList" id="">
-                                    <option value="messier">Messier</option>
-                                    <option value="ngc">NGC</option>
-                                    <option value="Sh2">SH2</option>
-                                    <option value="C">C</option>
-                                </select>
-                            </div>
-                            <div>
-                                <p>
-                                    Entry Number
-                                </p>
-                                <input type="number" name="" id="catalogueEntryNumber">
-                            </div>
+                <div class="card" id="card3">
+                    <div class="obsImage"></div>
+                    <div class="obsDataDiv">
+                        <div class="obsTitle">
+                            <p class="title">Lorem, ipsum.</p>
                         </div>
-
-                        <div class="manualCoordinatesDiv">
-                            <div>
-                                <p>
-                                    <input type="checkbox" name="" id=""> 
-                                    Manual Coordinates (Decimal):
-                                </p>
+                        <div class="obsData">
+                            <div class="targetCoordsDiv">
+                                <div class="targetTitle"><p class="subTitle">Target:</p></div>
+                                <div class="targetData"><p class="subTitle">RA: 30.18 DEC: 1.12</p></div>
                             </div>
-                            <div>
-                                RA Coords:
-                                <input type="number" name="" step="any" id="RA">
+                            <div class="telescopeDiv">
+                                <div class="telTitle"><p class="subTitle">Telescope:</p></div>
+                                <div class="telData"><p class="subTitle">TAK FSQ103</p></div>
                             </div>
-                            <div>
-                                DEC Coords:
-                                <input type="number" name="" step="any" id="DEC">
+                            <div class="filtersDiv">
+                                <div class="filtersTitle"><p class="subTitle">Filters:</p></div>
+                                <div class="filtersData"><p class="subTitle">L,R,G,B,Ha,Oiii</p></div>
+                            </div>
+                            <div class="startDiv">
+                                <div class="startTitle"><p class="subTitle">Start:</p></div>
+                                <div class="startDate"><p class="subTitle">00/00/0000</p></div>
+                            </div>
+                            <div class="integrationDiv">
+                                <div class="integrationTitle"><p class="subTitle">Total time:</p></div>
+                                <div class="integrationTime"><p class="subTitle">75h</p></div>
+                            </div>
+                            <div class="progressDiv">
+                                <div class="progressTitle"><p class="subTitle">Progress:</p></div>
+                                <div class="progressPerc"><p class="subTitle">50%</p></div>
                             </div>
                         </div>
                     </div>
-                    <h3>
-                        Filtros:
-                    </h3>
-                    <div class="filterListDiv">
-                        <div class="filters">
-                            <p>
-                                <input type="checkbox" name="" id="">Ha &nbsp;<input type="number" name="" id="" style="width: 3em;">
-                                <input type="checkbox" name="" id="">Oiii &nbsp;<input type="number" name="" id="" style="width: 3em;">
-                                <input type="checkbox" name="" id="">R &nbsp;<input type="number" name="" id="" style="width: 3em;">
-                                <input type="checkbox" name="" id="">G &nbsp;<input type="number" name="" id="" style="width: 3em;">
-                                <input type="checkbox" name="" id="">B &nbsp;<input type="number" name="" id="" style="width: 3em;">
-                                <input type="checkbox" name="" id="">L &nbsp;<input type="number" name="" id="" style="width: 3em;">
-                            </p>
-                        </div>
-                    </div>
-                    <h3>
-                        Telescopio a utilizar:
-                    </h3>
-                    <div class="telescopeDiv">tak103,rokinon, askar100Ed, newt400,
-                    </div>
-                    <h3>
-                        Fecha de comienzo:
-                    </h3>
-                    <div class="startDate">dateStart</div>
                 </div>
-
-                <div class="observationGrid">
-                    <div id="obsCard0" class="card" onclick="obsDetails(0)">
-                        <div class="obsCardImageDiv">
-                            <img class="obsCardImage" src="../Resources/m31_cut.jpg">
+                <div class="card" id="card4">
+                    <div class="obsImage"></div>
+                    <div class="obsDataDiv">
+                        <div class="obsTitle">
+                            <p class="title">Lorem, ipsum.</p>
                         </div>
-                        <div class="obsCardDesc">
-                            <div class="obsCardTitle">
-                                <p id="obsName">Lorem ipsum</p>
+                        <div class="obsData">
+                            <div class="targetCoordsDiv">
+                                <div class="targetTitle"><p class="subTitle">Target:</p></div>
+                                <div class="targetData"><p class="subTitle">RA: 30.18 DEC: 1.12</p></div>
                             </div>
-                            <br>
-                            <div class="obsTarget">
-                                <p>Target:</p>
-                                <p id="targetName">RA: 30 , DEC: 40</p>
+                            <div class="telescopeDiv">
+                                <div class="telTitle"><p class="subTitle">Telescope:</p></div>
+                                <div class="telData"><p class="subTitle">TAK FSQ103</p></div>
                             </div>
-                            <div class="obsTelescope">
-                                <p>Telescope: </p><p id="telName">TAK 103FSQ</p>
+                            <div class="filtersDiv">
+                                <div class="filtersTitle"><p class="subTitle">Filters:</p></div>
+                                <div class="filtersData"><p class="subTitle">L,R,G,B,Ha,Oiii</p></div>
                             </div>
-                            <div class="obsFilters">
-                                <p>Filters: </p><p id="filterList">L, Ha, Oiii, Sii</p>
+                            <div class="startDiv">
+                                <div class="startTitle"><p class="subTitle">Start:</p></div>
+                                <div class="startDate"><p class="subTitle">00/00/0000</p></div>
                             </div>
-                            <div class="obsDate">
-                                <div>
-                                    <p>Start:</p>
-                                    <p id="dateStart">00/00/0000</p>
-                                </div>
-                                <div>
-                                    <p>Integration time:</p>
-                                    <p id="totalIntegration">50.5h</p>
-                                </div>
+                            <div class="integrationDiv">
+                                <div class="integrationTitle"><p class="subTitle">Total time:</p></div>
+                                <div class="integrationTime"><p class="subTitle">75h</p></div>
                             </div>
-                            <div class="obsCompletion">
-                                <p>Progress:</p>
-                                <p id="progressPerc">43%</p>
+                            <div class="progressDiv">
+                                <div class="progressTitle"><p class="subTitle">Progress:</p></div>
+                                <div class="progressPerc"><p class="subTitle">50%</p></div>
                             </div>
                         </div>
                     </div>
-                    <div id="obsCard0" class="card" onclick="obsDetails(1)">
-                        <div class="obsCardImageDiv">
-                            <img class="obsCardImage" src="../Resources/m31_cut.jpg">
+                </div>
+                <div class="card" id="card5">
+                    <div class="obsImage"></div>
+                    <div class="obsDataDiv">
+                        <div class="obsTitle">
+                            <p class="title">Lorem, ipsum.</p>
                         </div>
-                        <div class="obsCardDesc">
-                            <div class="obsCardTitle">
-                                <p id="obsName">Lorem ipsum</p>
+                        <div class="obsData">
+                            <div class="targetCoordsDiv">
+                                <div class="targetTitle"><p class="subTitle">Target:</p></div>
+                                <div class="targetData"><p class="subTitle">RA: 30.18 DEC: 1.12</p></div>
                             </div>
-                            <br>
-                            <div class="obsTarget">
-                                <p>Target:</p>
-                                <p id="targetName">RA: 30 , DEC: 40</p>
+                            <div class="telescopeDiv">
+                                <div class="telTitle"><p class="subTitle">Telescope:</p></div>
+                                <div class="telData"><p class="subTitle">TAK FSQ103</p></div>
                             </div>
-                            <div class="obsTelescope">
-                                <p>Telescope: </p><p id="telName">TAK 103FSQ</p>
+                            <div class="filtersDiv">
+                                <div class="filtersTitle"><p class="subTitle">Filters:</p></div>
+                                <div class="filtersData"><p class="subTitle">L,R,G,B,Ha,Oiii</p></div>
                             </div>
-                            <div class="obsFilters">
-                                <p>Filters: </p><p id="filterList">L, Ha, Oiii, Sii</p>
+                            <div class="startDiv">
+                                <div class="startTitle"><p class="subTitle">Start:</p></div>
+                                <div class="startDate"><p class="subTitle">00/00/0000</p></div>
                             </div>
-                            <div class="obsDate">
-                                <div>
-                                    <p>Start:</p>
-                                    <p id="dateStart">00/00/0000</p>
-                                </div>
-                                <div>
-                                    <p>Integration time:</p>
-                                    <p id="totalIntegration">50.5h</p>
-                                </div>
+                            <div class="integrationDiv">
+                                <div class="integrationTitle"><p class="subTitle">Total time:</p></div>
+                                <div class="integrationTime"><p class="subTitle">75h</p></div>
                             </div>
-                            <div class="obsCompletion">
-                                <p>Progress:</p>
-                                <p id="progressPerc">43%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="obsCard0" class="card" onclick="obsDetails(2)">
-                        <div class="obsCardImageDiv">
-                            <img class="obsCardImage" src="../Resources/m31_cut.jpg">
-                        </div>
-                        <div class="obsCardDesc">
-                            <div class="obsCardTitle">
-                                <p id="obsName">Lorem ipsum</p>
-                            </div>
-                            <br>
-                            <div class="obsTarget">
-                                <p>Target:</p>
-                                <p id="targetName">RA: 30 , DEC: 40</p>
-                            </div>
-                            <div class="obsTelescope">
-                                <p>Telescope: </p><p id="telName">TAK 103FSQ</p>
-                            </div>
-                            <div class="obsFilters">
-                                <p>Filters: </p><p id="filterList">L, Ha, Oiii, Sii</p>
-                            </div>
-                            <div class="obsDate">
-                                <div>
-                                    <p>Start:</p>
-                                    <p id="dateStart">00/00/0000</p>
-                                </div>
-                                <div>
-                                    <p>Integration time:</p>
-                                    <p id="totalIntegration">50.5h</p>
-                                </div>
-                            </div>
-                            <div class="obsCompletion">
-                                <p>Progress:</p>
-                                <p id="progressPerc">43%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="obsCard0" class="card" onclick="obsDetails(3)">
-                        <div class="obsCardImageDiv">
-                            <img class="obsCardImage" src="../Resources/m31_cut.jpg">
-                        </div>
-                        <div class="obsCardDesc">
-                            <div class="obsCardTitle">
-                                <p id="obsName">Lorem ipsum</p>
-                            </div>
-                            <br>
-                            <div class="obsTarget">
-                                <p>Target:</p>
-                                <p id="targetName">RA: 30 , DEC: 40</p>
-                            </div>
-                            <div class="obsTelescope">
-                                <p>Telescope: </p><p id="telName">TAK 103FSQ</p>
-                            </div>
-                            <div class="obsFilters">
-                                <p>Filters: </p><p id="filterList">L, Ha, Oiii, Sii</p>
-                            </div>
-                            <div class="obsDate">
-                                <div>
-                                    <p>Start:</p>
-                                    <p id="dateStart">00/00/0000</p>
-                                </div>
-                                <div>
-                                    <p>Integration time:</p>
-                                    <p id="totalIntegration">50.5h</p>
-                                </div>
-                            </div>
-                            <div class="obsCompletion">
-                                <p>Progress:</p>
-                                <p id="progressPerc">43%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="obsCard0" class="card" onclick="obsDetails(4)">
-                        <div class="obsCardImageDiv">
-                            <img class="obsCardImage" src="../Resources/m31_cut.jpg">
-                        </div>
-                        <div class="obsCardDesc">
-                            <div class="obsCardTitle">
-                                <p id="obsName">Lorem ipsum</p>
-                            </div>
-                            <br>
-                            <div class="obsTarget">
-                                <p>Target:</p>
-                                <p id="targetName">RA: 30 , DEC: 40</p>
-                            </div>
-                            <div class="obsTelescope">
-                                <p>Telescope: </p><p id="telName">TAK 103FSQ</p>
-                            </div>
-                            <div class="obsFilters">
-                                <p>Filters: </p><p id="filterList">L, Ha, Oiii, Sii</p>
-                            </div>
-                            <div class="obsDate">
-                                <div>
-                                    <p>Start:</p>
-                                    <p id="dateStart">00/00/0000</p>
-                                </div>
-                                <div>
-                                    <p>Integration time:</p>
-                                    <p id="totalIntegration">50.5h</p>
-                                </div>
-                            </div>
-                            <div class="obsCompletion">
-                                <p>Progress:</p>
-                                <p id="progressPerc">43%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="obsCard0" class="card" onclick="obsDetails(5)">
-                        <div class="obsCardImageDiv">
-                            <img class="obsCardImage">
-                        </div>
-                        <div class="obsCardDesc">
-                            <div class="obsCardTitle">
-                                <p id="obsName">Lorem ipsum</p>
-                            </div>
-                            <br>
-                            <div class="obsTarget">
-                                <p>Target:</p>
-                                <p id="targetName">RA: 30 , DEC: 40</p>
-                            </div>
-                            <div class="obsTelescope">
-                                <p>Telescope: </p><p id="telName">TAK 103FSQ</p>
-                            </div>
-                            <div class="obsFilters">
-                                <p>Filters: </p><p id="filterList">L, Ha, Oiii, Sii</p>
-                            </div>
-                            <div class="obsDate">
-                                <div>
-                                    <p>Start:</p>
-                                    <p id="dateStart">00/00/0000</p>
-                                </div>
-                                <div>
-                                    <p>Integration time:</p>
-                                    <p id="totalIntegration">50.5h</p>
-                                </div>
-                            </div>
-                            <div class="obsCompletion">
-                                <p>Progress:</p>
-                                <p id="progressPerc">43%</p>
+                            <div class="progressDiv">
+                                <div class="progressTitle"><p class="subTitle">Progress:</p></div>
+                                <div class="progressPerc"><p class="subTitle">50%</p></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div id="publications">
-                no has hecho ninguna publicacion
-                <br>
-                esta tab no tiene mucho sentido tbh, como mucho los comentarios de las publicaciones/noticias y ni siquiera eso 
-            </div>
+            <div id="publications"></div>
+            
         </div>
-</div>
-    
+    </div>
     <div id="footer">
         <p>&#169; Manel Lagunas Cerni 2023</p>
     </div>

@@ -1,0 +1,13 @@
+PRIORIZA FUNCIONALIDAD
+
+-justificar Texto index
+
+-en login/signin apliar campo email
+
+-añadir calendario para reservar visitas(formulario)
+
+-añadir favicon
+
+-mejorar footer
+
+-cambiar TU del navbar
