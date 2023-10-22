@@ -13,20 +13,20 @@
         die("Connection failed: " . $conn->connect_error);
     }
     else{
-        $sqlProductoComando = "SELECT obs.*, obj.*, tl.*
+        $sqlObservacionDetalles = "SELECT obs.*, obj.*, tl.*
                                 FROM `objetos` obj
                                 LEFT JOIN `observaciones` obs ON obj.objeto_id = obs.observed_object
                                 LEFT JOIN `telescopios` tl ON obs.telescopeUsed = tl.telescope_id
                                 WHERE obs.created_by = (SELECT u.user_id from `usuarios` u where u.username = '".$_SESSION['id']."');";
-            $resultadoProductos = mysqli_query($conDB, $sqlProductoComando);
+            $resultadoObservaciones = mysqli_query($conDB, $sqlObservacionDetalles);
 
             //metemos los resultados de la consulta a bd en un array de objetos Producto
-            $arrayProductos = array();
-            while ($row = $resultadoProductos->fetch_assoc()) {
-                $arrayProductos[] = $row;
+            $arrayObservaciones = array();
+            while ($row = $resultadoObservaciones->fetch_assoc()) {
+                $arrayObservaciones[] = $row;
             }
             
             //exportamos array a JSON
-            echo json_encode($arrayProductos);
+            echo json_encode($arrayObservaciones);
     }
 ?>

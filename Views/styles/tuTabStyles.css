@@ -10,42 +10,6 @@ TODO: MAINCONTENT RESPONSIVE.
     font-family: sans-serif;
     box-sizing: border-box;     
 }
-/* FONTS */
-.optionTitle{
-    color: #181614;
-    text-align: right;
-    font-family: Arial;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-.buttonText{
-    color: #181614;
-    text-align: center;
-    font-family: Arial;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-.title{
-    color: #181614;
-    font-family: Arial;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-.subTitle{
-    color: #181614;
-    font-family: Arial;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-/* FONTS END */
 
 body::-webkit-scrollbar{
     display: none;

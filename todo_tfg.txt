@@ -1,6 +1,6 @@
 TODO's EN PROCESO:
     -conseguir leer de la DB las observaciones del usuario OK
-    -conseguir leer de la DB los datos de usuario
+    -conseguir leer de la DB los datos de usuario OK
 
 ----------------------------
 MODIFICACIONES PENDIENTES: 

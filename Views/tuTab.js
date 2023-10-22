@@ -74,11 +74,8 @@ function tabShown(idTab){
     }
 }
 
-function loadObservations(){ //cargamos todos los datos del usuario:
-
-    var usr;
-
-    //cogemos el usuario con la sesion iniciada
+function loadObservations(){
+    //nos vienen todos los datos de la tabla observaciones, telescopios y objetos
     $.ajax({url: '../Controllers/getObservaciones.php', success: function(obsDetails){
         obsDetails = JSON.parse(obsDetails);
 
@@ -125,7 +122,14 @@ function loadObservations(){ //cargamos todos los datos del usuario:
 
 }
 function loadUserData() {
-    console.log(0);
+    $.ajax({url: '../Controllers/getDataUsuario.php', success: function(userDetails){
+        userDetails = JSON.parse(userDetails);
+
+        $("#usernameField").html(userDetails[0].username);
+        $("#passwordInput").val(userDetails[0].pass);
+        $("#emailInput").val(userDetails[0].email);
+
+    }})
 }
 
 function add(tabSelected){
