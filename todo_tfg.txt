@@ -1,0 +1,29 @@
+TODO's EN PROCESO:
+    -conseguir leer de la DB las observaciones del usuario:
+        -conseguir usuario en sesion    OK
+        -conseguir consulta SQL para coger todas las observaciones, se quieren:
+            todos los datos de las tablas observaciones, objetos y telescopios
+        -crear php para peticion
+            -hacer peticion
+            -devolver JSON
+        -procesar JSON en .js
+        -rellenar datos de JSON en una tarjeta
+
+----------------------------
+MODIFICACIONES PENDIENTES: 
+
+PRIORIZA FUNCIONALIDAD
+-Responsiveness
+
+-justificar Texto index
+
+-en login/signin apliar campo email
+
+-añadir calendario para reservar visitas(formulario)
+    https://www.geeksforgeeks.org/how-to-add-a-datepicker-in-form-using-html/
+
+-añadir favicon
+
+-mejorar footer
+
+-cambiar TU del navbar
