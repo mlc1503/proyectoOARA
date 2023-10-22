@@ -30,12 +30,9 @@ a, a:link, a:visited{
     height: auto;
     
 }
-    #bgImageDiv{
+    .bgImageDiv{
         height: 91vh;
         width: 100%;
-        
-        /* background-image: url(../../Resources/colorTV_test.png); */
-        background-image: url(../../Resources/veilNebula.png);
         background-repeat: no-repeat;
         background-size:cover;
         z-index: -1;
@@ -43,6 +40,12 @@ a, a:link, a:visited{
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .index{
+        background-image: url(../../Resources/veilNebula.png);
+    }
+    .turismo{
+        background-image: url(../../Resources/milkyway.png);
     }
         #titleDiv{
             width: fit-content;

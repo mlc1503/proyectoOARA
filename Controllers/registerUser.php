@@ -38,7 +38,7 @@
     
     
     function checkEmailExists($email, $connection){
-        $sqlCheckEmail = "SELECT u.email FROM `users` u WHERE u.email = '$email';";
+        $sqlCheckEmail = "SELECT u.email FROM `usuarios` u WHERE u.email = '$email';";
 
         
         $query = mysqli_query($connection, $sqlCheckEmail);
@@ -66,11 +66,11 @@
         }
     }
     function addUser($user, $password, $email, $connection){
-        $id = mysqli_query($connection, "SELECT count(*) as 'total_ID'from `users`");
+        $id = mysqli_query($connection, "SELECT count(*) as 'total_ID'from `usuarios`");
 
         $id = intval($id->fetch_array()['total_ID']);
 
-        $sqlAddUser = "INSERT INTO `users`( `id` , `username`, `pass`, `email`, `role`) VALUES ($id , '$user','$password','$email', 1);";
+        $sqlAddUser = "INSERT INTO `usuarios`( `id` , `username`, `pass`, `email`, `role`) VALUES ($id , '$user','$password','$email', 1);";
         $query = mysqli_query($connection, $sqlAddUser);
 
         if($query){

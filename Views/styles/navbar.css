@@ -4,10 +4,10 @@
 
 /* NAVBAR START */
 .navbar{
-    z-index: 1;
     height: 60px;
     width: 100%;
     position: absolute;
+    backdrop-filter: blur(1px);
     background-color: rgba(40, 40, 40, 0.2);
 }
 .navbar>div{

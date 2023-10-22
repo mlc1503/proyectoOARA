@@ -11,7 +11,7 @@
     if(isset($_SESSION['id'])){//si esta iniciado:
 
         //miramos si se corresponde con alguno de la base de datos
-        $sqlUsuarioExiste = "SELECT `username` FROM `users` WHERE `username` like '" .$_SESSION['id']."'";
+        $sqlUsuarioExiste = "SELECT `username` FROM `usuarios` WHERE `username` like '" .$_SESSION['id']."'";
         $res = mysqli_query($conDB, $sqlUsuarioExiste);
 
         //confirmamos que está en la bd, devolvemos la variable si está en la base de datos, si no está devolvemos usuarioAnonimo

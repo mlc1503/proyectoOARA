@@ -1,3 +1,6 @@
+TODO LIST:
+
+
 PRIORIZA FUNCIONALIDAD
 
 -justificar Texto index
@@ -5,6 +8,7 @@ PRIORIZA FUNCIONALIDAD
 -en login/signin apliar campo email
 
 -añadir calendario para reservar visitas(formulario)
+    https://www.geeksforgeeks.org/how-to-add-a-datepicker-in-form-using-html/
 
 -añadir favicon
 

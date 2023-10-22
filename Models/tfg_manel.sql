@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-09-2023 a las 16:53:21
+-- Tiempo de generación: 22-10-2023 a las 00:36:49
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -26,10 +26,10 @@ USE `tfg_manel`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `images`
+-- Estructura de tabla para la tabla `imagenes`
 --
 
-CREATE TABLE `images` (
+CREATE TABLE `imagenes` (
   `id` int(11) NOT NULL,
   `captured_at` datetime NOT NULL,
   `project_id` int(11) NOT NULL,
@@ -42,10 +42,10 @@ CREATE TABLE `images` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `objects`
+-- Estructura de tabla para la tabla `objetos`
 --
 
-CREATE TABLE `objects` (
+CREATE TABLE `objetos` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `catalog` varchar(50) NOT NULL,
@@ -56,10 +56,10 @@ CREATE TABLE `objects` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `projects`
+-- Estructura de tabla para la tabla `observaciones`
 --
 
-CREATE TABLE `projects` (
+CREATE TABLE `observaciones` (
   `id` int(11) NOT NULL,
   `created_by` int(11) NOT NULL,
   `created_at` date NOT NULL,
@@ -72,10 +72,10 @@ CREATE TABLE `projects` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `telescopes`
+-- Estructura de tabla para la tabla `telescopios`
 --
 
-CREATE TABLE `telescopes` (
+CREATE TABLE `telescopios` (
   `id` int(11) NOT NULL,
   `fl` int(3) NOT NULL,
   `apert` decimal(5,2) NOT NULL,
@@ -85,10 +85,10 @@ CREATE TABLE `telescopes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `pass` varchar(100) NOT NULL,
@@ -97,10 +97,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `users` (`id`, `username`, `pass`, `email`, `role`) VALUES
+INSERT INTO `usuarios` (`id`, `username`, `pass`, `email`, `role`) VALUES
 (0, 'test', 'test', 'test', 1),
 (1, 'manel', '1234', '1234', 1),
 (2, 'test1', 'test1', 'test1', 1);
@@ -110,36 +110,36 @@ INSERT INTO `users` (`id`, `username`, `pass`, `email`, `role`) VALUES
 --
 
 --
--- Indices de la tabla `images`
+-- Indices de la tabla `imagenes`
 --
-ALTER TABLE `images`
+ALTER TABLE `imagenes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `project_id` (`project_id`);
 
 --
--- Indices de la tabla `objects`
+-- Indices de la tabla `objetos`
 --
-ALTER TABLE `objects`
+ALTER TABLE `objetos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `projects`
+-- Indices de la tabla `observaciones`
 --
-ALTER TABLE `projects`
+ALTER TABLE `observaciones`
   ADD PRIMARY KEY (`id`),
   ADD KEY `created_by` (`created_by`),
   ADD KEY `observed_object` (`observed_object`);
 
 --
--- Indices de la tabla `telescopes`
+-- Indices de la tabla `telescopios`
 --
-ALTER TABLE `telescopes`
+ALTER TABLE `telescopios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
+-- Indices de la tabla `usuarios`
 --
-ALTER TABLE `users`
+ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
@@ -148,17 +148,17 @@ ALTER TABLE `users`
 --
 
 --
--- Filtros para la tabla `images`
+-- Filtros para la tabla `imagenes`
 --
-ALTER TABLE `images`
-  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`);
+ALTER TABLE `imagenes`
+  ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `observaciones` (`id`);
 
 --
--- Filtros para la tabla `projects`
+-- Filtros para la tabla `observaciones`
 --
-ALTER TABLE `projects`
-  ADD CONSTRAINT `projects_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `projects_ibfk_2` FOREIGN KEY (`observed_object`) REFERENCES `objects` (`id`);
+ALTER TABLE `observaciones`
+  ADD CONSTRAINT `observaciones_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `usuarios` (`id`),
+  ADD CONSTRAINT `observaciones_ibfk_2` FOREIGN KEY (`observed_object`) REFERENCES `objetos` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

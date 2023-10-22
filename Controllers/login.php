@@ -26,7 +26,7 @@
     function verificarUsuario($uName, $hashPass, $conDB){
         session_start();
         //consulta para ver si existe usuario con ese usuario y esa contraseña
-        $sqlUsuarioVerif = "SELECT username, pass, role FROM users WHERE (username = '$uName') AND (pass = '$hashPass');";
+        $sqlUsuarioVerif = "SELECT username, pass, role FROM usuarios WHERE (username = '$uName') AND (pass = '$hashPass');";
 
         $resultadoUsuarioExiste = mysqli_query($conDB, $sqlUsuarioVerif);
 
