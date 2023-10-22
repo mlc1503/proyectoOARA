@@ -3,6 +3,24 @@ TODO's EN PROCESO:
         -conseguir usuario en sesion    OK
         -conseguir consulta SQL para coger todas las observaciones, se quieren:
             todos los datos de las tablas observaciones, objetos y telescopios
+
+            los datos de la observaciones:
+                //consulta de todas las observaciones de un usuario(nombre)
+                SELECT obs.* 
+                FROM `observaciones` obs 
+                WHERE created_by = 
+                    (SELECT u.user_id 
+                    FROM `usuarios` u 
+                    WHERE u.username = 'manel');
+
+            FULL CONSULTA: 
+                //las observaciones, con los datos de su objeto respectivo, y los datos su telescopio respectivo, de un usuario concreto
+                SELECT obs.*, obj.*, tl.*
+                FROM `objetos` obj
+                LEFT JOIN `observaciones` obs ON obj.objeto_id = obs.observed_object
+                LEFT JOIN `telescopios` tl ON obs.telescopeUsed = tl.telescope_id
+                WHERE obs.created_by = (SELECT u.user_id from `usuarios` u where u.username = 'manel');
+
         -crear php para peticion
             -hacer peticion
             -devolver JSON
