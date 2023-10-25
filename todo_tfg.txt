@@ -2,6 +2,13 @@ TODO's EN PROCESO:
     -conseguir leer de la DB las observaciones del usuario OK
     -conseguir leer de la DB los datos de usuario OK
 
+    -ver detalles de observaciones
+        -repensar flow logica funciones de observaciones
+            Alt1: reformular consulta SQL de loadObservations para pedir solamente los datos necesarios para la card, 
+                crear otra funcion y controlador para pedir los datos completos de cada card
+            Alt2: somehow hacer que pase otra vez por la funcion de loadObs, 
+                o hacer un return de loadObs() a una variable global del .js y de ahí llamar a una funcion que muestre los detalles completos en el modal
+
 ----------------------------
 MODIFICACIONES PENDIENTES: 
 

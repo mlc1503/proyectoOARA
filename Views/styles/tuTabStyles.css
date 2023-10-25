@@ -111,6 +111,7 @@ body::-webkit-scrollbar{
 
                     background-image: url(../../Resources/defaultUser.png);
                     background-size: contain;
+                    background-repeat: no-repeat;
 
                     border-radius: 100%;
                 }

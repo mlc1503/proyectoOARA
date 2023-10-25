@@ -117,10 +117,15 @@ function loadObservations(){
                     </div>`;
 
             $("#observations").append(Card);
+            $(`#card${obsDetails[i].observacion_id}`).attr("onclick", `seeFullDetails(${obsDetails[i].observacion_id})`);
         }
     }})
-
 }
+
+function seeFullDetails(idObs){
+    console.log(idObs);
+}
+
 function loadUserData() {
     $.ajax({url: '../Controllers/getDataUsuario.php', success: function(userDetails){
         userDetails = JSON.parse(userDetails);
