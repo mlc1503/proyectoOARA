@@ -54,16 +54,10 @@ body::-webkit-scrollbar{
 
                     cursor: pointer;
                 }
-
-                /* .menuOption:hover{
-                    text-decoration: underline;
-                } */
-
         .sep{
             border: 1px solid;
             height: auto;
         }
-
         .content{
             width: calc(100% - 1rem - 1px - 1rem - 10rem);
             height: auto;
@@ -73,7 +67,6 @@ body::-webkit-scrollbar{
                 max-width: 100%;
                 min-width: 30%;
             }
-
             .divBotonAdd{
                 width: auto;
                 height: auto;
@@ -83,13 +76,14 @@ body::-webkit-scrollbar{
                     
                     width: 9.3125rem;
                     height: 3.25rem;
-                    background-color: rgb(152, 241, 255);
                     box-shadow: 0px 4px 4px 0px rgba(24, 22, 20, 0.20);;
                     border-radius: 1rem;
 
                     display: flex;
                     justify-content: center;
                     align-items: center;
+
+                    cursor: pointer;
                 }
                 .boton>p{
                     display: flex;
@@ -147,6 +141,7 @@ body::-webkit-scrollbar{
                 gap: 1rem;
                 flex-wrap: wrap;
             }
+
                 .card{
                     width: 16.10969rem;
                     height: auto;
@@ -155,6 +150,8 @@ body::-webkit-scrollbar{
                     border-radius: 1rem;
                     background: #D9D9D9;
                     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+                    cursor: pointer;
                 }
                     .obsImage{
                         width: 100%;

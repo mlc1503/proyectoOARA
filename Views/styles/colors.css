@@ -1,0 +1,18 @@
+.primary{
+    background-color: whitesmoke;
+}
+.secondary{
+    background-color: gray;
+}
+.text-black{
+    color: #181614;
+}
+.text-font-white{
+    color: whitesmoke;
+}
+.button-cancel-color{
+    background-color: #E0284A;
+}
+.button-default-color{
+    background-color: rgb(152, 241, 255);
+}
