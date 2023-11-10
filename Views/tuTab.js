@@ -4,6 +4,7 @@ $(function(){
     tabShown("data");
     loadUserData();
     loadObservations();
+    loadCreateObs();
 })
 
 function tabShown(idTab){
@@ -37,8 +38,8 @@ function tabShown(idTab){
         $("#photosOption").css("text-decoration", "underline");
         
         $(".divBotonAdd").show();
-        $(".boton>p").html("Añadir foto");
-        $(".boton").attr("onclick", "add('addFoto')");
+        $(".botonAdd>p").html("Añadir foto");
+        $(".botonAdd").attr("onclick", "add('addFoto')");
 
         
         $("#data").hide();
@@ -52,8 +53,8 @@ function tabShown(idTab){
         $("#observations").show();
         $("#obsOption").css("text-decoration", "underline");
         $(".divBotonAdd").show();
-        $(".boton>p").html("Añadir observación");
-        $(".boton").attr("onclick", "add('addObservacion')");
+        $(".botonAdd>p").html("Añadir observación");
+        $(".botonAdd").attr("onclick", "add('addObservacion')");
         
         
         $("#data").hide();
@@ -73,7 +74,7 @@ function tabShown(idTab){
         $("#photosOption").css("text-decoration", "none");
         $("#observations").hide();
         $("#obsOption").css("text-decoration", "none");
-    }
+    }1
 }
 
 function loadObservations(){
@@ -95,9 +96,11 @@ function loadObservations(){
 }
 
 function pintarCards(){
+    $("#observations").html("");
 
     //pintamos las cards con toda la info necesaria
 
+        debugger;
     for (let i = 0; i < Object.keys(obsInfo).length; i++) {
         var Card = 
                 `<div class="card" id="card${obsInfo[i].observacion_id}" onclick="seeFullDetails(${obsInfo[i].observacion_id})">
@@ -109,7 +112,7 @@ function pintarCards(){
                         <div class="obsData">
                             <div class="targetCoordsDiv">
                                 <div class="targetTitle"><p class="subTitle">Target:</p></div>
-                                <div class="targetData"><p class="subTitle">${obsInfo[i].targetName}</p></div>
+                                <div class="targetData"><p class="subTitle">${obsInfo[i].name}</p></div>
                             </div>
                             <div class="telescopeDiv">
                                 <div class="telTitle"><p class="subTitle">Telescope:</p></div>
@@ -142,6 +145,14 @@ function pintarCards(){
 
 function seeFullDetails(idCard){
     //cargar detalles en modal
+
+    //segun que filtros se hayan seleccionado en la observación, creamos <p> por cada filtro
+    var filtros = obsInfo[idCard].filters.split(",");
+    var htmlFiltros = "";
+    for (let index = 0; index < filtros.length; index++) {
+        htmlFiltros += `<p>${filtros[index]}</p>`
+    }
+    
     var modal = 
     `<div class="divModal">
         <div class="modalDetallesObs">
@@ -202,11 +213,7 @@ function seeFullDetails(idCard){
                     <div id="filtroDetails">
                         <p class="filtroLabel labelText">Filtros:</p>
                         <div id="usedFilters">
-                            <p>L: 00h</p>
-                            <p>RGB: 00h</p>
-                            <p>Oiii: 00h</p>
-                            <p>Ha: 00h</p>
-                            <p>Sii: 00h</p>
+                        ${htmlFiltros}
                         </div>
                     </div>
                     <div class="flex space-between">
@@ -247,12 +254,12 @@ function add(tabSelected){
     if(tabSelected == "addObservacion"){
         $("#observations").hide();
         $("#add").show();
-        $(".boton>p").text("Cancelar");
-        $(".boton>p").removeClass("text-black");
-        $(".boton>p").addClass("text-font-white");
-        $(".boton").attr("onclick", "hide('addObservacion')");
-        $(".boton").removeClass("button-default-color");
-        $(".boton").addClass("button-cancel-color");
+        $(".botonAdd>p").text("Cancelar");
+        $(".botonAdd>p").removeClass("text-black");
+        $(".botonAdd>p").addClass("text-font-white");
+        $(".botonAdd").attr("onclick", "hide('addObservacion')");
+        $(".botonAdd").removeClass("button-default-color");
+        $(".botonAdd").addClass("button-cancel-color");
     }
     else if(tabSelected == "addFoto"){
     }
@@ -264,12 +271,12 @@ function hide(tabSelected) {
     if(tabSelected == "addObservacion"){
         $("#observations").show();
         $("#add").hide();
-        $(".boton>p").text("Añadir observación");
-        $(".boton>p").removeClass("text-font-white");
-        $(".boton>p").addClass("text-black");
-        $(".boton").attr("onclick", "add('addObservacion')");
-        $(".boton").removeClass("button-cancel-color");
-        $(".boton").addClass("button-default-color");
+        $(".botonAdd>p").text("Añadir observación");
+        $(".botonAdd>p").removeClass("text-font-white");
+        $(".botonAdd>p").addClass("text-black");
+        $(".botonAdd").attr("onclick", "add('addObservacion')");
+        $(".botonAdd").removeClass("button-cancel-color");
+        $(".botonAdd").addClass("button-default-color");
     }
     else if(tabSelected == "addFoto"){
     }
@@ -283,4 +290,96 @@ function eliminarObs(idObs) {
     alert("estas seguro de que quieres borrar la obs?")
     //cerrar modal
     cerrarModal();
+}
+
+function loadCreateObs(){
+    //pedimos de la bd todos los telescopios disponibles, y una lista de objetos
+
+    //ajaxTelescopios:
+    $.ajax({url: '../Controllers/getAllTelescopios.php', success: function(telescopeJSON){
+        telescopeJSON = JSON.parse(telescopeJSON);        
+        for (let i = 0; i < Object.keys(telescopeJSON).length; i++) {
+            var inputTelescopioDiv = 
+            `<div>
+            <input type="radio" name="telInput" id="tel${i}" value="${telescopeJSON[i].telescope_id}">
+            <label for="tel${i}">${telescopeJSON[i].fullName}; ${telescopeJSON[i].fl}mm, f${Math.floor(telescopeJSON[i].apert)}</label>
+            </div>`;   
+            
+            $("#telescopiosListDiv").append(inputTelescopioDiv);
+            
+        } 
+    }})
+
+
+    //ajax objetos:
+    $.ajax({url: '../Controllers/getAllObjects.php', success: function(objectsJSON){
+        objectsJSON = JSON.parse(objectsJSON);
+        for (let i = 0; i < Object.keys(objectsJSON).length; i++) {
+            var optionObject = 
+            `<option value="${objectsJSON[i].objeto_id}">${objectsJSON[i].name}; ${objectsJSON[i].catalog}</option>`;
+            $("#objectsSelect").append(optionObject);
+        } 
+    }})
+}
+
+
+function crearObs() {
+
+    var nombreObservacion, objetoObservacion, telescopioObs, filtrosObs = [], startDate, integracionHoras;
+    
+    nombreObservacion = $("#inputNombreObs").val().trim();
+    objetoObservacion = $("#objectsSelect").val().trim();
+    telescopioObs = $('input[name="telInput"]:checked').val();
+    integracionHoras = $("#integracionNumberInput").val();
+
+    //cogemos todos los inputs:checkbox de name="filters" y los añadimos a un array
+    $('input[name="filters"]:checked').each(function() {
+        filtrosObs.push(this.value);
+    });
+    
+    // vemos si la fecha es valida
+    try{
+        startDate = new Date($("#startDateInput").val());
+        startDate = startDate.toISOString().split('T')[0]; //convertimos fecha en yyyy-mm-dd
+    } catch (RangeError) {
+        $("#errMessage>small").css("color", "red");
+        $("#errMessage>small").html("La fecha no es válida");
+        return;
+    }
+    // si los campos estan vacios, no se manda la consulta
+    if(isEmpty(nombreObservacion) || isEmpty(objetoObservacion) || isEmpty(telescopioObs) || filtrosObs.length == 0){
+        $("#errMessage>small").css("color", "red");
+        $("#errMessage>small").html("Hay campos obligatorios por rellenar");
+        return;
+    }
+    //si esta todo correcto, ajax post
+    else{
+
+        //convertimos array en string, se nos separa con comas
+        filtrosObs = filtrosObs.toString();
+
+        //objeto con todas las variables
+        var dataObs = {
+            name: nombreObservacion,
+            target: objetoObservacion,
+            telescopio: telescopioObs,
+            filter: filtrosObs,
+            start: startDate,
+            integration: integracionHoras,
+        }
+
+        $.post('../Controllers/almacenarObs.php',
+            {data: JSON.stringify(dataObs)}
+        ).done(function(data){
+            if(data == 1){
+                console.log("registro añadido");
+                loadObservations()
+            }
+
+        });
+    }
+}
+
+function isEmpty(value) {
+    return (value == null || (typeof value === "string" && value.trim().length === 0));
 }

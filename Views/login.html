@@ -10,7 +10,7 @@
     <script src="../jquery-3.7.0.min.js"></script>
     <script src="./login.js"></script>
 </head>
-<body>
+<body onkeydown="sendLogin()">
     <div class="bg-image" style="background-image: url(../Resources/eleTrunkLogin.jpg)"></div>
     <div id="loginDiv">
         <div id="titleDiv">
@@ -39,7 +39,7 @@
         <div class="registerLink" id="errMessage"><small><a href="registerPage.html">No tienes una cuenta? Regístrate</a></small></div>
         <div id="buttonDiv">
             <button class="sendLogin" onclick="sendLogin()">
-                IniciarSesionBtn
+                Iniciar sesión
             </button>
         </div>
     </div>

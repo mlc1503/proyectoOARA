@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto OARA - Home</title>
-    <link rel="stylesheet" href="./styles/navbar.css">
-    <link rel="stylesheet" href="./styles/modal.css">
-    <link rel="stylesheet" href="./styles/tuTabStyles.css">
-    <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/colors.css">
+    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+
+    <link rel="stylesheet" href="./styles/tuTabStyles.css">
+    <link rel="stylesheet" href="./styles/modal.css">
 
     <script src="../jquery-3.7.0.min.js"></script>
     <script src="./tuTab.js"></script>
@@ -64,7 +65,7 @@ Manel Lagunas">
         <div class="sep"></div>
         <div class="content">
             <div class="divBotonAdd">
-                <div class="boton button-default-color" onclick="add()">
+                <div class="botonAdd button-default-color" onclick="add()">
                     <p class="buttonText text-black">Añadir Observación</p>
                 </div>
             </div>
@@ -107,6 +108,102 @@ Manel Lagunas">
             <div id="observations">
             </div>
             <div id="publications"></div>
+            <div id="add">
+                <div>
+                    <div class="field1">
+                        <div class="inputNombreObsDiv">
+                            <div class="labelAdorno">
+                                <div class="adorno button-default-color"></div>
+                                <p class="title">Nombre Observación</p>
+                            </div>
+                            <div class="pad-content">
+                                <input type="text" name="" id="inputNombreObs" class="input">
+                            </div>
+                        </div>
+                        <div class="inputTargetObsDiv">
+                            <div class="labelAdorno">
+                                <div class="adorno button-default-color"></div>
+                                <p class="title">Objeto a observar:</p>
+                            </div>
+                            <div class="pad-content">
+                                <select name="objects" id="objectsSelect">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sep"></div>
+                    <div class="field2 flex space-between">
+                        <div class="flex-column space-between">
+                            <div id="telescopioInputDiv" class="flex-column">
+                                <div class="labelAdorno">
+                                    <div class="adorno button-default-color"></div>
+                                    <p class="title">Telescopio:</p>
+                                </div>
+                                <div id="telescopiosListDiv" class="flex-column pad-content">
+                                    
+                                </div>
+                            </div>
+                            <div class="sep"></div>
+                            <div id="filtrosInputDiv" class="flex-column">
+                                <div class="labelAdorno">
+                                    <div class="adorno button-default-color"></div>
+                                    <p class="title">Filtros:</p>
+                                </div>
+                                <div class="filtrosListDiv pad-content">
+                                    <div class="flex">
+                                        <input type="checkbox" name="filters" id="t1" value="L">
+                                        <label for="t1">Luminance</label>
+                                    </div>
+                                    <div class="flex">
+                                        <input type="checkbox" name="filters" id="t2" value="RGB">
+                                        <label for="t2">RGB</label>
+                                    </div>
+                                    <div class="flex">
+                                        <input type="checkbox" name="filters" id="t3" value="Sii">
+                                        <label for="t3">Sii</label>
+                                    </div>
+                                    <div class="flex">
+                                        <input type="checkbox" name="filters" id="t4" value="Oiii">
+                                        <label for="t4" class="te">Oiii</label>
+                                    </div>
+                                    <div class="flex">
+                                        <input type="checkbox" name="filters" id="t5" value="Ha">
+                                        <label for="t5">H-Alpha</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-column space-between">
+                            <div id="startDateInputDiv">
+                                <div class="labelAdorno">
+                                    <div class="adorno button-default-color"></div>
+                                    <p class="title">Fecha de inicio:</p>
+                                </div>
+                                <div class="flex center pad-content">
+                                    <input type="date" name="" id="startDateInput" pattern="\d{4}-\d{2}-\d{2}">
+                                </div>
+                            </div>
+                            <div class="sep"></div>
+                            <div id="integracionInputDiv">
+                                <div class="labelAdorno">
+                                    <div class="adorno button-default-color"></div>
+                                    <p class="title">Integración:</p>
+                                </div>
+                                <div class="flex center pad-content">
+                                    <input type="number" name="" id="integracionNumberInput">
+                                    <p>horas en total</p>
+                                </div>
+                            </div>
+                            <div class="divBotonCrear">
+                                <div class="botonCrear button-default-color" onclick="crearObs()">
+                                    <p class="buttonText text-black">Crear Observación</p>
+                                </div>
+                            </div>
+                            <div class="flex center" id="errMessage"><small></small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div id="footer">
