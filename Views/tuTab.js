@@ -99,8 +99,6 @@ function pintarCards(){
     $("#observations").html("");
 
     //pintamos las cards con toda la info necesaria
-
-        debugger;
     for (let i = 0; i < Object.keys(obsInfo).length; i++) {
         var Card = 
                 `<div class="card" id="card${obsInfo[i].observacion_id}" onclick="seeFullDetails(${obsInfo[i].observacion_id})">
@@ -146,8 +144,17 @@ function pintarCards(){
 function seeFullDetails(idCard){
     //cargar detalles en modal
 
+    // buscamos indice del array obsInfo donde obsInfo[n].observacion_id == idCard
+    let n = 0;
+    for (;n < obsInfo.length; n++) {
+        let id = obsInfo[n].observacion_id
+        if (id == idCard) {
+            break;
+        }
+    }
+    
     //segun que filtros se hayan seleccionado en la observación, creamos <p> por cada filtro
-    var filtros = obsInfo[idCard].filters.split(",");
+    var filtros = obsInfo[n].filters.split(",");
     var htmlFiltros = "";
     for (let index = 0; index < filtros.length; index++) {
         htmlFiltros += `<p>${filtros[index]}</p>`
@@ -164,49 +171,49 @@ function seeFullDetails(idCard){
                     <div id="obsCreationDataDiv">
                         <div class="createdDiv flex space-between">
                             <p class="createdLabel">Creado el:</p>
-                            <p class="createdDate">${obsInfo[idCard].created_at}</p>
+                            <p class="createdDate">${obsInfo[n].created_at}</p>
                         </div>
                         <div class="obsStartDiv">
                             <p class="obsStartLabel">Observacion comenzada el:</p>
-                            <p class="obsStartDate">${obsInfo[idCard].observe_startdate}</p>
+                            <p class="obsStartDate">${obsInfo[n].observe_startdate}</p>
                         </div>
                         <div class="obsTimeDiv">
                             <p class="obsTimeLabel">Tiempo de observación total:</p>
-                            <p class="obsTimeDate">${obsInfo[idCard].integration_totalTime}h</p>
+                            <p class="obsTimeDate">${obsInfo[n].integration_totalTime}h</p>
                         </div>
                     </div>
                 </div>
                 <div id="generalDetailsDiv">
                     <div class="flex center">
-                        <p id="tituloObsLabel" class="title text-center">${obsInfo[idCard].nombreObservacion}</p>
+                        <p id="tituloObsLabel" class="title text-center">${obsInfo[n].nombreObservacion}</p>
                     </div>
                     <div id="targetDetails">
                         <div class="flex space-between">
                             <p class="labelText">Objeto: </p>
-                            <p class="targetName labelText">${obsInfo[idCard].name}</p>
+                            <p class="targetName labelText">${obsInfo[n].name}</p>
                         </div>
                         <div>
-                            <p id="coordsLabel" class="text-center contentText">RA: ${obsInfo[idCard].coord_RA} , DEC: ${obsInfo[idCard].coord_DEC}</p>
-                            <p id="catalogLabel" class="text-center contentText">Catalogo: ${obsInfo[idCard].catalog}</p>
+                            <p id="coordsLabel" class="text-center contentText">RA: ${obsInfo[n].coord_RA} , DEC: ${obsInfo[n].coord_DEC}</p>
+                            <p id="catalogLabel" class="text-center contentText">Catalogo: ${obsInfo[n].catalog}</p>
                         </div>
                     </div>
                     <div id="telescopioDetails">
                         <div class="flex space-between">
                             <p class="labelText">Telescopio:</p>
-                            <p id="telescopeName" class="labelText">${obsInfo[idCard].nombreTel}</p>
+                            <p id="telescopeName" class="labelText">${obsInfo[n].nombreTel}</p>
                         </div>
                         <div>
                             <div class="flex center">
                                 <p class="text-center contentText">Nombre: </p>
-                                <p id="fullNomTelescope" class="text-center contentText">${obsInfo[idCard].fullName}</p>
+                                <p id="fullNomTelescope" class="text-center contentText">${obsInfo[n].fullName}</p>
                             </div>
                             <div class="flex center">
                                 <p class="text-center contentText">Focal: </p>
-                                <p id="focalTelescope"class="text-center contentText">${obsInfo[idCard].fl}mm</p>
+                                <p id="focalTelescope"class="text-center contentText">${obsInfo[n].fl}mm</p>
                             </div>
                             <div class="flex center">
                                 <p class="text-center contentText">Apertura: </p>
-                                <p id="apertureTelescope" class="text-center contentText">${obsInfo[idCard].apert}</p>
+                                <p id="apertureTelescope" class="text-center contentText">${obsInfo[n].apert}</p>
                             </div>
                         </div>
                     </div>
@@ -218,7 +225,7 @@ function seeFullDetails(idCard){
                     </div>
                     <div class="flex space-between">
                         <p class="labelText">Progreso:</p>
-                        <p id="progresoPorcentaje" class="labelText">${obsInfo[idCard].progress}%</p>
+                        <p id="progresoPorcentaje" class="labelText">${obsInfo[n].progress}%</p>
                     </div>
                 </div>
             </div>
@@ -226,7 +233,7 @@ function seeFullDetails(idCard){
                 <div id="botonCerrarObs" onclick="cerrarModal()">
                     <p class="text-center buttonText text-black">Cerrar</p>
                 </div>
-                <div id="botonEliminarObs" class="button-cancel-color" onclick="eliminarObs(${obsInfo[idCard].observacion_id})">
+                <div id="botonEliminarObs" class="button-cancel-color" onclick="eliminarObs(${obsInfo[n].observacion_id})">
                     <p class="text-center buttonText text-font-white">Eliminar</p>
                 </div>
             </div>
@@ -287,9 +294,19 @@ function cerrarModal() {
 }
 function eliminarObs(idObs) {
     //eliminar observacion a traves de modal
-    alert("estas seguro de que quieres borrar la obs?")
+    if(confirm("Estás seguro de que quieres borrar la observación?")){  
+        $.post('../Controllers/eliminarObs.php',
+        {idObs: idObs}
+        ).done(function(data){
+
+            if(data == 1){
+                cerrarModal();
+                loadObservations();
+            }
+        });
+    }
+
     //cerrar modal
-    cerrarModal();
 }
 
 function loadCreateObs(){
@@ -321,7 +338,6 @@ function loadCreateObs(){
         } 
     }})
 }
-
 
 function crearObs() {
 
