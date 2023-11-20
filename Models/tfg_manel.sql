@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2023 a las 19:06:05
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Nov 20, 2023 at 02:59 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `tfg_manel`
+-- Database: `tfg_manel`
 --
 CREATE DATABASE IF NOT EXISTS `tfg_manel` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `tfg_manel`;
@@ -26,7 +26,7 @@ USE `tfg_manel`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `imagenes`
+-- Table structure for table `imagenes`
 --
 
 CREATE TABLE `imagenes` (
@@ -42,7 +42,7 @@ CREATE TABLE `imagenes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `objetos`
+-- Table structure for table `objetos`
 --
 
 CREATE TABLE `objetos` (
@@ -54,7 +54,7 @@ CREATE TABLE `objetos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `objetos`
+-- Dumping data for table `objetos`
 --
 
 INSERT INTO `objetos` (`objeto_id`, `name`, `catalog`, `coord_DEC`, `coord_RA`) VALUES
@@ -64,7 +64,7 @@ INSERT INTO `objetos` (`objeto_id`, `name`, `catalog`, `coord_DEC`, `coord_RA`) 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `observaciones`
+-- Table structure for table `observaciones`
 --
 
 CREATE TABLE `observaciones` (
@@ -81,18 +81,19 @@ CREATE TABLE `observaciones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `observaciones`
+-- Dumping data for table `observaciones`
 --
 
 INSERT INTO `observaciones` (`observacion_id`, `nombreObservacion`, `created_by`, `created_at`, `observe_startdate`, `integration_totalTime`, `observed_object`, `telescopeUsed`, `filters`, `progress`) VALUES
-(0, 'test1', 1, '2023-10-10', '2023-10-10', '50', 0, 0, 'L,Ha,RGB,Sii,Oiii', 46),
-(1, 'test2', 1, '2023-10-10', '2023-10-10', '50', 1, 0, 'L,Ha,RGB,Sii,Oiii', 46),
-(2, 'Pleiades', 2, '2023-10-10', '2023-10-10', '3', 0, 0, 'L,Ha,RGB,Sii,Oiii', 46);
+(0, 'test1', 1, '2023-10-10', '2023-10-10', 50, 0, 0, 'L,Ha,RGB,Sii,Oiii', 46),
+(1, 'test2', 1, '2023-10-10', '2023-10-10', 50, 1, 0, 'L,Ha,RGB,Sii,Oiii', 46),
+(2, 'dsgfs', 1, '2023-11-17', '1998-05-10', 13, 1, 3, 'RGB', 16),
+(3, 'dsgfs2', 1, '2023-11-17', '1998-05-10', 13, 1, 3, 'RGB', 90);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `reservas`
+-- Table structure for table `reservas`
 --
 
 CREATE TABLE `reservas` (
@@ -105,29 +106,31 @@ CREATE TABLE `reservas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `telescopios`
+-- Table structure for table `telescopios`
 --
 
 CREATE TABLE `telescopios` (
   `telescope_id` int(11) NOT NULL,
   `nombreTel` varchar(20) NOT NULL,
-  `fl` int(3) NOT NULL,
+  `fl` int(4) NOT NULL,
   `apert` decimal(5,2) NOT NULL,
   `fullName` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `telescopios`
+-- Dumping data for table `telescopios`
 --
 
 INSERT INTO `telescopios` (`telescope_id`, `nombreTel`, `fl`, `apert`, `fullName`) VALUES
-(0, 'TAK FSQ130', 650, '5.00', 'Takahashi FSQ130'),
-(1, 'ROK 135F2', 135, '2.00', 'Rokinon 135mm f/2.0');
+(0, 'TAK FSQ130', 650, 5.00, 'Takahashi FSQ130'),
+(1, 'ROK 135F2', 135, 2.00, 'Rokinon DSLR FF'),
+(2, 'SW 72ED', 420, 5.80, 'SkyWatcher Evostar 72ED'),
+(3, 'OM RC Pro', 2432, 8.00, 'Omegon Ritchey-Chretien Pro');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -139,7 +142,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`user_id`, `username`, `pass`, `email`, `role`) VALUES
@@ -147,24 +150,24 @@ INSERT INTO `usuarios` (`user_id`, `username`, `pass`, `email`, `role`) VALUES
 (2, 'test1', 'test1', 'test1', 1);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `imagenes`
+-- Indexes for table `imagenes`
 --
 ALTER TABLE `imagenes`
   ADD PRIMARY KEY (`imagen_id`),
   ADD KEY `project_id` (`project_id`);
 
 --
--- Indices de la tabla `objetos`
+-- Indexes for table `objetos`
 --
 ALTER TABLE `objetos`
   ADD PRIMARY KEY (`objeto_id`);
 
 --
--- Indices de la tabla `observaciones`
+-- Indexes for table `observaciones`
 --
 ALTER TABLE `observaciones`
   ADD PRIMARY KEY (`observacion_id`),
@@ -173,37 +176,37 @@ ALTER TABLE `observaciones`
   ADD KEY `telescopeUsed` (`telescopeUsed`);
 
 --
--- Indices de la tabla `reservas`
+-- Indexes for table `reservas`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`reserva_id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indices de la tabla `telescopios`
+-- Indexes for table `telescopios`
 --
 ALTER TABLE `telescopios`
   ADD PRIMARY KEY (`telescope_id`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`user_id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `imagenes`
+-- Constraints for table `imagenes`
 --
 ALTER TABLE `imagenes`
   ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `observaciones` (`observacion_id`);
 
 --
--- Filtros para la tabla `observaciones`
+-- Constraints for table `observaciones`
 --
 ALTER TABLE `observaciones`
   ADD CONSTRAINT `observaciones_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `usuarios` (`user_id`),
