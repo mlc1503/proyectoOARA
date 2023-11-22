@@ -1,9 +1,9 @@
 TODO's EN PROCESO:
+-Responsiveness
 ----------------------------
 MODIFICACIONES PENDIENTES: 
 
-PRIORIZA FUNCIONALIDAD
--Responsiveness
+-PRIORIZA FUNCIONALIDAD
 
 -justificar Texto index
 
@@ -12,8 +12,6 @@ PRIORIZA FUNCIONALIDAD
 -añadir calendario para reservar visitas(formulario)
     https://www.geeksforgeeks.org/how-to-add-a-datepicker-in-form-using-html/
 
--añadir favicon
-
 -mejorar footer
 
--cambiar TU del navbar
+-añadir maps de ubicaciones(tipo casa emilio para reservar o algo asi en turismoTab) https://blog.hubspot.com/website/how-to-embed-google-map-in-html

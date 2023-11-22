@@ -33,6 +33,7 @@ $(function(){ //cuando el html esté cargado:
                         $("#sessionButton>a").attr("href" , "login.html");
                     }
                 })
+                location.href = 'index.html'; //cuando hacemos delog, nos envía al inicio
             })
         }
         else{

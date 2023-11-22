@@ -1,0 +1,17 @@
+/* hoja de estilos donde van atributos de css como clases de html tags */
+
+.flex{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.space-between{
+    justify-content: space-between;
+}
+.center{
+    justify-content: center;
+}
+.text-center{
+    text-align: center;
+}

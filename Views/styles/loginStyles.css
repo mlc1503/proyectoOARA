@@ -57,8 +57,7 @@ a:hover{
         width: 100%;
         height: 20%;
     }
-        #titleDiv>h1{
-            font-size: 40px;
+        #titleDiv>a>h1{
             padding: 0px;
             margin: 0px;
             margin-bottom: 0.5em;

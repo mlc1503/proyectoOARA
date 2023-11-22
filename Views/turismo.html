@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../Resources/favicon.png">
     <link rel="stylesheet" href="./styles/colors.css">
     <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./styles/meta.css">
     <link rel="stylesheet" href="./styles/indexStyle.css">
     <link rel="stylesheet" href="./styles/navbar.css">
 
@@ -17,26 +18,26 @@
 <body>
     <div class="navbar">
         <div class="navbarTab" id="navbarLogo">
-            <a href="index.html">OARA</a>
+            <a href="index.html" class="navbarOARA">OARA</a>
         </div>
         <div id="navbarContent">
             <div id="pageTabsDiv">
                 <div class="navbarTab pageTab" id="placeholder">
-                    <a href="./turismo.html">Turismo</a>
+                    <a href="./turismo.html" class="navbarLeftTabs">Turismo</a>
                 </div>
-                <div class="navbarTab pageTab" id="placeholder">
+                <!-- <div class="navbarTab pageTab" id="placeholder">
                     <a href="./aboutUs.html">Nosotros</a>
-                </div>
+                </div> -->
                 <div class="navbarTab pageTab" id="placeholder">
-                    <a href=".galeria.html">Galería</a>
+                    <a href=".galeria.html" class="navbarLeftTabs">Galería</a>
                 </div>
                 <div class="navbarTab pageTab tuTab" id="placeholder">
-                    <a href="">Perfil</a>
+                    <a href="" class="navbarLeftTabs">Perfil</a>
                 </div>
             </div>
             <div id="loginTabsDiv">
-                <div class="navbarTab loginTab" id="configButton"><a href="./registerPage.html">Sign In</a></div>
-                <div class="navbarTab loginTab" id="sessionButton"><a href="./login.html">Log In</a></div>
+                <div class="navbarTab loginTab nabvarRightTabs" id="configButton"><a href="./registerPage.html">Sign In</a></div>
+                <div class="navbarTab loginTab nabvarRightTabs" id="sessionButton"><a href="./login.html">Log In</a></div>
             </div>
         </div>
     </div>
@@ -45,33 +46,63 @@
 el Hemisferio Sur. 
 Flickr">
          <div id="titleDiv">
-            <p id="titleText"><b>Turismo</b></p>
+            <p class="pageMainTitle">Turismo</p>
             <div class="sep"></div>
-            <p id="subTitleText">Observatorio Astronómico del Rincón de Ademuz</p>
+            <p class="pageMainSubTitle">Observatorio Astronómico del Rincón de Ademuz</p>
         </div></div>
         <br>
         <div class="sep"></div>
         <div id="textDiv">
-            <h1>Turismo</h1>
-            <p class="contentText">
-                En la serena localidad de Torrebaja, en el encantador Rincón de Ademuz, se erige el Observatorio Astronómico del Rincón de Ademuz (OARA), una joya celestial en manos del joven y visionario estudiante Manel Lagunas. A sus apenas 20 años, Lagunas ha dado vida a un observatorio amateur con el propósito de explorar y difundir la belleza del universo, y recientemente ha abierto sus puertas al público general y científico.
-                <br><br>
-                Desde temprana edad, Manel Lagunas ha sentido una profunda fascinación por el cielo nocturno y los misterios del cosmos. Con su espíritu curioso y una pasión desbordante por la astronomía, decidió canalizar su energía y conocimiento en la creación de un observatorio propio en su amada localidad de Torrebaja.
-                Guiado por su dedicación y el deseo de compartir su amor por las estrellas, Manel Lagunas se embarcó en la tarea de materializar su sueño. A pesar de contar con recursos limitados, el joven estudiante puso todo su empeño en adquirir los instrumentos necesarios y construir el OARA.
-                <br><br>
-                Inicialmente concebido como un proyecto amateur, el observatorio ha ido evolucionando y expandiendo su alcance. Manel Lagunas ha dedicado incansables horas de estudio y observación para desarrollar una comprensión profunda del firmamento y compartir su conocimiento con aquellos que desean descubrir los secretos del universo.
-                Recientemente, el OARA ha dado un paso adelante al abrir sus puertas al público en general y a la comunidad científica. Ahora, tanto los amantes de la astronomía como los investigadores pueden maravillarse con los astros bajo la guía experta de Manel Lagunas. <br>
-                Este observatorio, enclavado en un entorno privilegiado, brinda a los visitantes la oportunidad de explorar el cosmos a través de la observación directa y la participación en charlas educativas. Su apertura al público general ha despertado un nuevo interés en la comunidad local, cautivando a jóvenes y adultos por igual, y ha establecido un puente entre la ciencia y la sociedad.
-                <br><br>
-                El OARA es una muestra palpable de la pasión y el empuje de su creador, Manel Lagunas. Su visión y dedicación han permitido que esta modesta iniciativa amateur se convierta en un espacio de exploración celestial y aprendizaje, brindando a todos la oportunidad de maravillarse con la grandeza del universo.
-                <br><br>
-                <small>Powered by OpenAI</small>
+            <h1 class="contentTitleText text-black">Turismo</h1>
+            <p class="contentText text-black">
+                ¡Bienvenidos al Observatorio Astronómico del Rincón de Ademuz, donde la maravilla del cielo se encuentra con la autenticidad de la tierra! Aquí, la exploración astronómica se combina con experiencias únicas que te invitamos a descubrir durante todo el año.
+            </p>
+            <p class="text-black">
+                <span class="contentSubTitleText">Visitas Guiadas al Observatorio:</span>
+                <br>
+                <span class="contentText">Nuestras visitas guiadas te llevarán a un fascinante viaje a través del cosmos. Con Manel Lagunas como guía, podrás explorar el observatorio y conocer los secretos del universo. ¡Y lo mejor es que estamos abiertos durante todo el año! Desde las constelaciones de invierno hasta las noches estrelladas de verano, siempre hay algo increíble que observar.</span>
+            </p>
+            <p class="text-black">
+                <span class="contentSubTitleText">Noches de Observación Astronómica:</span>
+                <br>
+                <span class="contentText">Para el público general, nuestras noches de observación astronómica son una experiencia imperdible. Equipados con telescopios de última generación, podrás sumergirte en el universo y maravillarte con la inmensidad del cielo estrellado. Las explicaciones de Manel Lagunas transformarán cada punto en el firmamento en una historia fascinante.</span>
+            </p>
+            <p class="text-black">
+                <span class="contentSubTitleText">
+                    Talleres de Astronomía y Astrofotografía:
+                </span>
+                <br>
+                <span class="contentText">
+                    ¿Quieres llevar tu pasión por las estrellas al siguiente nivel? Únete a nuestros talleres de astronomía y astrofotografía. Aprenderás a capturar la belleza del espacio en tus propias imágenes, guiado por expertos que comparten su conocimiento con entusiasmo.
+                </span>
             </p>
         </div>
         <div class="sep"></div>
-        <br> 
-        
+        <div id="textDiv">
+            <p class="text-black">
+                <b>Pero la experiencia no termina ahí. </b>
+                <span class="contentText">Te animamos a explorar más allá del observatorio y sumergirte en las maravillas de los pueblos adyacentes a Torrebaja. Ademuz te espera con su encanto medieval, Casas Bajas con su autenticidad rural y Casas Altas con sus vistas panorámicas. Camina por los callejones empedrados de Castielfabib y revive la historia en cada rincón.</span>
+            </p>
+            <p class="text-black">
+                <span class="contentSubTitleText">Rutas Senderistas y Actividades Locales:</span>
+                <br>
+                <span class="contentText">
+                    Embárcate en rutas senderistas que te llevarán a través de paisajes impresionantes, desde bosques hasta colinas con vistas espectaculares. Sumérgete en la vida local participando en fiestas tradicionales como la Feria de la Manzana Esperiega, donde podrás degustar la variedad autóctona de la comarca. O deja que el aroma de la lavanda te envuelva en el Festival de la Lavanda de Ademuz. Descubre la riqueza cultural y gastronómica que define a esta región.
+                </span>
+                <br><br>
+                <span class="contentText">
+                    El Observatorio Astronómico del Rincón de Ademuz es solo el comienzo de una experiencia enriquecedora. Te instamos a explorar la región en su totalidad, descubriendo la belleza natural y cultural que la hace tan especial. ¡Ven y vive una experiencia completa que combina el asombro del cielo estrellado con la autenticidad de la vida en el Rincón de Ademuz!
+                </span>
+                <br><br>
+                <small>Powered by OpenAI</small>
+            </p>
+            <div class="sep"></div>
+        </div>
         <br>
+        <div id="textDiv">
+            <h1 class="contentTitleText">Reservas</h1>
+            <p class="text-center">Reserva tu visita guiada al observatorio</p>
+        </div>
         <div id="footer">
             <p>&#169; Manel Lagunas Cerni 2023</p>
         </div>

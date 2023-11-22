@@ -40,10 +40,70 @@
     line-height: normal;
 }
 .contentText{
+    /* texto normal y corriente para paginas normales(turismo,index) */
     font-family: Arial;
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
+    line-height: normal;
+}
+.pageMainTitle{
+    /* titulos como oara, turismo */
+    text-align: center;
+    font-family: Arial;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.pageMainSubTitle{
+    /* para "Observatorio Astronómico del Rincón de Ademuz */
+    text-align: center;
+    font-family: Arial;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.navbarOARA{
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.85rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.navbarLeftTabs{
+    text-align: center;
+    font-family: Arial;
+    font-size: 1.15rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.nabvarRightTabs{
+    text-align: right;
+    font-family: Arial;
+    font-size: 1.15rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.contentTitleText{
+    /* textos como Reservas, Turismo etc */
+    font-family: Arial;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.contentSubTitleText{
+    /* textos como Visitas Guiadas al Observatorio */
+    font-family: Arial;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
     line-height: normal;
 }
 /* FONTS END */
