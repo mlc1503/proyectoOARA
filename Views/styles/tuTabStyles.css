@@ -37,11 +37,6 @@ body::-webkit-scrollbar{
         padding: 2rem 5% 2rem 5%;
     }
 
-    @media (max-width: 33rem){
-        .mainContent{
-            display: block;
-        }
-    }
         .menuOptionsDiv{
             width: 10.0rem;
             height: auto;
@@ -60,6 +55,41 @@ body::-webkit-scrollbar{
 
                     cursor: pointer;
                 }
+        @media (max-width: 33rem){
+            .mainContent{
+                display: block;
+            }
+            .menuOptionsDiv{
+                width: 100%;
+                height: auto;
+                top: 0;
+            }
+            .stickyDiv{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .menuOption{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .mainContent{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                min-height: 1rem;
+            }
+            .content{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
         .sep{
             border: 1px solid;
             height: auto;

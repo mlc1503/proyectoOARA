@@ -16,8 +16,6 @@ function sendLogin(){
                 password: pass,
             },
             success: function(response){
-                console.log(response);
-    
                 if(response == 1){ //si existe:
                     $(".errMessage > small").css("visibility", "visible")  
                     location.href = 'index.html';

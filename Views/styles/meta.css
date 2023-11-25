@@ -1,4 +1,13 @@
 /* hoja de estilos donde van atributos de css como clases de html tags */
+.debug{
+    border: 1px solid;
+}
+.full-width{
+    width: 100%;
+}
+.half-width{
+    width: 50%;
+}
 
 .flex{
     display: flex;

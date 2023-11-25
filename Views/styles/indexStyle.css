@@ -44,9 +44,6 @@ a, a:link, a:visited{
     .index{
         background-image: url(../../Resources/veilNebula.png);
     }
-    .turismo{
-        background-image: url(../../Resources/milkyway.png);
-    }
         #titleDiv{
             width: fit-content;
             
@@ -109,3 +106,97 @@ a, a:link, a:visited{
         width: 5em;
     }
 }
+
+/* TURISMO PAG */
+
+.turismo{
+    background-image: url(../../Resources/milkyway.png);
+}
+
+#reservasDiv{
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+    .resInputDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 1rem;
+        width: 100%;
+    }
+    .resInputDiv>div{
+        width: 50%;
+        height: 2em;
+    }
+        .resInputDiv>div:first-child{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .resInputDiv>div:last-child{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        input[type=text], input[type=email], select{
+            width: 22rem;
+        }
+
+    @media (max-width:800px){
+        .resInputDiv{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .resInputDiv>div{
+            width: 50%;
+            height: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .resInputDiv>div:first-child, .resInputDiv>div:last-child{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input[type=text], input[type=email], select{
+            width: 100%;
+        }
+    }
+    #dniInput{
+        width: 8.75rem;
+    }
+    #errorDiv{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+    }
+        #errorMessage{
+            color: red;
+        }
+    .enviarReservaButton{
+        width: 9rem;
+        height: 3rem;
+        border-radius: 1rem;
+        box-shadow: 0px 4px 4px 0px rgba(24, 22, 20, 0.20);
+        margin-bottom: 1rem;
+        cursor: pointer;
+    }
+    .iframeDiv{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        column-gap: 1rem;
+    }
+    .iframeDiv>div>iframe{
+        width: 22rem;
+        height: 22rem;
+    }
+
+
+/* END TURISMO PAG */

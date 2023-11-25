@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2023 at 04:46 AM
+-- Generation Time: Nov 25, 2023 at 02:59 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `tfg_manel`
 --
-CREATE DATABASE IF NOT EXISTS `tfg_manel` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `tfg_manel` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `tfg_manel`;
 
 -- --------------------------------------------------------
@@ -33,11 +33,11 @@ CREATE TABLE `imagenes` (
   `imagen_id` int(11) NOT NULL,
   `captured_at` datetime NOT NULL,
   `project_id` int(11) NOT NULL,
-  `filter` varchar(20) NOT NULL,
+  `filter` varchar(20) DEFAULT NULL,
   `exposure` decimal(2,2) NOT NULL,
-  `image_type` varchar(20) NOT NULL,
+  `image_type` varchar(20) DEFAULT NULL,
   `file` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -51,15 +51,15 @@ CREATE TABLE `objetos` (
   `catalog` varchar(50) NOT NULL,
   `coord_DEC` varchar(20) NOT NULL,
   `coord_RA` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `objetos`
 --
 
 INSERT INTO `objetos` (`objeto_id`, `name`, `catalog`, `coord_DEC`, `coord_RA`) VALUES
-(1, 'Andromeda Galaxy', 'Messier 31', '00h,42m,44.3s', '+41d,16m,09s'),
-(2, 'North America Nebula', 'NGC 7000', '00:42:44.3', '+41d,16m,09s');
+(0, 'Andromeda Galaxy', 'Messier 31', '00h,42m,44.3s', '+41d,16m,09s'),
+(1, 'North America Nebula', 'NGC 7000', '00:42:44.3', '+41d,16m,09s');
 
 -- --------------------------------------------------------
 
@@ -78,19 +78,18 @@ CREATE TABLE `observaciones` (
   `telescopeUsed` int(11) NOT NULL,
   `filters` varchar(20) NOT NULL,
   `progress` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `observaciones`
 --
 
 INSERT INTO `observaciones` (`observacion_id`, `nombreObservacion`, `created_by`, `created_at`, `observe_startdate`, `integration_totalTime`, `observed_object`, `telescopeUsed`, `filters`, `progress`) VALUES
-(1, 'test1', 1, '2023-11-30', '2023-11-30', 50, 1, 1, 'L,Ha,RGB,Sii,Oiii', 46),
-(3, 'fdafd', 1, '2023-11-25', '2023-12-07', 235, 2, 2, 'RGB', 16),
-(4, 'fdafd', 1, '2023-11-25', '2023-12-07', 235, 2, 3, 'RGB', 90),
-(5, 'fdafd', 1, '2023-11-25', '2023-12-07', 235, 2, 4, 'RGB', 35),
-(6, 'fdafd', 1, '2023-11-25', '2023-12-14', 235, 2, 4, 'RGB', 96),
-(7, 'agfdsg', 4, '2023-11-25', '2023-11-29', 55, 1, 1, 'RGB', 92);
+(0, 'test1', 1, '2023-10-10', '2023-10-10', 50, 0, 0, 'L,Ha,RGB,Sii,Oiii', 46),
+(1, 'test2', 1, '2023-10-10', '2023-10-10', 50, 1, 0, 'L,Ha,RGB,Sii,Oiii', 46),
+(2, 'dsgfs', 1, '2023-11-17', '1998-05-10', 13, 1, 3, 'RGB', 16),
+(3, 'dsgfs2', 1, '2023-11-17', '1998-05-10', 13, 1, 3, 'RGB', 90),
+(5, 'fdafd', 1, '2023-11-22', '2023-11-30', 324, 1, 1, 'RGB,Sii', 81);
 
 -- --------------------------------------------------------
 
@@ -105,7 +104,7 @@ CREATE TABLE `reservas` (
   `fullName` varchar(70) NOT NULL,
   `dni` varchar(9) NOT NULL,
   `tipoReserva` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `reservas`
@@ -127,17 +126,17 @@ CREATE TABLE `telescopios` (
   `fl` int(4) NOT NULL,
   `apert` decimal(5,2) NOT NULL,
   `fullName` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `telescopios`
 --
 
 INSERT INTO `telescopios` (`telescope_id`, `nombreTel`, `fl`, `apert`, `fullName`) VALUES
-(1, 'TAK FSQ130', 650, 5.00, 'Takahashi FSQ130'),
-(2, 'ROK 135F2', 135, 2.00, 'Rokinon DSLR FF'),
-(3, 'SW 72ED', 420, 5.80, 'SkyWatcher Evostar 72ED'),
-(4, 'OM RC Pro', 2432, 8.00, 'Omegon Ritchey-Chretien Pro');
+(0, 'TAK FSQ130', 650, 5.00, 'Takahashi FSQ130'),
+(1, 'ROK 135F2', 135, 2.00, 'Rokinon DSLR FF'),
+(2, 'SW 72ED', 420, 5.80, 'SkyWatcher Evostar 72ED'),
+(3, 'OM RC Pro', 2432, 8.00, 'Omegon Ritchey-Chretien Pro');
 
 -- --------------------------------------------------------
 
@@ -149,17 +148,16 @@ CREATE TABLE `usuarios` (
   `user_id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `pass` varchar(100) NOT NULL,
-  `email` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`user_id`, `username`, `pass`, `email`) VALUES
-(1, 'manel', '1234', 'a@a.com'),
-(2, 'test1', 'test1', 'b@b.com'),
-(4, 'mlc', '1234', 'c@c.com');
+(1, 'manel', '1234', '1234'),
+(2, 'test1', 'test1', 'test1');
 
 --
 -- Indexes for dumped tables
@@ -183,9 +181,9 @@ ALTER TABLE `objetos`
 --
 ALTER TABLE `observaciones`
   ADD PRIMARY KEY (`observacion_id`),
-  ADD KEY `telescopeUsed` (`telescopeUsed`),
   ADD KEY `created_by` (`created_by`),
-  ADD KEY `observed_object` (`observed_object`);
+  ADD KEY `observed_object` (`observed_object`),
+  ADD KEY `telescopeUsed` (`telescopeUsed`);
 
 --
 -- Indexes for table `reservas`
@@ -212,40 +210,10 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT for table `imagenes`
---
-ALTER TABLE `imagenes`
-  MODIFY `imagen_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `objetos`
---
-ALTER TABLE `objetos`
-  MODIFY `objeto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `observaciones`
---
-ALTER TABLE `observaciones`
-  MODIFY `observacion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
   MODIFY `reserva_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `telescopios`
---
-ALTER TABLE `telescopios`
-  MODIFY `telescope_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -261,9 +229,9 @@ ALTER TABLE `imagenes`
 -- Constraints for table `observaciones`
 --
 ALTER TABLE `observaciones`
-  ADD CONSTRAINT `observaciones_ibfk_1` FOREIGN KEY (`telescopeUsed`) REFERENCES `telescopios` (`telescope_id`),
-  ADD CONSTRAINT `observaciones_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `usuarios` (`user_id`),
-  ADD CONSTRAINT `observaciones_ibfk_3` FOREIGN KEY (`observed_object`) REFERENCES `objetos` (`objeto_id`);
+  ADD CONSTRAINT `observaciones_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `usuarios` (`user_id`),
+  ADD CONSTRAINT `observaciones_ibfk_2` FOREIGN KEY (`observed_object`) REFERENCES `objetos` (`objeto_id`),
+  ADD CONSTRAINT `observaciones_ibfk_3` FOREIGN KEY (`telescopeUsed`) REFERENCES `telescopios` (`telescope_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

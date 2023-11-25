@@ -391,6 +391,9 @@ function crearObs() {
                 console.log("registro añadido");
                 loadObservations()
             }
+            else{
+                console.log(data + "err");
+            }
 
         });
     }

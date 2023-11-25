@@ -39,7 +39,6 @@
     
     function checkEmailExists($email, $connection){
         $sqlCheckEmail = "SELECT u.email FROM `usuarios` u WHERE u.email = '$email';";
-
         
         $query = mysqli_query($connection, $sqlCheckEmail);
 
@@ -53,12 +52,14 @@
         }
     }
     function checkUsernameExists($username, $connection){
-        $sqlCheckUsername = "SELECT u.username FROM `users` u WHERE u.username = '$username';";
+        $sqlCheckUsername = "SELECT u.username FROM `usuarios` u WHERE u.username = '$username';";
         $query = mysqli_query($connection, $sqlCheckUsername);
 
+        
         $response = mysqli_num_rows($query);
+        // return false;
 
-        if($response == 1){
+        if($response){
             return true; //si existe en tabla, devolvemos true
         }
         else{
@@ -66,16 +67,16 @@
         }
     }
     function addUser($user, $password, $email, $connection){
-        $id = mysqli_query($connection, "SELECT count(*) as 'total_ID'from `usuarios`");
-
-        $id = intval($id->fetch_array()['total_ID']);
-
-        $sqlAddUser = "INSERT INTO `usuarios`( `id` , `username`, `pass`, `email`, `role`) VALUES ($id , '$user','$password','$email', 1);";
+        $sqlAddUser = "INSERT INTO `usuarios`(`username`, `pass`, `email`) VALUES ('$user','$password','$email');";
         $query = mysqli_query($connection, $sqlAddUser);
-
+        
         if($query){
             session_start();
             $_SESSION['id'] = $user;
+        }
+        else{
+            print("errElse");
+            return;
         }
 
         return $query;  

@@ -14,6 +14,7 @@
 
     <script src="../jquery-3.7.0.min.js"></script>
     <script src="./index.js"></script>
+    <script src="./reserva.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -45,11 +46,12 @@
         <div class="bgImageDiv turismo" title="Vía Láctea desde 
 el Hemisferio Sur. 
 Flickr">
-         <div id="titleDiv">
-            <p class="pageMainTitle">Turismo</p>
-            <div class="sep"></div>
-            <p class="pageMainSubTitle">Observatorio Astronómico del Rincón de Ademuz</p>
-        </div></div>
+            <div>
+                <p class="pageMainTitle text-font-white">Turismo</p>
+                <div class="sep text-font-white"></div>
+                <p class="pageMainSubTitle text-font-white">Observatorio Astronómico del Rincón de Ademuz</p>
+            </div>
+        </div>
         <br>
         <div class="sep"></div>
         <div id="textDiv">
@@ -96,12 +98,89 @@ Flickr">
                 <br><br>
                 <small>Powered by OpenAI</small>
             </p>
-            <div class="sep"></div>
         </div>
-        <br>
+        <div class="sep"></div>
         <div id="textDiv">
             <h1 class="contentTitleText">Reservas</h1>
             <p class="text-center">Reserva tu visita guiada al observatorio</p>
+
+            <div id="reservasDiv">
+                <div class="resInputDiv">
+                    <div>
+                        <p class="contentText text-black">DNI:</p>
+                    </div>
+                    <div>
+                        <input id="dniInput" class="contentText text-black" type="text" placeholder="99999999X" onclick="returnToNormal('dniInput')"/>
+                    </div>
+                </div>
+                <div class="resInputDiv">
+                    <div>
+                        <p class="contentText text-black">Nombre completo:</p>
+                    </div>
+                    <div>
+                        <input id="nombreInput" class="contentText text-black" type="text" onclick="returnToNormal('nombreInput')"/>
+                    </div>
+                </div>
+                <div class="resInputDiv">
+                    <div>
+                        <p class="contentText text-black">Email:</p>
+                    </div>
+                    <div>
+                        <input id="emailInput" class="contentText text-black" type="email" onclick="returnToNormal('emailInput')"/>
+                    </div>
+                </div>
+                <div class="resInputDiv">
+                    <div>
+                        <p class="contentText text-black">Tipo de visita:</p>
+                    </div>
+                    <div>
+                        <select id="tipoVisitaInput" class="contentText text-black">
+                            <option value="1">Visita Guiada</option>
+                            <option value="2">Noche de observación astronómica</option>
+                            <option value="3">Talleres de astronomía/astrofotografía</option>                        </select>
+                    </div>
+                </div>
+                <div class="resInputDiv">
+                    <div>
+                        <p class="contentText text-black">Fecha:</p>
+                    </div>
+                    <div>
+                        <input id="fechaReserva" class="contentText text-black" type="date" onclick="returnToNormal('fechaReserva')"/>
+                    </div>
+                </div>
+                <div id="errorDiv">
+                    <small id="errorMessage"></small>
+                </div>
+                <div class="flex center">
+                    <div class="enviarReservaButton button-default-color flex center" onclick="reservar()">
+                        <p class="text-black buttonText">Reservar</p>
+                    </div>
+                </div>
+                <div class="flex center">
+                    <p class="subTitle text-black">En caso de algún problema con la reserva/visita, el propietario del observatorio se pondrá en contacto contigo.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+        <div id="textDiv">
+            <h1 class="contentTitleText">Alojamiento</h1>
+            <p class="text-center">Te dejamos algunos hostales/hoteles por si buscas alojamiento</p>
+            <div>
+                <div class="iframeDiv">
+                    <div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1646.4904256764664!2d-1.2577540559752662!3d40.09623714004355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5dfcf846991bc7%3A0xbd950b3ab483cd25!2sHotel%2FRestaurante%20%22Casa%20Emilio%22!5e1!3m2!1ses!2ses!4v1700710546870!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="flex center">
+                            <p class="contentText text-black">Casa Emilio, Torrebaja</p>
+                        </div>
+                    </div>
+                    <div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.3273016279913!2d-1.2872010267640341!3d40.060003993994705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5dfc00eb152081%3A0xd5da0c5a879ca82c!2zQ2FzYSBSdXJhbCDigJxHYXJyaWRv4oCdLg!5e1!3m2!1ses!2ses!4v1700710685453!5m2!1ses!2ses" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="flex center">
+                            <p class="contentText text-black">Casa Rural Garrido, Ademuz</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="footer">
             <p>&#169; Manel Lagunas Cerni 2023</p>

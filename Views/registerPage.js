@@ -1,9 +1,9 @@
 function sendRegister() {
     $(".errMessage > small").css("visibility", "hidden");
-    let username = $("#inputUser").val();
-    let pass1 = $("#inputPass1").val();
-    let pass2 = $("#inputPass2").val();
-    let email = $("#inputEmail").val();
+    let username = $("#inputUser").val().trim();
+    let pass1 = $("#inputPass1").val().trim();
+    let pass2 = $("#inputPass2").val().trim();
+    let email = $("#inputEmail").val().trim();
 
     if(username == null || username == ''){
         $(".errMessage > small").css("visibility", "visible");
@@ -26,9 +26,7 @@ function sendRegister() {
     /**
      * Si los campos no están vacíos:
      */
-
-
-    if(verifyPasswordMatch(pass1, pass2)){
+    if(verifyPasswordMatch(pass1, pass2) && isEmailValid(email)){
         //comprobamos que las contraseñas coinciden, y llamada:
         $.ajax({
             url: "../Controllers/registerUser.php",
@@ -75,4 +73,9 @@ function verifyPasswordMatch(pas1, pas2){
     else{ //devuelve 1 o -1 si la de primera se ordena antes que la segunda y al revés respectivamente
         return false;
     }
+}
+
+function isEmailValid(email){
+    const emRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emRegex.test(email);
 }
