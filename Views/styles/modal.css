@@ -130,11 +130,20 @@ body{
 
 
 @media (max-width: 33rem) {
-    .modalContentDiv{
-        flex-direction: column;
-        align-items: center;
-        width: 15rem;
+    .modalDetallesObs{
+        width: 25rem;
         height: auto;
+    }
+    #telescopioDetails>div>div, #telescopioDetails>div:first-child{
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        justify-content: start;
+        column-gap: 5px;
+    }
+    .imageObs>img{
+        width: 10rem;
+        height: 10rem;
     }
     .divModal{
         position: fixed;
@@ -144,9 +153,10 @@ body{
         align-items: center;
         justify-content: center;
     }
-
-    .flex.space-between, .flex.center{
-        flex-direction: column;
-        align-items: flex-start;
+    #usedFilters{
+        column-gap: 10px;
+        row-gap: 10px;
+        flex-shrink: 0;
+        flex-wrap: wrap;
     }
 }

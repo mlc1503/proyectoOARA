@@ -174,7 +174,7 @@ function seeFullDetails(idCard){
                             <p class="createdDate">${obsInfo[n].created_at}</p>
                         </div>
                         <div class="obsStartDiv">
-                            <p class="obsStartLabel">Observacion comenzada el:</p>
+                            <p class="obsStartLabel">Observación comenzada el:</p>
                             <p class="obsStartDate">${obsInfo[n].observe_startdate}</p>
                         </div>
                         <div class="obsTimeDiv">
@@ -223,7 +223,7 @@ function seeFullDetails(idCard){
                         ${htmlFiltros}
                         </div>
                     </div>
-                    <div class="flex space-between">
+                    <div class="flex space-between" id="progresoDetails">
                         <p class="labelText">Progreso:</p>
                         <p id="progresoPorcentaje" class="labelText">${obsInfo[n].progress}%</p>
                     </div>
