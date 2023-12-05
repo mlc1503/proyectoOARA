@@ -1,15 +1,15 @@
 TODO's EN PROCESO:
 -Responsiveness
-
--arreglar cuadro modal cuando pantalla pequeña (no se puede salir!!)
-
 ----------------------------
 MODIFICACIONES PENDIENTES: 
-
--PRIORIZA FUNCIONALIDAD
 
 -justificar Texto index
 
 -en login/signin apliar campo email
 
 -mejorar footer
+
+-foto de perfil en tutab
+
+
+-fechas en tutab

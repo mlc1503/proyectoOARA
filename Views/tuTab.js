@@ -19,6 +19,8 @@ function tabShown(idTab){
     $("#add").hide();
 
 
+    // $(".botonAdd").css();
+
     //for every tab selected, we underline each corresponding menu option and show it, while hiding the others
     if (idTab == "data"){
         $("#data").show();
@@ -74,7 +76,7 @@ function tabShown(idTab){
         $("#photosOption").css("text-decoration", "none");
         $("#observations").hide();
         $("#obsOption").css("text-decoration", "none");
-    }1
+    }
 }
 
 function loadObservations(){
@@ -388,8 +390,14 @@ function crearObs() {
             {data: JSON.stringify(dataObs)}
         ).done(function(data){
             if(data == 1){
-                console.log("registro añadido");
-                loadObservations()
+                alert("Observación añadida");
+                loadObservations();
+
+                $("#inputNombreObs").val("");
+                $("#objectsSelect").val("");
+                $('input[name="telInput"]:checked').prop('checked', false);
+                $("#integracionNumberInput").val("");
+
             }
             else{
                 console.log(data + "err");
