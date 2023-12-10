@@ -115,23 +115,23 @@ function pintarCards(){
                                 <div class="targetData"><p class="subTitle">${obsInfo[i].name}</p></div>
                             </div>
                             <div class="telescopeDiv">
-                                <div class="telTitle"><p class="subTitle">Telescope:</p></div>
+                                <div class="telTitle"><p class="subTitle">Telescopio:</p></div>
                                 <div class="telData"><p class="subTitle">${obsInfo[i].nombreTel}</p></div>
                             </div>
                             <div class="filtersDiv">
-                                <div class="filtersTitle"><p class="subTitle">Filters:</p></div>
+                                <div class="filtersTitle"><p class="subTitle">Filtros:</p></div>
                                 <div class="filtersData"><p class="subTitle">${obsInfo[i].filters}</p></div>
                             </div>
                             <div class="startDiv">
-                                <div class="startTitle"><p class="subTitle">Start:</p></div>
+                                <div class="startTitle"><p class="subTitle">Fecha inic.:</p></div>
                                 <div class="startDate"><p class="subTitle">${obsInfo[i].observe_startdate}</p></div>
                             </div>
                             <div class="integrationDiv">
-                                <div class="integrationTitle"><p class="subTitle">Total time:</p></div>
+                                <div class="integrationTitle"><p class="subTitle">Tiempo total:</p></div>
                                 <div class="integrationTime"><p class="subTitle">${obsInfo[i].integration_totalTime}h</p></div>
                             </div>
                             <div class="progressDiv">
-                                <div class="progressTitle"><p class="subTitle">Progress:</p></div>
+                                <div class="progressTitle"><p class="subTitle">Progreso:</p></div>
                                 <div class="progressPerc"><p class="subTitle">${obsInfo[i].progress}%</p></div>
                             </div>
                         </div>
