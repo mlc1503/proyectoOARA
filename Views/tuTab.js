@@ -365,7 +365,7 @@ function crearObs() {
         return;
     }
     // si los campos estan vacios, no se manda la consulta
-    if(isEmpty(nombreObservacion) || isEmpty(objetoObservacion) || isEmpty(telescopioObs) || filtrosObs.length == 0){
+    if(isEmpty(nombreObservacion) || isEmpty(objetoObservacion) || isEmpty(telescopioObs) || filtrosObs.length == 0 || isEmpty(integracionHoras)){
         $("#errMessage>small").css("color", "red");
         $("#errMessage>small").html("Hay campos obligatorios por rellenar");
         return;
