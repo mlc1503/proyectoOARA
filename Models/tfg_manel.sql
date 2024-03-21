@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2023 at 10:50 AM
+-- Generation Time: Mar 21, 2024 at 12:43 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -139,7 +139,9 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`reserva_id`, `email`, `dateReservation`, `fullName`, `dni`, `tipoReserva`) VALUES
-(15, 'dskjfdskfs@es.es', '0000-00-00', 'NSSLSKDKDJFSKDS', '16629099F', 2);
+(17, 'manel@gmail.com', '2023-12-28', 'manel lAGUNAS', '26941017J', 2),
+(18, 'd@d.com', '2023-12-19', 'javi', '35607602Z', 1),
+(20, 'n@n.com', '2023-12-29', 'Manel Lagunas', '12345678Z', 3);
 
 -- --------------------------------------------------------
 
@@ -252,13 +254,13 @@ ALTER TABLE `objetos`
 -- AUTO_INCREMENT for table `observaciones`
 --
 ALTER TABLE `observaciones`
-  MODIFY `observacion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `observacion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `reserva_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `reserva_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `telescopios`
@@ -270,7 +272,7 @@ ALTER TABLE `telescopios`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
@@ -287,7 +289,7 @@ ALTER TABLE `imagenes`
 --
 ALTER TABLE `observaciones`
   ADD CONSTRAINT `observaciones_ibfk_1` FOREIGN KEY (`telescopeUsed`) REFERENCES `telescopios` (`telescope_id`),
-  ADD CONSTRAINT `observaciones_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `usuarios` (`user_id`),
+  ADD CONSTRAINT `observaciones_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `usuarios` (`user_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `observaciones_ibfk_3` FOREIGN KEY (`observed_object`) REFERENCES `objetos` (`objeto_id`);
 COMMIT;
 

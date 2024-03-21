@@ -62,17 +62,27 @@
             </div>
             <div id="data">
                 <div class="userImage"></div>
-                <div class="userDetailsDiv">
-                    <div class="userNameTitle">
-                        <p class="user title" id="usernameField">userName</p>
+                <div class="flex-column space-between">
+                    <div class="userDetailsDiv">
+                        <div class="userNameTitle">
+                            <p class="user title" id="usernameField">userName</p>
+                        </div>
+                        <div class="passwDiv">
+                            <div><p class="passwordTitle subTitle">Password:</p></div>
+                            <div><input type="password" name="" id="passwordInput"></div>
+                        </div>
+                        <div class="emailDiv">
+                            <div><p class="emailTitle subTitle">Email:</p></div>
+                            <div><input type="email" name="" id="emailInput"></div>
+                        </div>
                     </div>
-                    <div class="passwDiv">
-                        <div><p class="passwordTitle subTitle">Password:</p></div>
-                        <div><input type="password" name="" id="passwordInput"></div>
-                    </div>
-                    <div class="emailDiv">
-                        <div><p class="emailTitle subTitle">Email:</p></div>
-                        <div><input type="email" name="" id="emailInput"></div>
+                    <div class="buttonEditDeleteDiv">
+                        <div class="button-cancel-color deleteUser" id="deleteUserButton" onclick="deleteUser()">
+                            <p class="buttonText text-font-white">Borrar</p>
+                        </div>
+                        <div class="button-warning-color editUser" id="editUserButton" onclick="editUser()">
+                            <p class="buttonText">Editar</p>
+                        </div>
                     </div>
                 </div>
             </div>

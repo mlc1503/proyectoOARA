@@ -1,15 +1,17 @@
 TODO's EN PROCESO:
 -Responsiveness
 ----------------------------
-MODIFICACIONES PENDIENTES: 
+MODIFICACIONES PENDIENTES:
 
--justificar Texto index
+-CRUD usuario (edit, borrar)
+-fechas en tutab
 
--en login/signin apliar campo email
+-añadir distincion entre usuario normal y administrador
+    el usuario nromal puede editar credenciales(nombre y contraseña)
+    el admin tiene una vista de todos los usuarios, tiene todas las opciones (CRUD)
+
+
+
+-menu hamburguer navbar al verlo en movil
 
 -mejorar footer
-
--foto de perfil en tutab
-
-
--fechas en tutab

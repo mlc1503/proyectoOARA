@@ -167,6 +167,21 @@ body::-webkit-scrollbar{
                         column-gap: 1rem;
                         
                     }
+
+                .buttonEditDeleteDiv{
+                    display: flex;
+                    justify-content: space-between;
+                }
+                    .buttonEditDeleteDiv>div{
+                        width: 6.9rem;
+                        height: 2.43rem;
+                        border-radius: 1rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        box-shadow: 0px 4px 4px 0px rgba(24, 22, 20, 0.20);
+                    }
             /* DATA END */
             /* OBSERVATIONS START */
             #observations{

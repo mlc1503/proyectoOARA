@@ -1,4 +1,5 @@
 var obsInfo = [];
+var userInfo = [];
 
 $(function(){
     tabShown("data");
@@ -249,11 +250,16 @@ function loadUserData() {
     $.ajax({url: '../Controllers/getDataUsuario.php', success: function(userDetails){
         userDetails = JSON.parse(userDetails);
 
+        userInfo = userDetails;
+
         $("#usernameField").html(userDetails[0].username);
         $("#passwordInput").val(userDetails[0].pass);
         $("#emailInput").val(userDetails[0].email);
 
     }})
+
+    $("#emailInput").prop("disabled", true)
+    $("#passwordInput").prop("disabled", true)
 }
 
 function add(tabSelected){
@@ -409,4 +415,78 @@ function crearObs() {
 
 function isEmpty(value) {
     return (value == null || (typeof value === "string" && value.trim().length === 0));
+}
+
+function editUser(){
+    $("#emailInput").prop("disabled", false)
+    $("#passwordInput").prop("disabled", false)
+    $("#passwordInput").attr('type', "text");    
+    
+    $("#editUserButton").removeClass("button-warning-color")
+    $("#editUserButton").addClass("button-default-color")
+    $("#editUserButton>p").html("Guardar")
+    
+    $("#editUserButton").attr("onclick", "pushEdit()")
+    
+}
+
+function pushEdit(){
+    //esta funcion hace ajax para updatear los cambios
+    
+    $.post('../Controllers/alterUserData.php',
+    {
+        user_id: userInfo[0].user_id,
+        email: $("#emailInput").val(),
+        password: $("#passwordInput").val(),
+    }
+    ).done(function(){
+        $("#passwordInput").attr('type', "password");
+
+        $("#editUserButton").removeClass("button-default-color");
+        $("#editUserButton").addClass("button-warning-color");
+        
+        $("#editUserButton").attr("onclick", "editUser()");
+        $("#editUserButton>p").html("Editar");
+
+        loadUserData();
+    })
+
+}
+
+function deleteUser(){
+
+    var p =  prompt("Por precaución, introduce tu contraseña para borrar tu usuario.", "");
+
+    $.post('../Controllers/checkUser.php',
+    {
+        user_id: userInfo[0].user_id,
+        pass: p,
+    }
+    ).done(function(data){
+        
+        if(data == 1){
+            $.ajax({
+                //delog simple
+                url: "../Controllers/deLogin.php",
+                type: "GET",
+                success: function(){
+                    $("#configButton>a").html("Sign In");
+                    $("#configButton>a").attr("href" , "registerPage.html");
+                    $("#sessionButton>a").html("Log In");
+                    $("#sessionButton>a").attr("href" , "login.html");
+                }
+            })
+            $.post('../Controllers/deleteUser.php',
+            {
+                user_id: userInfo[0].user_id,
+            }
+            ).done(function(data){
+                console.log(data);
+            })
+            // location.href = 'index.html'; //cuando hacemos delog, nos envía al inicio
+        }
+        else{
+            alert("La contraseña es incorrecta.")
+        }
+    })
 }
