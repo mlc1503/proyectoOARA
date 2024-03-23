@@ -247,18 +247,21 @@ function seeFullDetails(idCard){
 }
 
 function loadUserData() {
-    $.ajax({url: '../Controllers/getDataUsuario.php', success: function(userDetails){
-        userDetails = JSON.parse(userDetails);
+    $.ajax({url: '../Controllers/getDataUsuario.php', success: function(data){
+        userDetails = JSON.parse(data);
 
+        debugger;
         userInfo = userDetails;
 
         $("#usernameField").html(userDetails[0].username);
+        $("#usernameInput").val(userDetails[0].username);
         $("#passwordInput").val(userDetails[0].pass);
         $("#emailInput").val(userDetails[0].email);
 
     }})
 
     $("#emailInput").prop("disabled", true)
+    $("#usernameInput").hide()
     $("#passwordInput").prop("disabled", true)
 }
 
@@ -418,15 +421,19 @@ function isEmpty(value) {
 }
 
 function editUser(){
-    $("#emailInput").prop("disabled", false)
-    $("#passwordInput").prop("disabled", false)
+
+    $("#usernameField").hide();
+    $("#usernameInput").show();
+
+    $("#emailInput").prop("disabled", false);
+    $("#passwordInput").prop("disabled", false);
     $("#passwordInput").attr('type', "text");    
     
-    $("#editUserButton").removeClass("button-warning-color")
-    $("#editUserButton").addClass("button-default-color")
-    $("#editUserButton>p").html("Guardar")
+    $("#editUserButton").removeClass("button-warning-color");
+    $("#editUserButton").addClass("button-default-color");
+    $("#editUserButton>p").html("Guardar");
     
-    $("#editUserButton").attr("onclick", "pushEdit()")
+    $("#editUserButton").attr("onclick", "pushEdit()");
     
 }
 
@@ -436,10 +443,15 @@ function pushEdit(){
     $.post('../Controllers/alterUserData.php',
     {
         user_id: userInfo[0].user_id,
+        username: $("#usernameInput").val(),
         email: $("#emailInput").val(),
         password: $("#passwordInput").val(),
     }
     ).done(function(){
+
+        $("#usernameInput").hide();
+        $("#usernameField").show();
+
         $("#passwordInput").attr('type', "password");
 
         $("#editUserButton").removeClass("button-default-color");

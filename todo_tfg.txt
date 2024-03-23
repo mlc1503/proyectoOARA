@@ -1,10 +1,9 @@
-TODO's EN PROCESO:
--Responsiveness
 ----------------------------
 MODIFICACIONES PENDIENTES:
 
--CRUD usuario (edit, borrar)
+-CRUD usuario (edit, borrar) [HECHO]
 -fechas en tutab
+-remake de reservas
 
 -añadir distincion entre usuario normal y administrador
     el usuario nromal puede editar credenciales(nombre y contraseña)
