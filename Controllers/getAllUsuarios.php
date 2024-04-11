@@ -13,7 +13,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
     else{
-        $sqlDetallesUsuario = "SELECT * FROM `usuarios` u WHERE  u.username = '".$_SESSION['id']."';";
+        $sqlDetallesUsuario = "SELECT `user_id`, `username`, `email`, `role` FROM `usuarios` ;";
             $resultadoDetallesUsuario = mysqli_query($conDB, $sqlDetallesUsuario);
 
             $arrayUsuario = array();

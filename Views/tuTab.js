@@ -1,11 +1,49 @@
 var obsInfo = [];
 var userInfo = [];
 
-$(function(){
+$(async function(){
+    await loadUserData();
     tabShown("data");
-    loadUserData();
-    loadObservations();
-    loadCreateObs();
+    
+    if(userInfo[0].role == 0){
+
+        $("#data").append(
+        `<div class="userImage"></div>
+            <div class="flex-column space-between">
+                <div class="userDetailsDiv">
+                    <div class="userNameTitle">
+                        <p class="user title" id="usernameField">userName</p>
+                        <input type="text" name="" id="usernameInput">
+                    </div>
+                    <div class="passwDiv">
+                        <div><p class="passwordTitle subTitle">Contraseña:</p></div>
+                        <div><input type="password" name="" id="passwordInput"></div>
+                    </div>
+                    <div class="emailDiv">
+                        <div><p class="emailTitle subTitle">Email:</p></div>
+                        <div><input type="email" name="" id="emailInput"></div>
+                    </div>
+                </div>
+                <div class="buttonEditDeleteDiv">
+                    <div class="button-cancel-color deleteUser" id="deleteUserButton" onclick="deleteUser()">
+                        <p class="buttonText text-font-white">Borrar</p>
+                    </div>
+                    <div class="button-warning-color editUser" id="editUserButton" onclick="editUser()">
+                        <p class="buttonText">Editar</p>
+                    </div>
+                </div>
+            </div>`
+        );
+        updateData();
+    
+        loadObservations();
+        loadCreateObs();
+    }
+    else{
+        loadCRUD_Users();
+        loadCRUD_Observations();
+        loadCRUD_Reservas();
+    }
 })
 
 function tabShown(idTab){
@@ -67,8 +105,8 @@ function tabShown(idTab){
         $("#publications").hide();
         $("#publicOption").css("text-decoration", "none");
     }
-    if (idTab == "publications"){
-        $("#publications").show();
+    if (idTab == "reservas"){
+        $("#reservas").show();
         $("#publicOption").css("text-decoration", "underline");
         
         $("#data").hide();
@@ -246,23 +284,11 @@ function seeFullDetails(idCard){
     $("body").prepend(modal);
 }
 
-function loadUserData() {
-    $.ajax({url: '../Controllers/getDataUsuario.php', success: function(data){
+async function loadUserData() {
+    await $.ajax({url: '../Controllers/getDataUsuario.php', success: function(data){
         userDetails = JSON.parse(data);
-
-        debugger;
         userInfo = userDetails;
-
-        $("#usernameField").html(userDetails[0].username);
-        $("#usernameInput").val(userDetails[0].username);
-        $("#passwordInput").val(userDetails[0].pass);
-        $("#emailInput").val(userDetails[0].email);
-
     }})
-
-    $("#emailInput").prop("disabled", true)
-    $("#usernameInput").hide()
-    $("#passwordInput").prop("disabled", true)
 }
 
 function add(tabSelected){
@@ -282,6 +308,7 @@ function add(tabSelected){
     else if(tabSelected == "addFoto"){
     }
 }
+
 function hide(tabSelected) {
 
     //esconde el contenido para añadir/subir observaciones/fotos
@@ -303,6 +330,7 @@ function hide(tabSelected) {
 function cerrarModal() {
     $(".divModal").css("display", "none");
 }
+
 function eliminarObs(idObs) {
     //eliminar observacion a traves de modal
     if(confirm("Estás seguro de que quieres borrar la observación?")){  
@@ -460,9 +488,22 @@ function pushEdit(){
         $("#editUserButton").attr("onclick", "editUser()");
         $("#editUserButton>p").html("Editar");
 
-        loadUserData();
+        updateData();
     })
 
+}
+
+async function updateData() {
+
+    await loadUserData();
+    $("#usernameField").html(userInfo[0].username);
+    $("#usernameInput").val(userInfo[0].username);
+    $("#passwordInput").val(userInfo[0].pass);
+    $("#emailInput").val(userInfo[0].email);
+
+    $("#emailInput").prop("disabled", true);
+    $("#usernameInput").hide();
+    $("#passwordInput").prop("disabled", true);
 }
 
 function deleteUser(){
@@ -502,3 +543,14 @@ function deleteUser(){
         }
     })
 }
+
+
+function loadCRUD_Users(){
+    $.ajax({url: '../Controllers/getAllUsers.php', success: function(data){ 
+
+        data.forEach(user => {
+            console.log("TBD");
+        });
+    }})
+}
+

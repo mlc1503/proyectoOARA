@@ -2,13 +2,26 @@
 MODIFICACIONES PENDIENTES:
 
 -CRUD usuario (edit, borrar) [HECHO]
--fechas en tutab
--remake de reservas
 
 -añadir distincion entre usuario normal y administrador
-    el usuario nromal puede editar credenciales(nombre y contraseña)
-    el admin tiene una vista de todos los usuarios, tiene todas las opciones (CRUD)
+    0: user normal, 1 admin (2: usuario cientifico, puede hacer observaciones ??)
 
+    el usuario normal puede editar credenciales(nombre y contraseña)
+    el admin tiene una vista de todos los usuarios, tiene todas las opciones (CRUD)
+        ·tus datos -> vista de todos los usuarios
+        ·observaciones -> todas las observaciones de todos los usuarios
+        ·reservas -> todas las reservas de todos los usuarios
+
+-remake de reservas
+    ·cambiar la bd
+        ·establecer relacion entre usuarios y reservas
+        ·rerunear sql nuevo
+    ·cambiar el frontend para lockear reservas a no usuarios
+        ·hacer un calendario
+        ·haz el calendario dinamico
+        ·hacer un sistema de visitas disponibles/noDisponibles
+    ·añadir en tutab el apartado reservas
+        ·hacer un sistema de gestion de las reservas parecido a las observaciones
 
 
 -menu hamburguer navbar al verlo en movil
