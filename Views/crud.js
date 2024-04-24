@@ -808,7 +808,7 @@ function saveResEdit(res_id) {
         tipoReserva: editTipoReserva,
     }
     ).done(function(response){
-        if (response) {
+        if (response == 1) {
             $(`#res${res_id}>.divTable>table>tbody>tr>td#tableRow_username`).html($(`#res${res_id}>.divTable>table>tbody>tr>td#tableRow_username>select :selected`).text());
             $(`#res${res_id}>.divTable>table>tbody>tr>td#tableRow_date`).html(editDate);
             $(`#res${res_id}>.divTable>table>tbody>tr>td#tableRow_fullName`).html(editFullName);
@@ -819,7 +819,7 @@ function saveResEdit(res_id) {
         }
 
         else{
-            console.log(response);
+            alert(`La fecha ${editDate} ya está ocupada.`)
         }
 
     })
