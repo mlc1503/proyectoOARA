@@ -13,7 +13,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
     else{
-        $sqlObservacionDetalles = "SELECT `telescope_id`, `fl`, `apert`, `fullName` FROM `telescopios`";
+        $sqlObservacionDetalles = "SELECT `telescope_id`, `nombreTel`, `fl`, `apert`, `fullName` FROM `telescopios`";
             $resTelescopios = mysqli_query($conDB, $sqlObservacionDetalles);
 
             //metemos los resultados de la consulta a bd en un array de objetos Producto

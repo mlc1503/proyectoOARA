@@ -56,24 +56,27 @@ body::-webkit-scrollbar{
                     cursor: pointer;
                 }
         @media (max-width: 33rem){
-            .mainContent{
-                display: block;
-            }
             .menuOptionsDiv{
                 width: 100%;
                 height: auto;
                 top: 0;
             }
-            .stickyDiv{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .menuOption{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                .stickyDiv{
+                    display: inline-flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                    .stickyDiv>div{
+                        width: fit-content;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+            .sep{
+                width: 100%;
             }
             .mainContent{
                 display: flex;
@@ -84,6 +87,7 @@ body::-webkit-scrollbar{
                 min-height: 1rem;
             }
             .content{
+                width: 100% !important;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -250,20 +254,120 @@ body::-webkit-scrollbar{
                                 justify-content: space-between;
                             }
             /* OBSERVATIONS END */
-            /* PHOTOS START */
-            #photos{
-                height: auto;
-
+            /* ADD START */
+            #add{
                 display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
                 flex-wrap: wrap;
-                gap: 5px
             }
-                .column{
-                    flex: 33%;
-                    max-width: 33%;
+
+                #add>div{
+
+                    margin: 1rem;
+                    width: 39.375rem;
+                    height: auto;
+
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 1rem;
                 }
-                
-            /* PHOTOS END */
+                    /* #add>div div {
+                        border: 1px solid;
+                    } */
+
+                    .field1{
+                        display: inline-flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        align-items: center;
+                        column-gap: 3rem;
+                    }
+                        .field1>div{
+                            width: calc(50% - (3rem / 2));
+                        }
+
+                        @media (max-width: 33rem) {
+                            .field1{
+                                display: block;
+                            }
+                            #add>div>.sep{
+                                width: 20rem;
+                            }
+                        }
+
+                    .field2{
+                        column-gap: 1rem;
+                    }
+                    
+                    .field2>div{
+                        width: calc(50% - 1rem / 2);
+                        height: auto;
+                        align-items: start;
+                    }
+
+                    .adorno{
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        border-radius: 100%;
+                    }
+
+                    .flex-column.space-between{
+                        row-gap: 1rem;
+                    }
+
+                    .flex-column.space-between>div{
+                        width: 100%;
+                        height: auto;
+                    }
+                    .pad-content{
+                        padding: 1rem 1.5rem 0 1.5rem;
+                        flex-wrap: wrap;
+                        gap: 1rem;
+                    }
+
+                    .labelAdorno{
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        height: auto;
+
+                        column-gap: 1rem;
+                    }
+                    .divBotonCrear{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .input{
+                        width: 100%;
+                        border-radius: 0.5rem;
+                        border: 1px solid;
+                    }
+
+                    #filtrosInputDiv{
+                        width: 100%;
+                    }
+                    .filtrosListDiv{
+                        height: auto;
+
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        
+                        /* padding: 0 1.5rem 0 1.5rem;
+                        gap: 1rem; */
+                        flex-wrap: wrap;
+                    }
+                        .filtrosListDiv>div{
+                            width: auto;
+                        }
+                    #objectsSelect{
+                        width: 100%;
+                    }
+            /* ADD END */
 
 #footer{
     width: 100%;
@@ -274,122 +378,4 @@ body::-webkit-scrollbar{
     align-items: center;
     
     background-color: rgba(128, 128, 128, 0.2);
-}
-
-#add{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-#add>div{
-
-    margin: 1rem;
-    width: 39.375rem;
-    height: auto;
-
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-}
-    /* #add>div div {
-        border: 1px solid;
-    } */
-
-    .field1{
-        display: inline-flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        column-gap: 3rem;
-    }
-        .field1>div{
-            width: calc(50% - (3rem / 2));
-        }
-
-        @media (max-width: 33rem) {
-            .field1{
-                display: block;
-            }
-            #add>div>.sep{
-                width: 20rem;
-            }
-        }
-
-    .field2{
-        column-gap: 1rem;
-    }
-    
-    .field2>div{
-        width: calc(50% - 1rem / 2);
-        height: auto;
-        align-items: start;
-    }
-
-.adorno{
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 100%;
-}
-
-.flex-column{
-    display: flex;
-    flex-direction: column;
-}
-
-.flex-column.space-between{
-    row-gap: 1rem;
-}
-
-.flex-column.space-between>div{
-    width: 100%;
-    height: auto;
-}
-.pad-content{
-    padding: 1rem 1.5rem 0 1.5rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.labelAdorno{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: auto;
-
-    column-gap: 1rem;
-}
-.divBotonCrear{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.input{
-    width: 100%;
-    border-radius: 0.5rem;
-    border: 1px solid;
-}
-
-#filtrosInputDiv{
-    width: 100%;
-}
-.filtrosListDiv{
-    height: auto;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    
-    /* padding: 0 1.5rem 0 1.5rem;
-    gap: 1rem; */
-    flex-wrap: wrap;
-}
-    .filtrosListDiv>div{
-        width: auto;
-    }
-#objectsSelect{
-    width: 100%;
 }

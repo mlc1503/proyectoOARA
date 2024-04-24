@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2024 at 12:43 PM
+-- Generation Time: Apr 23, 2024 at 03:12 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -41,8 +41,8 @@ CREATE TABLE `imagenes` (
 --
 
 INSERT INTO `imagenes` (`imagen_id`, `captured_at`, `project_id`, `file`) VALUES
-(2, '2023-12-27', 11, '../Resources/m42-(19.20).2.2023_ToLRM-2.png'),
-(3, '2023-12-27', 12, '../Resources/californiaDetail.jpg'),
+(2, '2023-12-27', 11, '../Resources/m42-(19.20).2.2023_ToLRM-2.webp'),
+(3, '2023-12-27', 12, '../Resources/californiaDetail.webp'),
 (4, '2023-12-27', 24, '../Resources/iss_luckyImaging.png'),
 (6, '2023-12-27', 20, '../Resources/luna_crater.jpg');
 
@@ -73,12 +73,12 @@ INSERT INTO `objetos` (`objeto_id`, `name`, `catalog`, `coord_DEC`, `coord_RA`) 
 (6, 'Horsehead Nebula', 'IC 434', '05h 40m 59s', '-02° 27\' 30\"'),
 (7, 'California Nebula', 'NGC 1499', '04h 00m 00s', '+36° 30\' 00\"'),
 (8, 'Clúster de Hércules', 'Messier 13', '16h 41m 41s', '+36° 27\' 36\"'),
-(9, 'La Luna', 'N/A', 'N/A', 'N/A'),
-(10, 'Júpiter', 'N/A', 'N/A', 'N/A'),
-(11, 'Saturno', 'N/A', 'N/A', 'N/A'),
-(12, 'Marte', 'N/A', 'N/A', 'N/A'),
-(13, 'Urano', 'N/A', 'N/A', 'N/A'),
-(14, 'Estación Espacial', 'N/A', 'N/A', 'N/A'),
+(9, 'La Luna', 'Luna', 'N/A', 'N/A'),
+(10, 'Júpiter', 'Jupiter', 'N/A', 'N/A'),
+(11, 'Saturno', 'Saturno', 'N/A', 'N/A'),
+(12, 'Marte', 'Marte', 'N/A', 'N/A'),
+(13, 'Urano', 'Urano', 'N/A', 'N/A'),
+(14, 'Estación Espacial', 'ISS', 'N/A', 'N/A'),
 (16, 'Lorem Ipsum', 'N/A', 'N/A', 'N/A'),
 (17, 'Galaxia del Triángulo', 'Messier 33', '01h33m54s', '30°39\'27\"'),
 (18, 'Galaxia del Triángulo', 'Messier 33', '01h33m54s', '30°39\'27\"');
@@ -117,7 +117,9 @@ INSERT INTO `observaciones` (`observacion_id`, `nombreObservacion`, `created_by`
 (20, 'The Southern Lunar Limb', 6, '2023-12-05', '2023-12-26', 1, 9, 4, 'RGB', 86),
 (21, 'Pléyades a color', 6, '2023-12-05', '2023-12-26', 6, 4, 3, 'L,RGB', 85),
 (23, 'Galaxia del Triángulo', 6, '2023-12-05', '2023-12-21', 211, 17, 3, 'L,RGB,Ha', 18),
-(24, 'Estación Espacial Internacional', 6, '2023-12-05', '2023-12-27', 1, 14, 4, 'RGB', 67);
+(24, 'Estación Espacial Internacional', 1, '2023-12-05', '2023-12-27', 2, 14, 4, 'RGB', 67),
+(44, 'fdafd', 1, '2024-04-20', '2024-04-26', 1, 11, 4, 'L,RGB', 12),
+(49, 'zxc', 18, '2024-04-23', '2024-05-09', 12, 1, 3, 'Sii', 32);
 
 -- --------------------------------------------------------
 
@@ -127,10 +129,9 @@ INSERT INTO `observaciones` (`observacion_id`, `nombreObservacion`, `created_by`
 
 CREATE TABLE `reservas` (
   `reserva_id` int(11) NOT NULL,
-  `email` varchar(70) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `dateReservation` date NOT NULL,
   `fullName` varchar(70) NOT NULL,
-  `dni` varchar(9) NOT NULL,
   `tipoReserva` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -138,10 +139,8 @@ CREATE TABLE `reservas` (
 -- Dumping data for table `reservas`
 --
 
-INSERT INTO `reservas` (`reserva_id`, `email`, `dateReservation`, `fullName`, `dni`, `tipoReserva`) VALUES
-(17, 'manel@gmail.com', '2023-12-28', 'manel lAGUNAS', '26941017J', 2),
-(18, 'd@d.com', '2023-12-19', 'javi', '35607602Z', 1),
-(20, 'n@n.com', '2023-12-29', 'Manel Lagunas', '12345678Z', 3);
+INSERT INTO `reservas` (`reserva_id`, `user_id`, `dateReservation`, `fullName`, `tipoReserva`) VALUES
+(1, 1, '2024-04-23', 'a', 3);
 
 -- --------------------------------------------------------
 
@@ -177,16 +176,19 @@ CREATE TABLE `usuarios` (
   `user_id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `pass` varchar(100) NOT NULL,
-  `email` varchar(20) NOT NULL
+  `email` varchar(20) NOT NULL,
+  `role` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`user_id`, `username`, `pass`, `email`) VALUES
-(1, 'manel', '1234', 'a@a.com'),
-(6, 'lorem', '1234', 'x1@a.com');
+INSERT INTO `usuarios` (`user_id`, `username`, `pass`, `email`, `role`) VALUES
+(1, 'manel', '1234', 'a@a.com', 0),
+(6, 'lorem1234', '1234', 'x1@a.com', 0),
+(18, 'admin', 'admin', 'b@b.com', 1),
+(27, 'asd', '123456', 'e@e.com', 1);
 
 --
 -- Indexes for dumped tables
@@ -219,7 +221,7 @@ ALTER TABLE `observaciones`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`reserva_id`),
-  ADD UNIQUE KEY `dni` (`dni`);
+  ADD UNIQUE KEY `dateReservation` (`dateReservation`);
 
 --
 -- Indexes for table `telescopios`
@@ -254,13 +256,13 @@ ALTER TABLE `objetos`
 -- AUTO_INCREMENT for table `observaciones`
 --
 ALTER TABLE `observaciones`
-  MODIFY `observacion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `observacion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `reserva_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `reserva_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `telescopios`
@@ -272,7 +274,7 @@ ALTER TABLE `telescopios`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
@@ -291,6 +293,12 @@ ALTER TABLE `observaciones`
   ADD CONSTRAINT `observaciones_ibfk_1` FOREIGN KEY (`telescopeUsed`) REFERENCES `telescopios` (`telescope_id`),
   ADD CONSTRAINT `observaciones_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `usuarios` (`user_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `observaciones_ibfk_3` FOREIGN KEY (`observed_object`) REFERENCES `objetos` (`objeto_id`);
+
+--
+-- Constraints for table `reservas`
+--
+ALTER TABLE `reservas`
+  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="./styles/colors.css">
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/meta.css">
     <link rel="icon" type="image/x-icon" href="../Resources/favicon.png">
     
     <link rel="stylesheet" href="./styles/tuTabStyles.css">
+    <link rel="stylesheet" href="./styles/crudStyles.css">
     <link rel="stylesheet" href="./styles/modal.css">
 
     <script src="../jquery-3.7.0.min.js"></script>
     <script src="./tuTab.js"></script>
     <script src="./index.js"></script>
+    <script src="./crud.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -40,7 +43,7 @@
         </div>
     </div>
     <div class="image">
-        <img src="../Resources/lulinObs.png" alt="">
+        <img src="../Resources/lulinObs.webp" alt="">
     </div>
     <div class="mainContent">
         <div class="menuOptionsDiv">
@@ -51,7 +54,7 @@
                 <div class="menuOption" id="obsOption" onclick="tabShown('observations')">
                     <p class="optionTitle">Observaciones</p>
                 </div>
-                <div class="menuOption" id="obsOption" onclick="tabShown('reservas')">
+                <div class="menuOption" id="resOption" onclick="tabShown('reservas')">
                     <p class="optionTitle">Reservas</p>
                 </div>
             </div>
@@ -63,31 +66,9 @@
                     <p class="buttonText text-black">Añadir Observación</p>
                 </div>
             </div>
-            <div id="data">
-            </div>
-            <div id="photos">
-                <div class="column">
-                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
-                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
-                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
-                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
-                </div>
-                <div class="column">
-                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
-                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
-                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
-                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
-                </div>
-                <div class="column">
-                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
-                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
-                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
-                    <img src="../Resources/colorTV_test_4by5.png" alt="" style="width: 100%;">
-                </div>
-            </div>
-            <div id="observations">
-            </div>
-            <div id="publications"></div>
+            <div id="data"></div>
+            <div id="observations"></div>
+            <div id="reservas">test</div>
             <div id="add">
                 <div>
                     <div class="field1">
@@ -184,6 +165,9 @@
                     </div>
                 </div>
             </div>
+            <div class="crud" id="userCRUD"></div>
+            <div class="crud" id="obsCRUD"></div>
+            <div class="crud" id="resCRUD"></div>
         </div>
     </div>
     <div id="footer">

@@ -14,8 +14,6 @@
         $userID = $_POST["user_id"];
 
         $deleteUser = "DELETE FROM `usuarios` WHERE `user_id` = $userID";
-        $deleteUserObservations = "DELETE FROM `observaciones` WHERE `created_by` = $userID";
-        // $deleteUserReservations = "DELETE FROM `usuarios` WHERE `user_id` = $userID";
         $res1 = mysqli_query($conDB, $deleteUser);
 
         

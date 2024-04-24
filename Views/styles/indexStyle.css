@@ -42,7 +42,7 @@ a, a:link, a:visited{
         align-items: center;
     }
     .index{
-        background-image: url(../../Resources/veilNebula.png);
+        background-image: url(../../Resources/veilNebula.webp);
     }
         #titleDiv{
             width: fit-content;
@@ -110,7 +110,7 @@ a, a:link, a:visited{
 /* TURISMO PAG */
 
 .turismo{
-    background-image: url(../../Resources/milkyway.png);
+    background-image: url(../../Resources/milkyway.webp);
 }
 
 #reservasDiv{

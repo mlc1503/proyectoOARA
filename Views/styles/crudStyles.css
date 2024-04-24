@@ -1,0 +1,81 @@
+/* CRUD START */
+
+
+.crud{
+    display: block;
+}
+
+
+.userRow, .obsRow, .resRow{
+    
+    width: 100%;
+    height: auto;
+    
+    border-radius: 0.5rem;
+    background-color: #d9d9d9;
+
+    margin-bottom: 1em;
+    
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+
+    box-shadow: 0px 4px 4px 0px rgba(24, 22, 20, 0.10);
+}
+    .divTable{
+        width: 80%;
+        overflow-x: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        table{
+            border-collapse: collapse;
+            width: 100%;
+        }
+            th,td{
+                width: auto;
+                text-align: center;
+                font-weight: normal;
+                font-size: smaller;
+            }
+            td>*{
+                width: 100%;
+            }
+            th:not(:first-child), td:not(:first-child){
+            /* todas las columnas excepto la de id tienen un width de 30%*/
+                width: auto;
+            }
+            th:first-child, td:first-child{
+            /* la columna de id tienen un width de 10%*/
+                width: 10%;
+            }
+    .CRUD_Actions{
+        width: 20%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+        .CRUD_Actions>div{
+            width: 3em;
+            min-height: 2em;
+            padding: 0.25rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            border-radius: 0.5rem;
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+        .CRUD_Actions>div:hover{
+            box-shadow: 0px 4px 4px 0px rgba(24, 22, 20, 0.10);
+        }
+
+        .crudInput{
+            width: 60%;
+        }
+            /* CRUD END */

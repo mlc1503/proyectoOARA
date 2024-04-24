@@ -12,18 +12,16 @@ if ($conDB->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 else{
-    $dni = $_POST["dni"];
+    $user_id = $_POST["user_id"];
+    $date = $_POST["fechaReserva"];
     $nombre = $_POST["nombreCompleto"];
     $tipoVisita =$_POST["tipoVisita"];
-    $email = $_POST["email"];
-    $date = $_POST["fechaReserva"];
 
-    $insertReservaSQL = "INSERT INTO `reservas`(`email`, `dateReservation`, `fullName`, `dni`, `tipoReserva`) VALUES ('" . $email . "','" . $date . "','" . $nombre . "','" . $dni . "', '".$tipoVisita."');";
+    $insertReservaSQL = "INSERT INTO `reservas`(`user_id`, `dateReservation`, `fullName`, `tipoReserva`) VALUES ('$user_id','$date','$nombre','$tipoVisita')";
 
-    $resInsertObs = mysqli_query($conDB, $insertReservaSQL);
+    $resInsertRes = mysqli_query($conDB, $insertReservaSQL);
 
-
-    if(!$resInsertObs){ //si devuelve false(la query no se ha hecho):
+    if(!$resInsertRes){ //si devuelve false(la query no se ha hecho):
         echo 0;
     }
     else{//else, devolvemos la fecha

@@ -7,11 +7,17 @@
 .black{
     background-color: #181614;
 }
+.lightgrey{
+    background-color: #d9d9d9;
+}
 .text-black{
     color: #181614;
 }
 .text-font-white{
     color: whitesmoke;
+}
+.text-font-grey{
+    color: gray;
 }
 .button-cancel-color{
     background-color: #E0284A;

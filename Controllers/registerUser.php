@@ -67,17 +67,29 @@
         }
     }
     function addUser($user, $password, $email, $connection){
-        $sqlAddUser = "INSERT INTO `usuarios`(`username`, `pass`, `email`) VALUES ('$user','$password','$email');";
-        $query = mysqli_query($connection, $sqlAddUser);
-        
-        if($query){
-            session_start();
-            $_SESSION['id'] = $user;
+
+        if(isset($_POST["role"])){
+            // //solo ejecuta si exite valor para $role, opcion solo disponible si llama saveUserEdit()
+            
+            $role = $_POST["role"];
+            $sqlAddUser = "INSERT INTO `usuarios`(`username`, `pass`, `email`, `role`) VALUES ('$user','$password','$email','$role')";
+            
+            return mysqli_query($connection, $sqlAddUser);
         }
         else{
-            print("errElse");
-            return;
+            $sqlAddUser = "INSERT INTO `usuarios`(`username`, `pass`, `email`) VALUES ('$user','$password','$email');";
+            $query = mysqli_query($connection, $sqlAddUser);
+            
+            if($query){
+                session_start();
+                $_SESSION['id'] = $user;
+            }
+            else{
+                print("errElse");
+                return;
+            }
         }
+
 
         return $query;  
     }

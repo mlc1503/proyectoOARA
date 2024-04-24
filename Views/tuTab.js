@@ -4,42 +4,45 @@ var userInfo = [];
 $(async function(){
     await loadUserData();
     tabShown("data");
-    
-    if(userInfo[0].role == 0){
 
-        $("#data").append(
-        `<div class="userImage"></div>
-            <div class="flex-column space-between">
-                <div class="userDetailsDiv">
-                    <div class="userNameTitle">
-                        <p class="user title" id="usernameField">userName</p>
-                        <input type="text" name="" id="usernameInput">
-                    </div>
-                    <div class="passwDiv">
-                        <div><p class="passwordTitle subTitle">Contraseña:</p></div>
-                        <div><input type="password" name="" id="passwordInput"></div>
-                    </div>
-                    <div class="emailDiv">
-                        <div><p class="emailTitle subTitle">Email:</p></div>
-                        <div><input type="email" name="" id="emailInput"></div>
-                    </div>
+
+    //Si el usuario es básico:
+    //generamos el html para los datos:
+    $("#data").append(
+    `<div class="userImage"></div>
+        <div class="flex-column space-between">
+            <div class="userDetailsDiv">
+                <div class="userNameTitle">
+                    <p class="user title" id="usernameField">userName</p>
+                    <input type="text" name="" id="usernameInput">
                 </div>
-                <div class="buttonEditDeleteDiv">
-                    <div class="button-cancel-color deleteUser" id="deleteUserButton" onclick="deleteUser()">
-                        <p class="buttonText text-font-white">Borrar</p>
-                    </div>
-                    <div class="button-warning-color editUser" id="editUserButton" onclick="editUser()">
-                        <p class="buttonText">Editar</p>
-                    </div>
+                <div class="passwDiv">
+                    <div><p class="passwordTitle subTitle">Contraseña:</p></div>
+                    <div><input type="password" name="" id="passwordInput"></div>
                 </div>
-            </div>`
-        );
-        updateData();
-    
-        loadObservations();
-        loadCreateObs();
-    }
-    else{
+                <div class="emailDiv">
+                    <div><p class="emailTitle subTitle">Email:</p></div>
+                    <div><input type="email" name="" id="emailInput"></div>
+                </div>
+            </div>
+            <div class="buttonEditDeleteDiv">
+                <div class="button-cancel-color deleteUser" id="deleteUserButton" onclick="deleteUser()">
+                    <p class="buttonText text-font-white">Borrar</p>
+                </div>
+                <div class="button-warning-color editUser" id="editUserButton" onclick="editUser()">
+                    <p class="buttonText">Editar</p>
+                </div>
+            </div>
+        </div>`
+    );
+    updateData();
+
+    //cargamos el resto de apartados:
+    loadObservations();
+    loadCreateObs();
+
+    if(userInfo[0].role == 1){
+        //si el usuario es administrador:
         loadCRUD_Users();
         loadCRUD_Observations();
         loadCRUD_Reservas();
@@ -57,64 +60,57 @@ function tabShown(idTab){
     $("#observations").hide();
     $("#add").hide();
 
-
-    // $(".botonAdd").css();
-
     //for every tab selected, we underline each corresponding menu option and show it, while hiding the others
     if (idTab == "data"){
+        $(".content>div:not(#data)").hide();
         $("#data").show();
         $("#dataOption").css("text-decoration", "underline");
-        $(".divBotonAdd").hide();
-
-        
-        $("#photos").hide();
-        $("#photosOption").css("text-decoration", "none");
-        $("#publications").hide();
-        $("#publicOption").css("text-decoration", "none");
-        $("#observations").hide();
-        $("#obsOption").css("text-decoration", "none");
-    }
-    if (idTab == "photos"){
-        $("#photos").show();
-        $("#photosOption").css("text-decoration", "underline");
-        
-        $(".divBotonAdd").show();
-        $(".botonAdd>p").html("Añadir foto");
-        $(".botonAdd").attr("onclick", "add('addFoto')");
-
-        
-        $("#data").hide();
-        $("#dataOption").css("text-decoration", "none");
-        $("#publications").hide();
-        $("#publicOption").css("text-decoration", "none");
-        $("#observations").hide();
-        $("#obsOption").css("text-decoration", "none");
+        $(".menuOption:not(#dataOption)").css("text-decoration", "none");
     }
     if (idTab == "observations"){
+        $(".content>div:not(#observations)").hide();
+        $(".divBotonAdd").show();
+            $(".botonAdd>p").html("Añadir observación");
+            $(".botonAdd").attr("onclick", "add('addObservacion')");
         $("#observations").show();
         $("#obsOption").css("text-decoration", "underline");
-        $(".divBotonAdd").show();
-        $(".botonAdd>p").html("Añadir observación");
-        $(".botonAdd").attr("onclick", "add('addObservacion')");
-        
-        
-        $("#data").hide();
-        $("#dataOption").css("text-decoration", "none");
-        $("#photos").hide();
-        $("#photosOption").css("text-decoration", "none");
-        $("#publications").hide();
-        $("#publicOption").css("text-decoration", "none");
+        $(".menuOption:not(#obsOption)").css("text-decoration", "none");
     }
     if (idTab == "reservas"){
+        $(".content>div:not(#reservas)").hide();
+        $(".divBotonAdd").show();
+            $(".botonAdd>p").html("Añadir reserva");
+            $(".botonAdd").attr("onclick", "add('addReserva')");
         $("#reservas").show();
-        $("#publicOption").css("text-decoration", "underline");
-        
-        $("#data").hide();
-        $("#dataOption").css("text-decoration", "none");
-        $("#photos").hide();
-        $("#photosOption").css("text-decoration", "none");
-        $("#observations").hide();
-        $("#obsOption").css("text-decoration", "none");
+        $("#resOption").css("text-decoration", "underline");
+        $(".menuOption:not(#resOption)").css("text-decoration", "none");
+    }
+    if (idTab == "userCRUD"){
+        $(".content>div:not(#userCRUD)").hide();
+        $(".divBotonAdd").show();
+            $(".botonAdd>p").html("Añadir usuario");
+            $(".botonAdd").attr("onclick", "addCRUD('usuario')");
+        $("#userCRUD").show();
+        $("#cr_UsersOption").css("text-decoration", "underline");
+        $(".menuOption:not(#cr_UsersOption)").css("text-decoration", "none");
+    }
+    if (idTab == "obsCRUD"){
+        $(".content>div:not(#obsCRUD)").hide();
+        $(".divBotonAdd").show();
+            $(".botonAdd>p").html("Añadir observación");
+            $(".botonAdd").attr("onclick", "addCRUD('observacion')");
+        $("#obsCRUD").show();
+        $("#cr_ObsOption").css("text-decoration", "underline");
+        $(".menuOption:not(#cr_ObsOption)").css("text-decoration", "none");
+    }
+    if (idTab == "resCRUD"){
+        $(".content>div:not(#resCRUD)").hide();
+        $(".divBotonAdd").show();
+            $(".botonAdd>p").html("Añadir reserva");
+            $(".botonAdd").attr("onclick", "addCRUD('reserva')");
+        $("#resCRUD").show();
+        $("#cr_ResOption").css("text-decoration", "underline");
+        $(".menuOption:not(#cr_ResOption)").css("text-decoration", "none");
     }
 }
 
@@ -285,8 +281,11 @@ function seeFullDetails(idCard){
 }
 
 async function loadUserData() {
+
+    //cogemos los datos del usuario que ha iniciado sesión:
     await $.ajax({url: '../Controllers/getDataUsuario.php', success: function(data){
         userDetails = JSON.parse(data);
+        //guardamos en variable global
         userInfo = userDetails;
     }})
 }
@@ -305,7 +304,9 @@ function add(tabSelected){
         $(".botonAdd").removeClass("button-default-color");
         $(".botonAdd").addClass("button-cancel-color");
     }
-    else if(tabSelected == "addFoto"){
+    if(tabSelected == "addReserva"){
+        console.log("aun por hacer");
+        //pantalla reserva
     }
 }
 
@@ -445,10 +446,12 @@ function crearObs() {
 }
 
 function isEmpty(value) {
+    //compureba si está vacío
     return (value == null || (typeof value === "string" && value.trim().length === 0));
 }
 
 function editUser(){
+    //esta funcion se limita a cambiar los aspectos y funciones de los botones, inputs y divs
 
     $("#usernameField").hide();
     $("#usernameInput").show();
@@ -496,6 +499,8 @@ function pushEdit(){
 async function updateData() {
 
     await loadUserData();
+
+    //asignamos valores a los campos del html de Datos
     $("#usernameField").html(userInfo[0].username);
     $("#usernameInput").val(userInfo[0].username);
     $("#passwordInput").val(userInfo[0].pass);
@@ -543,14 +548,3 @@ function deleteUser(){
         }
     })
 }
-
-
-function loadCRUD_Users(){
-    $.ajax({url: '../Controllers/getAllUsers.php', success: function(data){ 
-
-        data.forEach(user => {
-            console.log("TBD");
-        });
-    }})
-}
-

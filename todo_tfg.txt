@@ -1,16 +1,10 @@
 ----------------------------
 MODIFICACIONES PENDIENTES:
 
--CRUD usuario (edit, borrar) [HECHO]
-
--añadir distincion entre usuario normal y administrador
-    0: user normal, 1 admin (2: usuario cientifico, puede hacer observaciones ??)
-
-    el usuario normal puede editar credenciales(nombre y contraseña)
-    el admin tiene una vista de todos los usuarios, tiene todas las opciones (CRUD)
-        ·tus datos -> vista de todos los usuarios
-        ·observaciones -> todas las observaciones de todos los usuarios
-        ·reservas -> todas las reservas de todos los usuarios
+el admin tiene una vista de todos los usuarios, tiene todas las opciones (CRUD)
+    ·tus datos -> vista de todos los usuarios [FALTA AÑADIR]
+    ·observaciones -> todas las observaciones de todos los usuarios [FALTA AÑADIR]
+    ·reservas -> todas las reservas de todos los usuarios [FALTA AÑADIR]
 
 -remake de reservas
     ·cambiar la bd

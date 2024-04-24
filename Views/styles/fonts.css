@@ -16,6 +16,14 @@
     font-weight: 400;
     line-height: normal;
 }
+.buttonText-small{
+    text-align: center;
+    font-family: Arial;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 .title{
     color: #181614;
     font-family: Arial;
