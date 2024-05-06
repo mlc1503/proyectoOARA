@@ -1,21 +1,9 @@
 ----------------------------
 MODIFICACIONES PENDIENTES:
-
-el admin tiene una vista de todos los usuarios, tiene todas las opciones (CRUD)
-    ·tus datos -> vista de todos los usuarios [FALTA AÑADIR]
-    ·observaciones -> todas las observaciones de todos los usuarios [FALTA AÑADIR]
-    ·reservas -> todas las reservas de todos los usuarios [FALTA AÑADIR]
-
 -remake de reservas
-    ·cambiar la bd
-        ·establecer relacion entre usuarios y reservas
-        ·rerunear sql nuevo
+
     ·cambiar el frontend para lockear reservas a no usuarios
-        ·hacer un calendario
-        ·haz el calendario dinamico
-        ·hacer un sistema de visitas disponibles/noDisponibles
-    ·añadir en tutab el apartado reservas
-        ·hacer un sistema de gestion de las reservas parecido a las observaciones
+        añadir campo precio total en reservas
 
 
 -menu hamburguer navbar al verlo en movil

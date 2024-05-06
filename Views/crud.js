@@ -739,7 +739,7 @@ function saveObsEdit(obsID) {
 }
 
 function CRUD_deleteRes(res_id) {
-    if(confirm("Pulsa OK para borrar la observación.")){
+    if(confirm("Pulsa OK para borrar la reserva.")){
         $.post('../Controllers/deleteRes.php',
         {
             res_id: res_id,

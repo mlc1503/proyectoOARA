@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/meta.css">
+    <link rel="stylesheet" href="./styles/calendar.css">
     <link rel="icon" type="image/x-icon" href="../Resources/favicon.png">
     
     <link rel="stylesheet" href="./styles/tuTabStyles.css">
     <link rel="stylesheet" href="./styles/crudStyles.css">
     <link rel="stylesheet" href="./styles/modal.css">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    
     <script src="../jquery-3.7.0.min.js"></script>
     <script src="./tuTab.js"></script>
     <script src="./index.js"></script>
@@ -33,7 +35,7 @@
                     <a href="galeria.html" class="navbarLeftTabs">Galería</a>
                 </div>
                 <div class="navbarTab pageTab tuTab" id="placeholder">
-                    <a href="" class="navbarLeftTabs">Perfil</a>
+                    <a href="login.html" class="navbarLeftTabs">Perfil</a>
                 </div>
             </div>
             <div id="loginTabsDiv">
@@ -66,11 +68,8 @@
                     <p class="buttonText text-black">Añadir Observación</p>
                 </div>
             </div>
-            <div id="data"></div>
-            <div id="observations"></div>
-            <div id="reservas">test</div>
             <div id="add">
-                <div>
+                <div id="addObservacion">
                     <div class="field1">
                         <div class="inputNombreObsDiv">
                             <div class="labelAdorno">
@@ -164,7 +163,145 @@
                         </div>
                     </div>
                 </div>
+                <div id="addReserva">
+                    <div>
+                        <div class="cardReserva lightgrey" id="card1">
+                            <div class="titleReserva" style='background-image: url(../Resources/Paranal_VLT.webp);'>
+                                <div>
+                                    <p class="text-font-white buttonText contentSubTitleText">Visita Guiada</p>
+                                    <p class="text-font-white buttonText">Visita guiada por el observatorio y las instalaciones</p>
+                                </div>
+                            </div>
+                            <div class="reservaTexto">
+                                <p class="contentText">
+                                    Duración: 2h
+                                <br>
+                                <br>
+                                    Tarifa:<br>
+                                    <ul>
+                                        <li>General: 15€</li>
+                                        <li>Reducida: 10€</li>
+                                    </ul>
+                                <br>
+                                    Entrada libre.
+                                <br>
+                                <br>
+                                    Inicio de la actividad: 10:00h
+                                </p>
+                            </div>
+                            <div class="button-default-color" id="selectReservaBtn" onclick="selectReserva(1)"><p class="buttonText">Seleccionar</p></div>
+                        </div>
+                        <div class="cardReserva lightgrey" id="card2">
+                            <div class="titleReserva" style="background-image: url(../Resources/talleres.png);">
+                                <div>
+                                    <p class="text-font-white buttonText contentSubTitleText">Taller</p>
+                                    <p class="text-font-white buttonText">Taller de astronomía&ZeroWidthSpace;/astrofotografía</p>
+                                </div>
+                            </div>
+                            <div class="reservaTexto">
+                                <p class="contentText">
+                                    Duración: 3h
+                                <br>
+                                <br>
+                                    Tarifa:<br>
+                                    <ul>
+                                        <li>General: 40€</li>
+                                        <li>Reducida: 30€</li>
+                                    </ul>
+                                <br>
+                                    Reembolso por clima desfavorable
+                                <br>
+                                <br>
+                                    Inicio de la actividad: 17:00h
+                                </p>
+                            </div>
+                            <div class="button-default-color" id="selectReservaBtn" onclick="selectReserva(2)"><p class="buttonText">Seleccionar</p></div>
+                        </div>
+                        <div class="cardReserva lightgrey" id="card3">
+                            <div class="titleReserva" style="background-image: url(../Resources/m33_211hours_1x1.webp);">
+                                <div>
+                                    <p class="text-font-white buttonText contentSubTitleText">Observación</p>
+                                    <p class="text-font-white buttonText">Observación planetaria y de objetos/cuerpos espaciales</p>
+                                </div>
+                            </div>
+                            <div class="reservaTexto">
+                                <p class="contentText">
+                                    Duración: 3h
+                                <br>
+                                <br>
+                                    Tarifa:<br>
+                                    <ul>
+                                        <li>General: 40€</li>
+                                        <li>Reducida: 30€</li>
+                                    </ul>
+                                <br>
+                                    Reembolso por clima desfavorable
+                                <br>
+                                <br>
+                                    Inicio de la actividad: 17:00h
+                                </p>
+                            </div>
+                            <div class="button-default-color" id="selectReservaBtn" onclick="selectReserva(3)"><p class="buttonText">Seleccionar</p></div>
+                        </div>
+                    </div>
+                    <div class="sep"></div>
+                    <div class="selectDateAndPrice">
+                        <div class="wrapper">
+                            <header>
+                              <p class="current-date"></p>
+                              <div class="icons">
+                                <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                                <span id="next" class="material-symbols-rounded">chevron_right</span>
+                              </div>
+                            </header>
+                            <div class="calendar">
+                              <ul class="weeks">
+                                <li>Dom</li>
+                                <li>Lun</li>
+                                <li>Mar</li>
+                                <li>Mie</li>
+                                <li>Jue</li>
+                                <li>Vie</li>
+                                <li>Sab</li>
+                              </ul>
+                              <ul class="days"></ul>
+                            </div>
+                        </div>
+                        <div id="divDatosReserva">
+                            <div>
+                                <div>
+                                    <p class="title">La fecha seleccionada es:  <span id="dateSelectedShown"></span></p>
+                                    <p class="title">La actividad elegida es:  <span id="actSelectedShown"></span></p>
+                                </div>
+                                <div>
+                                    <div id="textDatos">    
+                                        <p>Precio por asistente:&nbsp; <span id="precioShown"></span></p>
+                                        <p>Entrada reducida:&nbsp; <input type="checkbox" id="entReducida" onchange="precReducido()"> </p>
+                                        <p>Número de asistentes:&nbsp; <input type="number" id="numPersonas" onchange="precTotal()" min="1" max="12" value="1"></p>
+                                        <p>Precio total:&nbsp; <span id="precTotal"></span></p>
+                                    </div>
+                                    <br>
+                                    <div id="textDatos">
+                                        <p id="inputDNI">DNI:&nbsp;<input type="text" oninput="isDniValid()"></p>
+                                        <p id="nombreCompleto">Nombre completo:&nbsp; <input type="text"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divBotonAdd btnReserva">
+                                <div class="botonReserva button-default-color" onclick="crearReserva()">
+                                    <p class="buttonText text-black">Reservar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div id="data"></div>
+            <div id="observations"></div>
+            <div id="reservas">
+                
+            </div>
+            
             <div class="crud" id="userCRUD"></div>
             <div class="crud" id="obsCRUD"></div>
             <div class="crud" id="resCRUD"></div>
