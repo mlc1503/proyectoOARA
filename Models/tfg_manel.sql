@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2024 at 03:12 PM
+-- Generation Time: May 07, 2024 at 01:23 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -132,15 +132,22 @@ CREATE TABLE `reservas` (
   `user_id` int(11) NOT NULL,
   `dateReservation` date NOT NULL,
   `fullName` varchar(70) NOT NULL,
-  `tipoReserva` int(11) NOT NULL
+  `tipoReserva` int(11) NOT NULL,
+  `entReducida` tinyint(1) NOT NULL,
+  `nAsistentes` int(11) NOT NULL,
+  `p_total` int(11) NOT NULL,
+  `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reservas`
 --
 
-INSERT INTO `reservas` (`reserva_id`, `user_id`, `dateReservation`, `fullName`, `tipoReserva`) VALUES
-(1, 1, '2024-04-23', 'a', 3);
+INSERT INTO `reservas` (`reserva_id`, `user_id`, `dateReservation`, `fullName`, `tipoReserva`, `entReducida`, `nAsistentes`, `p_total`, `created_at`) VALUES
+(10, 18, '2024-04-24', 'sda', 3, 0, 0, 0, '0000-00-00'),
+(27, 1, '2024-05-08', 'adefr', 1, 1, 1, 10, '2024-05-06'),
+(29, 1, '2024-05-07', 'ade', 1, 1, 5, 50, '2024-05-06'),
+(30, 1, '2024-05-09', 'adrgteh', 2, 1, 1, 30, '2024-05-06');
 
 -- --------------------------------------------------------
 
@@ -262,7 +269,7 @@ ALTER TABLE `observaciones`
 -- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `reserva_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `reserva_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `telescopios`
@@ -293,12 +300,6 @@ ALTER TABLE `observaciones`
   ADD CONSTRAINT `observaciones_ibfk_1` FOREIGN KEY (`telescopeUsed`) REFERENCES `telescopios` (`telescope_id`),
   ADD CONSTRAINT `observaciones_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `usuarios` (`user_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `observaciones_ibfk_3` FOREIGN KEY (`observed_object`) REFERENCES `objetos` (`objeto_id`);
-
---
--- Constraints for table `reservas`
---
-ALTER TABLE `reservas`
-  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
