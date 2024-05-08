@@ -137,7 +137,6 @@ $(async function(){
 
         //desactivamos fechas de meses anteriores
         if(currMonth < date.getMonth()){
-            console.log();
             for (let i = 0; i <= new Date(currYear, currMonth + 1, 0).getDate(); i++) {
                 $(`li#day${i}`).removeAttr("onclick", null);
                 $(`li#day${i}`).addClass("inactive");
@@ -662,8 +661,7 @@ function deleteUser(){
             {
                 user_id: userInfo[0].user_id,
             }
-            ).done(function(data){
-                console.log(data);
+            ).done(function(){
             })
             // location.href = 'index.html'; //cuando hacemos delog, nos envía al inicio
         }
@@ -898,8 +896,6 @@ function crearReserva() {
             nombreCompleto: $("#nombreCompleto>input").val(),
             p_total: precioTotal
         }
-        // console.log(data);
-        // return
 
         $.post('../Controllers/almacenarRes.php',
             {data: JSON.stringify(data)}

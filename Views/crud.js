@@ -30,7 +30,7 @@ function loadCRUD_Users(){
             }
 
             var userRowTemplate = 
-            `<div class="userRow" id="user${user.user_id}">
+            `<div class="row userRow" id="user${user.user_id}">
                 <div class="divTable">
                     <table>
                         <thead>
@@ -87,7 +87,7 @@ function loadCRUD_Observations(){
 
 
             let obsRowTemplate = 
-            `<div class="obsRow" id="obs${obs.observacion_id}">
+            `<div class="row obsRow" id="obs${obs.observacion_id}">
                 <div class="divTable">
                     <table>
                         <thead>
@@ -153,7 +153,7 @@ function loadCRUD_Reservas() {
                 }
                 
                 let resRowTemplate = 
-                `<div class="resRow" id="res${res.reserva_id}">
+                `<div class="row resRow" id="res${res.reserva_id}">
                     <div class="divTable">
                         <table>
                             <thead>
@@ -196,7 +196,7 @@ function loadCRUD_Reservas() {
 async function addCRUD(type){
     if(type == "usuario"){
         var userRowTemplate = 
-            `<div class="userRow" id="userN">
+            `<div class="row userRow" id="userN">
                 <div class="divTable">
                     <table>
                         <thead>
@@ -234,7 +234,6 @@ async function addCRUD(type){
     }
 
     if(type == "observacion"){
-        console.log(2);
 
         let listTelescopiosHTML = '';
             await $.ajax({url: '../Controllers/getAllTelescopios.php', success: function(telescopeJSON){
@@ -263,7 +262,7 @@ async function addCRUD(type){
         let date = new Date().toISOString().split('T')[0];
 
         var obsRowTemplate = 
-            `<div class="obsRow" id="obsN">
+            `<div class="row obsRow" id="obsN">
                 <div class="divTable">
                     <table>
                         <thead>
@@ -325,7 +324,7 @@ async function addCRUD(type){
             </select>`;
 
         let resRowTemplate = 
-            `<div class="resRow" id="resN">
+            `<div class="row resRow" id="resN">
                 <div class="divTable">
                     <table>
                         <thead>
@@ -499,8 +498,6 @@ async function CRUD_addEntry(type) {
         }
         else{
             alert("La entrada a añadir no debe estar vacía");
-            
-            console.log(nombreObservacion, integration_totalTime, filters);
             return;
         }
     }
@@ -520,7 +517,6 @@ async function CRUD_addEntry(type) {
                 tipoVisita: tipoReserva,
             }
             ).done(function(response){
-                console.log(response);
                 if (response != 0) {
                     let x = 
                     `<tr>
@@ -732,7 +728,7 @@ function saveObsEdit(obsID) {
         $(`#obs${obsID}>.divTable>table>tbody>tr>td#tableRow_integration`).html(editIntegration);
         $(`#obs${obsID}>.divTable>table>tbody>tr>td#tableRow_object`).html(newObject);
         
-        $(`#obs${obsID}>.CRUD_Actions>#CRUDeditObsButton>p`).html('Guardar');
+        $(`#obs${obsID}>.CRUD_Actions>#CRUDeditObsButton>p`).html('Editar');
         $(`#obs${obsID}>.CRUD_Actions>#CRUDeditObsButton`).attr("onclick", `CRUD_editObs(${obsID})`)
 
     })

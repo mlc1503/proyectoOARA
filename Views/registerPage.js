@@ -38,13 +38,11 @@ function sendRegister() {
             },
             success: function(response){
                 if(response.localeCompare("usernameAlreadyExists") == 0){
-                    console.log("user");
                     $(".errMessage > small").css("visibility", "visible");
                     $(".errMessage > small").text("El nombre de usuario ya existe.");
                     return;
                 }
                 if(response.localeCompare("emailAlreadyExists") == 0){
-                    console.log("email");
                     $(".errMessage > small").css("visibility", "visible");
                     $(".errMessage > small").text("Ya hay una cuenta existente con ese correo.");
                     return;
@@ -53,8 +51,6 @@ function sendRegister() {
                     history.back();
                     return;
                 }
-                
-                console.log(response);
             },
         })
     }

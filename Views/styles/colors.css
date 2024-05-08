@@ -29,6 +29,9 @@
     background-color: #FFE8A3;
 }
 
-.sep{
-   /* color: #181614; */
+div.sep{
+   border-color: #181614;
+}
+div.sep-white{
+   border-color: whitesmoke;
 }

@@ -36,7 +36,6 @@ function reservar() {
                     fechaReserva: fechaReserva
                 }
                 ).done(function(response){
-                    console.log(typeof response);
                     if(response == 0){
                         alert("Ha habido un error al crear la reserva.\nUno o más datos ya existen.")
                     }

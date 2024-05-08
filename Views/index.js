@@ -8,7 +8,7 @@ $(function(){ //cuando el html esté cargado:
         //si el usuario es anonimo entonces se queda como esta
         if(sLog != -1){
             $("#configButton>a").html(sLog);
-            $("#configButton>a").attr("href" , "");
+            $("#configButton>a").attr("href" , "./tuTab.html");
             $("#sessionButton>a").removeAttr("href");
             $("#sessionButton>a").html("Log Out");
 
