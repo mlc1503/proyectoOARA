@@ -6,8 +6,7 @@
 }
 
 
-.userRow, .obsRow, .resRow{
-    
+.row{ 
     width: 100%;
     height: auto;
     
@@ -23,7 +22,8 @@
     box-shadow: 0px 4px 4px 0px rgba(24, 22, 20, 0.10);
 }
     .divTable{
-        width: 80%;
+        min-width: min-content;
+        width: 100%;
         overflow-x: auto;
         display: flex;
         justify-content: center;
@@ -32,7 +32,12 @@
         table{
             border-collapse: collapse;
             width: 100%;
+            height: 100%;
         }
+            th{
+                width: max-content;
+                height: 40%;
+            }
             th,td{
                 width: auto;
                 text-align: center;
@@ -40,16 +45,23 @@
                 font-size: smaller;
             }
             td>*{
-                width: 100%;
+                min-width: calc(100% - 2em);
+                width: calc(100% - 2em);
             }
             th:not(:first-child), td:not(:first-child){
-            /* todas las columnas excepto la de id tienen un width de 30%*/
-                width: auto;
+            /* todas las columnas excepto la de id tienen un width de 20%*/
+                /* min-width: 5rem; */
+                width: 20%;
             }
             th:first-child, td:first-child{
-            /* la columna de id tienen un width de 10%*/
+            /* la columna de id tiene un width de 10%*/
                 width: 10%;
             }
+
+            #obsN>.divTable>table>thead>tr>th:not(:first-child), #obsN>.divTable>table>tbody>tr>td:not(:first-child){
+                width: 13%;
+            }
+
     .CRUD_Actions{
         width: 20%;
         display: flex;
@@ -57,7 +69,8 @@
         align-items: center;
     }
         .CRUD_Actions>div{
-            width: 3em;
+            min-width: 3em;
+            max-width: 4em;
             min-height: 2em;
             padding: 0.25rem;
 
@@ -69,6 +82,15 @@
             cursor: pointer;
 
             transition: 0.25s;
+        }
+        @media (max-width: 33rem) {
+            .CRUD_Actions{
+                display: flex;
+                flex-direction: column;
+                max-width: 70%;
+                gap: 8px;
+                justify-content: center;
+            }
         }
 
         .CRUD_Actions>div:hover{

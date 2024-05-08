@@ -17,7 +17,7 @@
         $res1 = mysqli_query($conDB, $deleteRes);
 
         
-        echo($res1);
+        echo $res1;
 
     }
 ?>

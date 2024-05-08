@@ -633,8 +633,11 @@ async function CRUD_deleteUser(id){
         {
             user_id: id,
         }
-        ).done(function(){
-            $(`#user${id}`).remove();
+        ).done(function(data){
+            if(data)
+                $(`#user${id}`).remove();
+            else
+                alert("Ha habido un error al borrar la fila");
         })
     }
 }
@@ -645,8 +648,11 @@ function CRUD_deleteObs(obs_id) {
         {
             obs_id: obs_id,
         }
-        ).done(function(){
-            $(`#obs${obs_id}`).remove();
+        ).done(function(data){
+            if(data)
+                $(`#obs${obs_id}`).remove();
+            else
+                alert("Ha habido un error al borrar la fila");
         })
     }
 
@@ -740,8 +746,11 @@ function CRUD_deleteRes(res_id) {
         {
             res_id: res_id,
         }
-        ).done(function(){
-            $(`#res${res_id}`).remove();
+        ).done(function(data){
+            if(data)
+                $(`#res${res_id}`).remove();
+            else
+                alert("Ha habido un error al borrar la fila");
         })
     }
 

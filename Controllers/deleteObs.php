@@ -16,5 +16,7 @@
         $deleteObs = "DELETE FROM `observaciones` WHERE `observacion_id` = $obsID";
         $res1 = mysqli_query($conDB, $deleteObs);
 
+        echo $res1;
+
     }
 ?>

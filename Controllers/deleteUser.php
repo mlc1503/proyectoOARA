@@ -13,11 +13,8 @@
     else{
         $userID = $_POST["user_id"];
 
-        $deleteUser = "DELETE FROM `usuarios` WHERE `user_id` = $userID";
+        $deleteUser = "DELETE FROM `usuarios` WHERE `user_id` = '$userID'";
         $res1 = mysqli_query($conDB, $deleteUser);
-
-        
-        var_dump($res1);
-
+        echo $res1;
     }
 ?>

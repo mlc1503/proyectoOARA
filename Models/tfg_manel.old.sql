@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2024 at 01:28 PM
+-- Generation Time: May 07, 2024 at 01:23 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -41,8 +41,8 @@ CREATE TABLE `imagenes` (
 --
 
 INSERT INTO `imagenes` (`imagen_id`, `captured_at`, `project_id`, `file`) VALUES
-(2, '2023-12-27', 11, '../Resources/m42-(19.20).2.2023_ToLRM-2.png'),
-(3, '2023-12-27', 12, '../Resources/californiaDetail.jpg'),
+(2, '2023-12-27', 11, '../Resources/m42-(19.20).2.2023_ToLRM-2.webp'),
+(3, '2023-12-27', 12, '../Resources/californiaDetail.webp'),
 (4, '2023-12-27', 24, '../Resources/iss_luckyImaging.png'),
 (6, '2023-12-27', 20, '../Resources/luna_crater.jpg');
 
@@ -118,7 +118,8 @@ INSERT INTO `observaciones` (`observacion_id`, `nombreObservacion`, `created_by`
 (21, 'Pléyades a color', 6, '2023-12-05', '2023-12-26', 6, 4, 3, 'L,RGB', 85),
 (23, 'Galaxia del Triángulo', 6, '2023-12-05', '2023-12-21', 211, 17, 3, 'L,RGB,Ha', 18),
 (24, 'Estación Espacial Internacional', 1, '2023-12-05', '2023-12-27', 2, 14, 4, 'RGB', 67),
-(44, 'fdafd', 1, '2024-04-20', '2024-04-26', 1, 11, 4, 'L,RGB', 12);
+(44, 'fdafd', 1, '2024-04-20', '2024-04-26', 1, 11, 4, 'L,RGB', 12),
+(49, 'zxc', 18, '2024-04-23', '2024-05-09', 12, 1, 3, 'Sii', 32);
 
 -- --------------------------------------------------------
 
@@ -128,21 +129,25 @@ INSERT INTO `observaciones` (`observacion_id`, `nombreObservacion`, `created_by`
 
 CREATE TABLE `reservas` (
   `reserva_id` int(11) NOT NULL,
-  `email` varchar(70) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `dateReservation` date NOT NULL,
   `fullName` varchar(70) NOT NULL,
-  `dni` varchar(9) NOT NULL,
-  `tipoReserva` int(11) NOT NULL
+  `tipoReserva` int(11) NOT NULL,
+  `entReducida` tinyint(1) NOT NULL,
+  `nAsistentes` int(11) NOT NULL,
+  `p_total` int(11) NOT NULL,
+  `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reservas`
 --
 
-INSERT INTO `reservas` (`reserva_id`, `email`, `dateReservation`, `fullName`, `dni`, `tipoReserva`) VALUES
-(17, 'manel@gmail.com', '2023-12-28', 'manel lAGUNAS', '26941017J', 2),
-(18, 'd@d.com', '2023-12-19', 'javi', '35607602Z', 1),
-(20, 'n@n.com', '2023-12-29', 'Manel Lagunas', '12345678Z', 3);
+INSERT INTO `reservas` (`reserva_id`, `user_id`, `dateReservation`, `fullName`, `tipoReserva`, `entReducida`, `nAsistentes`, `p_total`, `created_at`) VALUES
+(10, 18, '2024-04-24', 'sda', 3, 0, 0, 0, '0000-00-00'),
+(27, 1, '2024-05-08', 'adefr', 1, 1, 1, 10, '2024-05-06'),
+(29, 1, '2024-05-07', 'ade', 1, 1, 5, 50, '2024-05-06'),
+(30, 1, '2024-05-09', 'adrgteh', 2, 1, 1, 30, '2024-05-06');
 
 -- --------------------------------------------------------
 
@@ -223,8 +228,7 @@ ALTER TABLE `observaciones`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`reserva_id`),
-  ADD UNIQUE KEY `dni` (`dni`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `dateReservation` (`dateReservation`);
 
 --
 -- Indexes for table `telescopios`
@@ -259,13 +263,13 @@ ALTER TABLE `objetos`
 -- AUTO_INCREMENT for table `observaciones`
 --
 ALTER TABLE `observaciones`
-  MODIFY `observacion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `observacion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `reserva_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `reserva_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `telescopios`

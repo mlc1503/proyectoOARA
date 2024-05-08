@@ -77,7 +77,7 @@
             return mysqli_query($connection, $sqlAddUser);
         }
         else{
-            $sqlAddUser = "INSERT INTO `usuarios`(`username`, `pass`, `email`) VALUES ('$user','$password','$email');";
+            $sqlAddUser = "INSERT INTO `usuarios`(`username`, `pass`, `email`, `role`) VALUES ('$user','$password','$email', 0);";
             $query = mysqli_query($connection, $sqlAddUser);
             
             if($query){

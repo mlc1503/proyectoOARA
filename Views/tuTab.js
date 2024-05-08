@@ -168,6 +168,10 @@ function tabShown(idTab){
         $(".content>div:not(#observations)").hide();
         $(".divBotonAdd").show();
             $(".botonAdd>p").html("Añadir observación");
+            $(".botonAdd>p").removeClass("text-font-white");
+            $(".botonAdd>p").addClass("text-black");
+            $(".botonAdd").removeClass("button-cancel-color");
+            $(".botonAdd").addClass("button-default-color");
             $(".botonAdd").attr("onclick", "add('addObservacion')");
         $("#observations").show();
         $("#obsOption").css("text-decoration", "underline");
@@ -179,6 +183,10 @@ function tabShown(idTab){
         $(".content>div:not(#reservas)").hide();
         $(".divBotonAdd").show();
             $(".botonAdd>p").html("Añadir reserva");
+            $(".botonAdd>p").removeClass("text-font-white");
+            $(".botonAdd>p").addClass("text-black");
+            $(".botonAdd").removeClass("button-cancel-color");
+            $(".botonAdd").addClass("button-default-color");
             $(".botonAdd").attr("onclick", "add('addReserva')");
         $("#reservas").show();
         $("#resOption").css("text-decoration", "underline");
@@ -190,6 +198,10 @@ function tabShown(idTab){
         $(".content>div:not(#userCRUD)").hide();
         $(".divBotonAdd").show();
             $(".botonAdd>p").html("Añadir usuario");
+            $(".botonAdd>p").removeClass("text-font-white");
+            $(".botonAdd>p").addClass("text-black");
+            $(".botonAdd").removeClass("button-cancel-color");
+            $(".botonAdd").addClass("button-default-color");
             $(".botonAdd").attr("onclick", "addCRUD('usuario')");
         $("#userCRUD").show();
         $("#cr_UsersOption").css("text-decoration", "underline");
@@ -199,6 +211,10 @@ function tabShown(idTab){
         $(".content>div:not(#obsCRUD)").hide();
         $(".divBotonAdd").show();
             $(".botonAdd>p").html("Añadir observación");
+            $(".botonAdd>p").removeClass("text-font-white");
+            $(".botonAdd>p").addClass("text-black");
+            $(".botonAdd").removeClass("button-cancel-color");
+            $(".botonAdd").addClass("button-default-color");
             $(".botonAdd").attr("onclick", "addCRUD('observacion')");
         $("#obsCRUD").show();
         $("#cr_ObsOption").css("text-decoration", "underline");
@@ -208,6 +224,10 @@ function tabShown(idTab){
         $(".content>div:not(#resCRUD)").hide();
         $(".divBotonAdd").show();
             $(".botonAdd>p").html("Añadir reserva");
+            $(".botonAdd>p").removeClass("text-font-white");
+            $(".botonAdd>p").addClass("text-black");
+            $(".botonAdd").removeClass("button-cancel-color");
+            $(".botonAdd").addClass("button-default-color");
             $(".botonAdd").attr("onclick", "addCRUD('reserva')");
         $("#resCRUD").show();
         $("#cr_ResOption").css("text-decoration", "underline");
@@ -461,7 +481,7 @@ function eliminarObs(idObs) {
         $.post('../Controllers/eliminarObs.php',
         {idObs: idObs}
         ).done(function(data){
-
+            console.log(data);
             if(data == 1){
                 cerrarModal();
                 loadObservations();
@@ -635,40 +655,43 @@ async function updateData() {
 }
 
 function deleteUser(){
-
-    var p =  prompt("Por precaución, introduce tu contraseña para borrar tu usuario.", "");
-
-    $.post('../Controllers/checkUser.php',
-    {
-        user_id: userInfo[0].user_id,
-        pass: p,
-    }
-    ).done(function(data){
-        
-        if(data == 1){
-            $.ajax({
-                //delog simple
-                url: "../Controllers/deLogin.php",
-                type: "GET",
-                success: function(){
-                    $("#configButton>a").html("Sign In");
-                    $("#configButton>a").attr("href" , "registerPage.html");
-                    $("#sessionButton>a").html("Log In");
-                    $("#sessionButton>a").attr("href" , "login.html");
+    if(confirm("Pulsa OK para borrar tu usuario", "")){
+        $.post('../Controllers/checkUser.php',
+        {
+            user_id: userInfo[0].user_id,
+        }
+        ).done(function(data){
+            if(data){
+                $.ajax({
+                    //delog simple
+                    url: "../Controllers/deLogin.php",
+                    type: "GET",
+                    success: function(){
+                        $("#configButton>a").html("Sign In");
+                        $("#configButton>a").attr("href" , "registerPage.html");
+                        $("#sessionButton>a").html("Log In");
+                        $("#sessionButton>a").attr("href" , "login.html");
+                    }
+                })
+                //borramos el usuario
+                $.post('../Controllers/deleteUser.php',
+                {
+                    user_id: userInfo[0].user_id,
                 }
-            })
-            $.post('../Controllers/deleteUser.php',
-            {
-                user_id: userInfo[0].user_id,
+                ).done(function(data){
+                    if(data){
+                        location.href = 'index.html'; //cuando hacemos delog, nos envía al inicio
+                    }
+                    else{
+                        alert("Ha habido un error al borrar el usuario.")
+                    }
+                })
             }
-            ).done(function(){
-            })
-            // location.href = 'index.html'; //cuando hacemos delog, nos envía al inicio
-        }
-        else{
-            alert("La contraseña es incorrecta.")
-        }
-    })
+            else{
+                alert("Ha habido un error al comprobar el usuario.")
+            }
+        })
+    }
 }
 
 function loadReservas() {

@@ -29,9 +29,9 @@
                 <div class="navbarTab pageTab" id="placeholder">
                     <a href="galeria.html" class="navbarLeftTabs">Galería</a>
                 </div>
-                <div class="navbarTab pageTab tuTab" id="placeholder">
+                <!-- <div class="navbarTab pageTab tuTab" id="placeholder">
                     <a href="login.html" class="navbarLeftTabs">Perfil</a>
-                </div>
+                </div> -->
             </div>
             <div id="loginTabsDiv">
                 <div class="navbarTab loginTab nabvarRightTabs" id="configButton"><a href="./registerPage.html">Sign In</a></div>
@@ -44,7 +44,7 @@
 el Hemisferio Sur">
             <div>
                 <p class="pageMainTitle text-font-white">Turismo</p>
-                <div class="sep text-font-white"></div>
+                <div class="sep sep-white"></div>
                 <p class="pageMainSubTitle text-font-white">Observatorio Astronómico del Rincón de Ademuz</p>
             </div>
         </div>
@@ -100,63 +100,7 @@ el Hemisferio Sur">
             <h1 class="contentTitleText">Reservas</h1>
             <p class="text-center">Reserva tu visita guiada al observatorio</p>
 
-            <div id="reservasDiv">
-                <div class="resInputDiv">
-                    <div>
-                        <p class="contentText text-black">DNI:</p>
-                    </div>
-                    <div>
-                        <input id="dniInput" class="contentText text-black" type="text" placeholder="99999999X" onclick="returnToNormal('dniInput')"/>
-                    </div>
-                </div>
-                <div class="resInputDiv">
-                    <div>
-                        <p class="contentText text-black">Nombre completo:</p>
-                    </div>
-                    <div>
-                        <input id="nombreInput" class="contentText text-black" type="text" onclick="returnToNormal('nombreInput')"/>
-                    </div>
-                </div>
-                <div class="resInputDiv">
-                    <div>
-                        <p class="contentText text-black">Email:</p>
-                    </div>
-                    <div>
-                        <input id="emailInput" class="contentText text-black" type="email" onclick="returnToNormal('emailInput')"/>
-                    </div>
-                </div>
-                <div class="resInputDiv">
-                    <div>
-                        <p class="contentText text-black">Tipo de visita:</p>
-                    </div>
-                    <div>
-                        <select id="tipoVisitaInput" class="contentText text-black">
-                            <option value="1">Visita Guiada</option>
-                            <option value="2">Noche de observación astronómica</option>
-                            <option value="3">Talleres de astronomía/astrofotografía</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="resInputDiv">
-                    <div>
-                        <p class="contentText text-black">Fecha:</p>
-                    </div>
-                    <div>
-                        <input id="fechaReserva" class="contentText text-black" type="date" onclick="returnToNormal('fechaReserva')"/>
-                    </div>
-                </div>
-                <div id="errorDiv">
-                    <small id="errorMessage"></small>
-                </div>
-                <div class="flex center">
-                    <div class="enviarReservaButton button-default-color flex center" onclick="reservar()">
-                        <p class="text-black buttonText">Reservar</p>
-                    </div>
-                </div>
-                <div class="flex center">
-                    <p class="subTitle text-black">En caso de algún problema con la reserva/visita, el propietario del observatorio se pondrá en contacto contigo.</p>
-                </div>
-            </div>
+            
         </div>
         <div class="sep"></div>
         <div id="textDiv">

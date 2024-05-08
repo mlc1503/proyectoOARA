@@ -1,11 +1,9 @@
-----------------------------
 MODIFICACIONES PENDIENTES:
--remake de reservas
+----------------------------
+-arreglar constraints on delete cascade [HECHO]
+-al insertar obs en CRUD, cambiar width de campos[HECHO]
+-centrar observaciones[HECHO]
 
-    ·cambiar el frontend para lockear reservas a no usuarios
-        añadir campo precio total en reservas
+-añadir redes sociales en footer
 
-
--menu hamburguer navbar al verlo en movil
-
--mejorar footer
+-cambiar el "localhost dice ..." cambiar el dominio donde se está hosteando

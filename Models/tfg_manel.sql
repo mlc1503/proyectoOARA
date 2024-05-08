@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2024 at 01:23 PM
+-- Generation Time: May 08, 2024 at 03:21 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -116,7 +116,7 @@ INSERT INTO `observaciones` (`observacion_id`, `nombreObservacion`, `created_by`
 (19, 'Lorem Ipsum', 1, '2023-12-05', '2023-12-13', 2, 16, 3, 'L,RGB', 52),
 (20, 'The Southern Lunar Limb', 6, '2023-12-05', '2023-12-26', 1, 9, 4, 'RGB', 86),
 (21, 'Pléyades a color', 6, '2023-12-05', '2023-12-26', 6, 4, 3, 'L,RGB', 85),
-(23, 'Galaxia del Triángulo', 6, '2023-12-05', '2023-12-21', 211, 17, 3, 'L,RGB,Ha', 18),
+(23, 'Galaxia del Triángulo', 6, '2023-12-05', '2023-12-21', 211, 18, 3, 'L,RGB,Ha', 18),
 (24, 'Estación Espacial Internacional', 1, '2023-12-05', '2023-12-27', 2, 14, 4, 'RGB', 67),
 (44, 'fdafd', 1, '2024-04-20', '2024-04-26', 1, 11, 4, 'L,RGB', 12),
 (49, 'zxc', 18, '2024-04-23', '2024-05-09', 12, 1, 3, 'Sii', 32);
@@ -146,7 +146,7 @@ CREATE TABLE `reservas` (
 INSERT INTO `reservas` (`reserva_id`, `user_id`, `dateReservation`, `fullName`, `tipoReserva`, `entReducida`, `nAsistentes`, `p_total`, `created_at`) VALUES
 (10, 18, '2024-04-24', 'sda', 3, 0, 0, 0, '0000-00-00'),
 (27, 1, '2024-05-08', 'adefr', 1, 1, 1, 10, '2024-05-06'),
-(29, 1, '2024-05-07', 'ade', 1, 1, 5, 50, '2024-05-06'),
+(29, 1, '2024-05-07', 'ade', 3, 1, 5, 50, '2024-05-06'),
 (30, 1, '2024-05-09', 'adrgteh', 2, 1, 1, 30, '2024-05-06');
 
 -- --------------------------------------------------------
@@ -195,7 +195,8 @@ INSERT INTO `usuarios` (`user_id`, `username`, `pass`, `email`, `role`) VALUES
 (1, 'manel', '1234', 'a@a.com', 0),
 (6, 'lorem1234', '1234', 'x1@a.com', 0),
 (18, 'admin', 'admin', 'b@b.com', 1),
-(27, 'asd', '123456', 'e@e.com', 1);
+(27, 'asd', '123456', 'e@e.com', 1),
+(28, 'test', 'test', 'test', 1);
 
 --
 -- Indexes for dumped tables
@@ -228,7 +229,8 @@ ALTER TABLE `observaciones`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`reserva_id`),
-  ADD UNIQUE KEY `dateReservation` (`dateReservation`);
+  ADD UNIQUE KEY `dateReservation` (`dateReservation`),
+  ADD KEY `reservas_ibfk_1` (`user_id`);
 
 --
 -- Indexes for table `telescopios`
@@ -251,7 +253,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `imagen_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `imagen_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `objetos`
@@ -263,13 +265,13 @@ ALTER TABLE `objetos`
 -- AUTO_INCREMENT for table `observaciones`
 --
 ALTER TABLE `observaciones`
-  MODIFY `observacion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `observacion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `reserva_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `reserva_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `telescopios`
@@ -281,7 +283,7 @@ ALTER TABLE `telescopios`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables
@@ -291,15 +293,21 @@ ALTER TABLE `usuarios`
 -- Constraints for table `imagenes`
 --
 ALTER TABLE `imagenes`
-  ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `observaciones` (`observacion_id`);
+  ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `observaciones` (`observacion_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `observaciones`
 --
 ALTER TABLE `observaciones`
   ADD CONSTRAINT `observaciones_ibfk_1` FOREIGN KEY (`telescopeUsed`) REFERENCES `telescopios` (`telescope_id`),
-  ADD CONSTRAINT `observaciones_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `usuarios` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `observaciones_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `usuarios` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `observaciones_ibfk_3` FOREIGN KEY (`observed_object`) REFERENCES `objetos` (`objeto_id`);
+
+--
+-- Constraints for table `reservas`
+--
+ALTER TABLE `reservas`
+  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

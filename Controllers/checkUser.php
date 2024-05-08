@@ -1,6 +1,5 @@
 <?php
     $userID = $_POST['user_id'];
-    $pass = $_POST['pass'];
 
     //datos para conectar con DB
     $servername = "localhost";
@@ -10,7 +9,7 @@
 
     $conDB = mysqli_connect($servername, $usernameDB, $passDB, $nombreDB);
     
-    $sqlUsuarioVerif = "SELECT pass FROM usuarios WHERE (user_id = '$userID') AND (pass = '$pass');";
+    $sqlUsuarioVerif = "SELECT pass FROM usuarios WHERE user_id = '$userID';";
     // echo $sqlUsuarioVerif;
 
         $resultadoUsuarioExiste = mysqli_query($conDB, $sqlUsuarioVerif);
