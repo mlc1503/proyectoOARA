@@ -29,9 +29,6 @@
                 <div class="navbarTab pageTab" id="placeholder">
                     <a href="galeria.html" class="navbarLeftTabs">Galería</a>
                 </div>
-                <!-- <div class="navbarTab pageTab tuTab" id="placeholder">
-                    <a href="login.html" class="navbarLeftTabs">Perfil</a>
-                </div> -->
             </div>
             <div id="loginTabsDiv">
                 <div class="navbarTab loginTab nabvarRightTabs" id="configButton"><a href="./registerPage.html">Sign In</a></div>
@@ -100,7 +97,81 @@ el Hemisferio Sur">
             <h1 class="contentTitleText">Reservas</h1>
             <p class="text-center">Reserva tu visita guiada al observatorio</p>
 
-            
+            <div class="wrapperCards">
+                <div class="cardReserva lightgrey" id="card1">
+                    <div class="titleReserva" style='background-image: url(../Resources/Paranal_VLT.webp);'>
+                        <div>
+                            <p class="text-font-white buttonText contentSubTitleText">Visita Guiada</p>
+                            <p class="text-font-white buttonText">Visita guiada por el observatorio y las instalaciones</p>
+                        </div>
+                    </div>
+                    <div class="reservaTexto">
+                        <p class="contentText">
+                            Duración: 2h
+                        <br>
+                        Tarifa:<br>
+                            <ul>
+                                <li>General: 15€</li>
+                                <li>Reducida: 10€</li>
+                            </ul>
+                            Inicio de la actividad: 10:00h
+                        <br>
+                        <br>
+                            Visita las instalaciones y conoce la historia, funcionamiento y misión del observatorio de la mano del fundador del mismo.
+                        </p>
+                    </div>
+                    <div class="button-default-color" id="selectReservaBtn" onclick="selectReserva()"><p class="buttonText">Seleccionar</p></div>
+                </div>
+                <div class="cardReserva lightgrey" id="card2">
+                    <div class="titleReserva" style="background-image: url(../Resources/talleres.png);">
+                        <div>
+                            <p class="text-font-white buttonText contentSubTitleText">Taller</p>
+                            <p class="text-font-white buttonText">Taller de astronomía&ZeroWidthSpace;/astrofotografía</p>
+                        </div>
+                    </div>
+                    <div class="reservaTexto">
+                        <p class="contentText">
+                            Duración: 3h
+                            <br>
+                                Tarifa:
+                                <ul>
+                                    <li>General: 40€</li>
+                                    <li>Reducida: 30€</li>
+                                </ul>
+                            Inicio de la actividad: 17:00h
+                            <br><br>
+                            Conoce de primera mano la formación de los cuerpos celestiales y la explicación de la gravedad de una forma entretenida e interactiva!
+                        </p>
+                    </div>
+                    <div class="button-default-color" id="selectReservaBtn" onclick="selectReserva()"><p class="buttonText">Seleccionar</p></div>
+                </div>
+                <div class="cardReserva lightgrey" id="card3">
+                    <div class="titleReserva" style="background-image: url(../Resources/m33_211hours_1x1.webp);">
+                        <div>
+                            <p class="text-font-white buttonText contentSubTitleText">Observación</p>
+                            <p class="text-font-white buttonText">Observación planetaria y de objetos/cuerpos espaciales</p>
+                        </div>
+                    </div>
+                    <div class="reservaTexto">
+                        <p class="contentText">
+                            Duración: 3h
+                            <br>
+                            Tarifa:<br>
+                            <ul>
+                                <li>General: 40€</li>
+                                <li>Reducida: 30€</li>
+                            </ul>
+                            Inicio de la actividad: 00:00h
+                            <br>
+                            <br>
+                            Maravíllate observando las joyas de nuestro sistema solar y clústeres estelares.
+                            <br>
+                            Reembolso por clima desfavorable.
+                        </p>
+                    </div>
+                    <div class="button-default-color" id="selectReservaBtn" onclick="selectReserva()"><p class="buttonText">Seleccionar</p></div>
+                </div>
+            </div>
         </div>
         <div class="sep"></div>
         <div id="textDiv">

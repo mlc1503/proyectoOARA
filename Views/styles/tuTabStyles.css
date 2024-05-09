@@ -442,6 +442,7 @@ body::-webkit-scrollbar{
                             border-radius: 0.5rem;
                         }
                         #selectReservaBtn:hover{
+                            cursor: pointer;
                             transition: ease-in 0.15s;
                             box-shadow: 0px 4px 4px 0px rgba(24, 22, 20, 0.20);
                         }

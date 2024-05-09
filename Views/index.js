@@ -1,6 +1,5 @@
+var sLog;
 $(function(){ //cuando el html esté cargado:
-
-    var sLog;
 
     //vemos si hay un usuario con la sesion iniciada
     $.ajax({url: '../Controllers/autoLogin.php', success: function(usuarioLog){
