@@ -130,9 +130,11 @@ $(async function(){
         });
         
         //desactivamos fechas anteriores a la fecha de hoy
-        for (let i = 1; i < date.getDate(); i++) {
-            $(`li#day${i}`).removeAttr("onclick", null);
-            $(`li#day${i}`).addClass("inactive");
+        if(currMonth <= new Date().getMonth()){
+            for (let i = 1; i < date.getDate(); i++) {
+                $(`li#day${i}`).removeAttr("onclick", null);
+                $(`li#day${i}`).addClass("inactive");
+            }
         }
 
         //desactivamos fechas de meses anteriores
@@ -476,6 +478,7 @@ function cerrarModal() {
 }
 
 function eliminarObs(idObs) {
+    debugger;
     //eliminar observacion a traves de modal
     if(confirm("Estás seguro de que quieres borrar la observación?")){  
         $.post('../Controllers/eliminarObs.php',

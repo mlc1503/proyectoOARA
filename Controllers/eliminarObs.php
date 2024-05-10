@@ -17,9 +17,8 @@
             $data = $_POST['idObs'];
 
             $deleteSQL = "DELETE FROM `observaciones` WHERE `observacion_id` = ". $data. ";";
-            // $resDeleteObs = mysqli_query($conDB, $deleteSQL);
-            // echo var_dump($resDeleteObs);
-            echo $deleteSQL;
+            $resDeleteObs = mysqli_query($conDB, $deleteSQL);
+            echo $resDeleteObs;
         }
     }
 ?>

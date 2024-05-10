@@ -44,6 +44,11 @@
                 font-weight: normal;
                 font-size: smaller;
             }
+                td#tableRow_role>div{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
             td>*{
                 min-width: calc(100% - 2em);
                 width: calc(100% - 2em);
