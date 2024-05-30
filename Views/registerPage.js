@@ -48,7 +48,7 @@ function sendRegister() {
                     return;
                 }
                 if(response == 1){
-                    history.back();
+                    location.href = 'index.html';
                     return;
                 }
             },
