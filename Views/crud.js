@@ -802,12 +802,12 @@ function CRUD_editRes(res_id) {
 }
 function saveResEdit(res_id) {
 
-    let newUsername = $(`#res${res_id}>.divTable>table>tbody>tr>td#tableRow_username>select :selected`).val();
+    let newUsername = $(`#res${res_id}>.divTable>table>tbody>tr>td#tableRow_username>select`).val();
     let editDate = new Date ($(`#res${res_id}>.divTable>table>tbody>tr>td#tableRow_date>input`).val()).toISOString().split('T')[0];
     let editFullName = $(`#res${res_id}>.divTable>table>tbody>tr>td#tableRow_fullName>input`).val();
     let editTipoReserva = $(`#res${res_id}>.divTable>table>tbody>tr>td#tableRow_tipoReserva>select`).val();
 
-    
+    debugger
     $.post('../Controllers/alterResData.php',
     {
         reserva_id: res_id,
@@ -828,6 +828,7 @@ function saveResEdit(res_id) {
         }
 
         else{
+            console.log(response);
             alert(`La fecha ${editDate} ya está ocupada.`)
         }
 
