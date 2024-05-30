@@ -542,6 +542,12 @@ function crearObs() {
     // vemos si la fecha es valida
     try{
         startDate = new Date($("#startDateInput").val());
+
+        if(startDate < new Date){
+            //si la fecha seleccionada es previa a la actual
+            throw RangeError;
+        }
+
         startDate = startDate.toISOString().split('T')[0]; //convertimos fecha en yyyy-mm-dd
     } catch (RangeError) {
         $("#errMessage>small").css("color", "red");
